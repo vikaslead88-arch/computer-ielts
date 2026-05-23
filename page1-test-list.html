@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>IELTS Writing Practice Tests — Computer IELTS</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#1a56db;--blue2:#1e429f;--bluef:#eff6ff;--blueb:#bfdbfe;
+  --green:#057a55;--greenf:#f0fdf4;--greenb:#bbf7d0;
+  --red:#e02424;--redf:#fff5f5;--redb:#fecaca;
+  --yellow:#9f580a;--yellowf:#fffbeb;--yellowb:#fde68a;
+  --purple:#6c2bd9;--purplef:#f5f3ff;--purpleb:#ddd6fe;
+  --bg:#f9fafb;--card:#ffffff;--border:#e5e7eb;--border2:#d1d5db;
+  --tx:#111827;--tx2:#374151;--tx3:#6b7280;--tx4:#9ca3af;
+  --sans:'Inter',system-ui,sans-serif;
+  --radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.06);
+  --shadow2:0 4px 16px rgba(0,0,0,.1);
+}
+body{font-family:var(--sans);background:var(--bg);color:var(--tx);min-height:100vh}
+
+/* PAGE HEADER */
+.page-header{background:#fff;border-bottom:1px solid var(--border);padding:32px 24px 0;max-width:1100px;margin:0 auto}
+.ph-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.ph-title{font-size:1.6rem;font-weight:800;color:var(--tx);line-height:1.2}
+.ph-title span{color:var(--blue)}
+.ph-sub{font-size:.9rem;color:var(--tx3);margin-top:4px;font-weight:400}
+.ph-stats{display:flex;gap:20px;flex-wrap:wrap}
+.ph-stat{text-align:center}
+.ph-stat-num{font-size:1.4rem;font-weight:800;color:var(--blue)}
+.ph-stat-lbl{font-size:.7rem;color:var(--tx4);text-transform:uppercase;letter-spacing:.07em;font-weight:600}
+
+/* TYPE TABS */
+.type-tabs{display:flex;gap:0;border-bottom:2px solid var(--border);overflow-x:auto}
+.type-tab{padding:12px 20px;font-size:.85rem;font-weight:600;color:var(--tx3);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all .15s;background:none;border-top:none;border-left:none;border-right:none;font-family:var(--sans)}
+.type-tab:hover{color:var(--blue)}
+.type-tab.on{color:var(--blue);border-bottom-color:var(--blue);font-weight:700}
+
+/* MAIN */
+.main{max-width:1100px;margin:0 auto;padding:24px}
+
+/* TOOLBAR */
+.toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.search-wrap{position:relative;flex:1;min-width:200px}
+.search-ico{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--tx4);font-size:.9rem}
+.search-inp{width:100%;padding:10px 14px 10px 36px;border:1.5px solid var(--border2);border-radius:9px;font-family:var(--sans);font-size:.88rem;color:var(--tx);background:#fff;outline:none;transition:border .2s}
+.search-inp:focus{border-color:var(--blue)}
+.filter-sel{padding:10px 14px;border:1.5px solid var(--border2);border-radius:9px;font-family:var(--sans);font-size:.85rem;color:var(--tx2);background:#fff;outline:none;cursor:pointer;transition:border .2s}
+.filter-sel:focus{border-color:var(--blue)}
+.results-count{font-size:.82rem;color:var(--tx4);font-weight:500;white-space:nowrap}
+
+/* GRID */
+.tests-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+
+/* CARD */
+.test-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);padding:20px;cursor:pointer;transition:all .2s;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+.test-card:hover{border-color:var(--blue);box-shadow:var(--shadow2);transform:translateY(-2px)}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.card-num{font-size:.7rem;font-weight:700;color:var(--tx4);letter-spacing:.08em;text-transform:uppercase}
+.card-type-badge{font-size:.62rem;font-weight:700;padding:3px 9px;border-radius:100px;white-space:nowrap}
+.badge-opinion{background:var(--bluef);color:var(--blue);border:1px solid var(--blueb)}
+.badge-discuss{background:var(--purplef);color:var(--purple);border:1px solid var(--purpleb)}
+.badge-advantage{background:var(--greenf);color:var(--green);border:1px solid var(--greenb)}
+.badge-problem{background:var(--redf);color:var(--red);border:1px solid var(--redb)}
+.badge-double{background:var(--yellowf);color:var(--yellow);border:1px solid var(--yellowb)}
+.card-title{font-size:.98rem;font-weight:700;color:var(--tx);line-height:1.35}
+.card-preview{font-size:.8rem;color:var(--tx3);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-topic{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:600;color:var(--tx4);background:var(--bg);border:1px solid var(--border);border-radius:100px;padding:3px 10px}
+.card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:2px}
+.card-meta{display:flex;align-items:center;gap:12px}
+.card-meta-item{font-size:.72rem;color:var(--tx4);display:flex;align-items:center;gap:4px}
+.card-btn{padding:8px 18px;background:var(--blue);color:#fff;border:none;border-radius:8px;font-size:.8rem;font-weight:700;cursor:pointer;font-family:var(--sans);transition:background .15s}
+.card-btn:hover{background:var(--blue2)}
+
+/* EMPTY */
+.empty-state{text-align:center;padding:60px 20px;color:var(--tx3)}
+.empty-ico{font-size:2.5rem;margin-bottom:12px}
+.empty-title{font-size:1rem;font-weight:700;color:var(--tx2);margin-bottom:6px}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .tests-grid{grid-template-columns:1fr}
+  .ph-title{font-size:1.3rem}
+  .toolbar{flex-direction:column;align-items:stretch}
+  .search-wrap{min-width:100%}
+}
+</style>
+</head>
+<body>
+
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="ph-top">
+    <div>
+      <div class="ph-title">✍️ IELTS <span>Writing Practice</span> Tests</div>
+      <div class="ph-sub">Academic Writing Task 2 — All essay types · AI-powered instant feedback</div>
+    </div>
+    <div class="ph-stats">
+      <div class="ph-stat"><div class="ph-stat-num">50</div><div class="ph-stat-lbl">Tests</div></div>
+      <div class="ph-stat"><div class="ph-stat-num">5</div><div class="ph-stat-lbl">Topics</div></div>
+      <div class="ph-stat"><div class="ph-stat-num">40m</div><div class="ph-stat-lbl">Per Test</div></div>
+    </div>
+  </div>
+  <div class="type-tabs">
+    <button class="type-tab on" onclick="filterType('all',this)">All Types</button>
+    <button class="type-tab" onclick="filterType('Opinion Essay',this)">📘 Opinion Essay</button>
+    <button class="type-tab" onclick="filterType('Discussion Essay',this)">💬 Discussion Essay</button>
+    <button class="type-tab" onclick="filterType('Advantages & Disadvantages',this)">⚖️ Adv / Disadv</button>
+    <button class="type-tab" onclick="filterType('Problem & Solution',this)">🔧 Problem & Solution</button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="toolbar">
+    <div class="search-wrap">
+      <span class="search-ico">🔍</span>
+      <input class="search-inp" id="searchInp" placeholder="Search by topic or keyword..." oninput="renderCards()"/>
+    </div>
+    <select class="filter-sel" id="topicSel" onchange="renderCards()">
+      <option value="">All Topics</option>
+      <option>Technology & Society</option>
+      <option>Environment & Energy</option>
+      <option>Education & Youth</option>
+      <option>Health & Lifestyle</option>
+      <option>Urbanization & Globalization</option>
+      <option>Economy & Work</option>
+      <option>Government & Crime</option>
+      <option>Culture, Media & Family</option>
+    </select>
+    <div class="results-count" id="resCount">Showing 50 tests</div>
+  </div>
+  <div class="tests-grid" id="testsGrid"></div>
+</div>
+
+<script>
+const PRACTICE_PAGE = 'https://computerielts.com/writing-practice/';
+
+const QUESTIONS = [
+  {id:1,topic:'Technology & Society',type:'Discussion Essay',title:'AI & Automation',question:'Some people believe that artificial intelligence will replace humans in most fields of work. Others think AI will create more high-skilled opportunities. Discuss both views and give your opinion.'},
+  {id:2,topic:'Technology & Society',type:'Opinion Essay',title:'Social Media & Relationships',question:'As people spend more time on social media, they are becoming more isolated from their real-life communities. To what extent do you agree or disagree?'},
+  {id:3,topic:'Technology & Society',type:'Advantages & Disadvantages',title:'Remote Work',question:'In many countries, working from home has become common for office employees. Do the advantages of this trend outweigh the disadvantages?'},
+  {id:4,topic:'Technology & Society',type:'Opinion Essay',title:'Online Learning',question:'Many universities now offer complete degrees online, reducing the need for physical classrooms. Is this a positive or negative development?'},
+  {id:5,topic:'Technology & Society',type:'Problem & Solution',title:'Mobile Devices & Children',question:'Young children are spending hours every day using smartphones and tablets. What are the problems associated with this, and what solutions can you suggest?'},
+  {id:6,topic:'Technology & Society',type:'Advantages & Disadvantages',title:'Cashless Society',question:'Many nations are moving toward a completely cashless economy where all transactions are digital. Do the advantages outweigh the disadvantages?'},
+  {id:7,topic:'Technology & Society',type:'Opinion Essay',title:'Technological Gap',question:'The rapid development of technology is widening the gap between the rich and the poor. To what extent do you agree?'},
+  {id:8,topic:'Technology & Society',type:'Advantages & Disadvantages',title:'News Consumption',question:'People now rely heavily on social media platforms for daily news rather than traditional newspapers or television broadcasts. Discuss the advantages and disadvantages.'},
+  {id:9,topic:'Environment & Energy',type:'Opinion Essay',title:'Individual vs. Government Responsibility',question:'Some people think individuals can do little to protect the environment, and only large corporations and governments can make a difference. To what extent do you agree or disagree?'},
+  {id:10,topic:'Environment & Energy',type:'Problem & Solution',title:'Global Warming & International Cooperation',question:'Climate change is a global problem, but many countries prioritize their own economic growth over environmental agreements. What are the causes of this, and what are the solutions?'},
+  {id:11,topic:'Environment & Energy',type:'Opinion Essay',title:'Fossil Fuels vs. Green Energy',question:'Governments should heavily tax fossil fuels to encourage companies and individuals to switch to renewable energy sources. Do you agree or disagree?'},
+  {id:12,topic:'Environment & Energy',type:'Opinion Essay',title:'Plastic Pollution',question:'Single-use plastics are causing severe damage to marine life and ecosystems. Should governments completely ban single-use plastics?'},
+  {id:13,topic:'Environment & Energy',type:'Problem & Solution',title:'Loss of Biodiversity',question:'Many animal and plant species are becoming extinct due to human activity. Why is this happening, and what measures can be taken to protect biodiversity?'},
+  {id:14,topic:'Environment & Energy',type:'Opinion Essay',title:'Urban Green Spaces',question:'Instead of building more residential blocks, city planners should allocate more space for public parks and trees. To what extent do you agree?'},
+  {id:15,topic:'Education & Youth',type:'Discussion Essay',title:'University vs. Vocational Training',question:'Some people believe that a university degree is the best route to a successful career, while others think technical or vocational training is more practical. Discuss both views.'},
+  {id:16,topic:'Education & Youth',type:'Opinion Essay',title:'Compulsory Community Service',question:'High school students should be required to complete a certain number of hours of unpaid community service to graduate. Do you agree or disagree?'},
+  {id:17,topic:'Education & Youth',type:'Discussion Essay',title:'Streaming / Ability Grouping',question:'Some educators believe students should be grouped into classes based on their academic abilities. Others feel that students of all abilities should study together. Discuss both views.'},
+  {id:18,topic:'Education & Youth',type:'Opinion Essay',title:'Art and Music Funding',question:'Secondary schools should focus entirely on STEM subjects rather than spending budget on art and music classes. To what extent do you agree?'},
+  {id:19,topic:'Education & Youth',type:'Problem & Solution',title:'Unemployment Among Graduates',question:'In many countries, young people complete their university degrees but struggle to find relevant employment. What are the reasons for this, and how can it be resolved?'},
+  {id:20,topic:'Education & Youth',type:'Discussion Essay',title:'Boarding School vs. Day School',question:'Sending children to boarding schools benefits their personal development. Others think it harms their emotional connection with family. Discuss both views.'},
+  {id:21,topic:'Education & Youth',type:'Opinion Essay',title:'Homework Burden',question:'Giving students large amounts of homework everyday causes unnecessary stress and does not improve academic performance. Do you agree or disagree?'},
+  {id:22,topic:'Health & Lifestyle',type:'Opinion Essay',title:'Sugar Tax',question:'Obesity rates are rising globally. Some people suggest that governments should introduce a high tax on fast food and sugary drinks to encourage healthier diets. Do you agree or disagree?'},
+  {id:23,topic:'Health & Lifestyle',type:'Opinion Essay',title:'Healthcare Funding',question:'Free healthcare should be a fundamental right for every citizen, and governments should fund it entirely through taxes. To what extent do you agree?'},
+  {id:24,topic:'Health & Lifestyle',type:'Problem & Solution',title:'Sedentary Lifestyles',question:'Modern office work and digital entertainment mean people live highly sedentary lives, causing major public health issues. What are the causes, and what can be done to encourage physical activity?'},
+  {id:25,topic:'Health & Lifestyle',type:'Advantages & Disadvantages',title:'Traditional vs. Modern Diet',question:'People are shifting from traditional home-cooked meals to processed fast foods. What are the impacts of this change on individuals and society?'},
+  {id:26,topic:'Health & Lifestyle',type:'Problem & Solution',title:'Mental Health Awareness',question:'Stress and anxiety levels among working professionals have increased significantly in recent years. What factors contribute to this trend, and how can companies support their employees?'},
+  {id:27,topic:'Urbanization & Globalization',type:'Problem & Solution',title:'Rural-to-Urban Migration',question:'More and more people are moving from rural villages to mega-cities in search of work. What problems does this cause for both rural areas and crowded cities?'},
+  {id:28,topic:'Urbanization & Globalization',type:'Opinion Essay',title:'Public Transport vs. Cars',question:'The best way to reduce traffic congestion in major cities is to make public transportation completely free of charge. To what extent do you agree or disagree?'},
+  {id:29,topic:'Urbanization & Globalization',type:'Opinion Essay',title:'Loss of Local Culture',question:'Globalization is causing many local languages and cultural traditions to disappear as western lifestyle spreads. Is this a positive or negative development?'},
+  {id:30,topic:'Urbanization & Globalization',type:'Problem & Solution',title:'Housing Shortages',question:'Affordable housing is becoming scarce in major cities. Should governments cap rent prices, or should they build new cities outside existing urban zones?'},
+  {id:31,topic:'Urbanization & Globalization',type:'Discussion Essay',title:'International Tourism',question:'Tourism brings economic benefits to a country, but it can also destroy local historic sites and disturb indigenous communities. Discuss both sides and give your opinion.'},
+  {id:32,topic:'Economy & Work',type:'Advantages & Disadvantages',title:'Universal Basic Income',question:'Some economic experts suggest that governments should provide every citizen with a regular, unconditional sum of money regardless of their employment status. Do the advantages outweigh the disadvantages?'},
+  {id:33,topic:'Economy & Work',type:'Problem & Solution',title:'Work-Life Balance',question:'Finding a healthy balance between work and personal life is becoming increasingly difficult. Why is this the case, and what can employers do to help?'},
+  {id:34,topic:'Economy & Work',type:'Opinion Essay',title:'Retirement Age',question:'As life expectancy increases, the official retirement age should be raised to 70. To what extent do you agree or disagree?'},
+  {id:35,topic:'Economy & Work',type:'Problem & Solution',title:'Materialism & Consumerism',question:'Modern society has become highly consumerist, where people define their worth based on the products they buy. What are the reasons behind this, and how does it affect society?'},
+  {id:36,topic:'Economy & Work',type:'Problem & Solution',title:'Equal Pay',question:'Despite legal frameworks, a gender pay gap still exists in several industries. Why does this inequality persist, and what measures can eliminate it?'},
+  {id:37,topic:'Government & Crime',type:'Discussion Essay',title:'Space Exploration vs. Poverty',question:'Governments spend billions of dollars on space exploration. Some believe this money should be spent on solving poverty and homelessness on Earth instead. Discuss both views.'},
+  {id:38,topic:'Government & Crime',type:'Discussion Essay',title:'CCTV and Privacy',question:'The widespread installation of security cameras in public spaces reduces crime but destroys personal privacy. Discuss both sides.'},
+  {id:39,topic:'Government & Crime',type:'Opinion Essay',title:'Rehabilitation vs. Punishment',question:'The primary goal of a prison system should be to reform and educate criminals so they can reintegrate into society, rather than simply punishing them. To what extent do you agree?'},
+  {id:40,topic:'Government & Crime',type:'Opinion Essay',title:'Art & Infrastructure Budget',question:'Governments should spend public funds on essential infrastructure like roads and hospitals rather than funding public art installations and museums. Do you agree or disagree?'},
+  {id:41,topic:'Government & Crime',type:'Opinion Essay',title:'Youth Crime',question:'Juvenile delinquency is on the rise. Some people believe parents should be legally held responsible for their children\'s crimes. Do you agree?'},
+  {id:42,topic:'Culture, Media & Family',type:'Advantages & Disadvantages',title:'Working Parents',question:'In many modern families, both parents work full-time. How does this affect the development of their children and the stability of the family structure?'},
+  {id:43,topic:'Culture, Media & Family',type:'Opinion Essay',title:'Preserving Historic Buildings',question:'Historic buildings are expensive to maintain. Some argue they should be demolished to make way for modern offices and roads. What is your opinion?'},
+  {id:44,topic:'Culture, Media & Family',type:'Advantages & Disadvantages',title:'Influence of Celebrities',question:'Famous actors, athletes, and internet influencers have a massive impact on the values and behaviors of young people. Is this influence more positive or negative?'},
+  {id:45,topic:'Culture, Media & Family',type:'Discussion Essay',title:'Elderly Care',question:'In the past, older family members were cared for at home by their children. Today, more people are moving their elderly parents to specialized care homes. Discuss both views.'},
+  {id:46,topic:'Culture, Media & Family',type:'Problem & Solution',title:'News Bias',question:'Mainstream media often focuses exclusively on negative stories and disasters rather than positive developments. What impact does this have on individuals and public perception?'},
+  {id:47,topic:'Culture, Media & Family',type:'Advantages & Disadvantages',title:'Fast Fashion',question:'Cheap clothing brands allow people to buy new clothes frequently, but fast fashion has high environmental costs. Discuss the advantages and disadvantages.'},
+  {id:48,topic:'Culture, Media & Family',type:'Opinion Essay',title:'Advertising Targeted at Children',question:'TV and internet advertisements often target young children who cannot distinguish commercial intent. Should advertising aimed at children be banned?'},
+  {id:49,topic:'Culture, Media & Family',type:'Opinion Essay',title:'Gender Roles in Family',question:'Men and women should share household chores and childcare duties exactly 50/50. To what extent do you agree or disagree?'},
+  {id:50,topic:'Culture, Media & Family',type:'Discussion Essay',title:'International Aid',question:'Wealthy countries have a moral obligation to help poor countries with financial aid during natural disasters. Or should they focus solely on their own citizens first? Discuss both views.'}
+];
+
+const BADGE_CLASS = {
+  'Opinion Essay':'badge-opinion',
+  'Discussion Essay':'badge-discuss',
+  'Advantages & Disadvantages':'badge-advantage',
+  'Problem & Solution':'badge-problem'
+};
+const TOPIC_ICON = {
+  'Technology & Society':'💻',
+  'Environment & Energy':'🌍',
+  'Education & Youth':'🎓',
+  'Health & Lifestyle':'🏥',
+  'Urbanization & Globalization':'🏙️',
+  'Economy & Work':'💼',
+  'Government & Crime':'🏛️',
+  'Culture, Media & Family':'🎨'
+};
+
+let activeType = 'all';
+
+function filterType(type, btn){
+  activeType = type;
+  document.querySelectorAll('.type-tab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  renderCards();
+}
+
+function renderCards(){
+  const search = (document.getElementById('searchInp').value||'').toLowerCase();
+  const topic = document.getElementById('topicSel').value;
+  let filtered = QUESTIONS.filter(q=>{
+    const matchType = activeType==='all' || q.type===activeType;
+    const matchTopic = !topic || q.topic===topic;
+    const matchSearch = !search || q.title.toLowerCase().includes(search) || q.topic.toLowerCase().includes(search) || q.question.toLowerCase().includes(search);
+    return matchType && matchTopic && matchSearch;
+  });
+  const grid = document.getElementById('testsGrid');
+  const count = document.getElementById('resCount');
+  count.textContent = 'Showing '+filtered.length+' test'+(filtered.length!==1?'s':'');
+  if(!filtered.length){
+    grid.innerHTML='<div class="empty-state" style="grid-column:1/-1"><div class="empty-ico">🔍</div><div class="empty-title">No tests found</div><div>Try a different search or filter</div></div>';
+    return;
+  }
+  grid.innerHTML = filtered.map(q=>`
+    <div class="test-card" onclick="openTest(${q.id})">
+      <div class="card-top">
+        <div class="card-num">Test #${q.id}</div>
+        <span class="card-type-badge ${BADGE_CLASS[q.type]||'badge-opinion'}">${q.type}</span>
+      </div>
+      <div class="card-title">${q.title}</div>
+      <div class="card-preview">${q.question}</div>
+      <div class="card-topic">${TOPIC_ICON[q.topic]||'📝'} ${q.topic}</div>
+      <div class="card-footer">
+        <div class="card-meta">
+          <span class="card-meta-item">⏱️ 40 min</span>
+          <span class="card-meta-item">📝 250+ words</span>
+        </div>
+        <button class="card-btn">Start →</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function openTest(id){
+  window.location.href = PRACTICE_PAGE + '?test=' + id;
+}
+
+renderCards();
+</script>
+</body>
+</html>

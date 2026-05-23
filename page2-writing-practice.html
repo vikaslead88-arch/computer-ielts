@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>IELTS Writing Practice — Computer IELTS</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#1a56db;--blue2:#1e429f;--bluef:#eff6ff;--blueb:#bfdbfe;
+  --green:#057a55;--greenf:#f0fdf4;--greenb:#bbf7d0;
+  --red:#e02424;--redf:#fff5f5;--redb:#fecaca;
+  --yellow:#9f580a;--yellowf:#fffbeb;--yellowb:#fde68a;
+  --purple:#6c2bd9;--purplef:#f5f3ff;--purpleb:#ddd6fe;
+  --orange:#c2410c;--orangef:#fff7ed;--orangeb:#fed7aa;
+  --bg:#f9fafb;--card:#ffffff;--border:#e5e7eb;--border2:#d1d5db;
+  --tx:#111827;--tx2:#374151;--tx3:#6b7280;--tx4:#9ca3af;
+  --sans:'Inter',system-ui,sans-serif;
+  --radius:12px;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.06);
+  --shadow2:0 4px 16px rgba(0,0,0,.1);
+}
+body{font-family:var(--sans);background:var(--bg);color:var(--tx);min-height:100vh;display:flex;flex-direction:column}
+
+/* TOP BAR */
+.topbar{background:#fff;border-bottom:1px solid var(--border);padding:0 20px;height:56px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.tb-back{display:flex;align-items:center;gap:6px;text-decoration:none;color:var(--tx3);font-size:.83rem;font-weight:600;padding:6px 10px;border-radius:8px;border:1.5px solid var(--border);transition:all .15s;white-space:nowrap}
+.tb-back:hover{border-color:var(--blue);color:var(--blue)}
+.tb-info{flex:1;min-width:0}
+.tb-test-label{font-size:.7rem;font-weight:600;color:var(--tx4);text-transform:uppercase;letter-spacing:.08em}
+.tb-test-title{font-size:.9rem;font-weight:700;color:var(--tx);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tb-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.timer-box{display:flex;align-items:center;gap:7px;background:var(--bluef);border:1.5px solid var(--blueb);border-radius:9px;padding:7px 14px}
+.timer-ico{font-size:.85rem}
+.timer-val{font-size:1rem;font-weight:800;color:var(--blue);font-variant-numeric:tabular-nums;min-width:48px;text-align:center}
+.timer-box.warn{background:var(--yellowf);border-color:var(--yellowb)}
+.timer-box.warn .timer-val{color:var(--yellow)}
+.timer-box.danger{background:var(--redf);border-color:var(--redb)}
+.timer-box.danger .timer-val{color:var(--red)}
+.tb-nav{display:flex;gap:4px}
+.tb-nav-btn{width:34px;height:34px;border:1.5px solid var(--border);border-radius:8px;background:#fff;color:var(--tx3);font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;font-family:var(--sans)}
+.tb-nav-btn:hover{border-color:var(--blue);color:var(--blue)}
+.tb-nav-btn:disabled{opacity:.35;cursor:not-allowed}
+
+/* SPLIT LAYOUT */
+.split{display:grid;grid-template-columns:1fr 1fr;flex:1;min-height:0;height:calc(100vh - 56px)}
+@media(max-width:768px){.split{grid-template-columns:1fr;height:auto}}
+
+/* LEFT — QUESTION PANEL */
+.q-panel{background:#fff;border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden}
+.q-panel-hdr{padding:16px 20px;border-bottom:1px solid var(--border);background:var(--bg);display:flex;align-items:center;gap:10px;flex-shrink:0}
+.q-panel-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx4)}
+.q-type-badge{font-size:.62rem;font-weight:700;padding:3px 9px;border-radius:100px;margin-left:auto}
+.badge-opinion{background:var(--bluef);color:var(--blue);border:1px solid var(--blueb)}
+.badge-discuss{background:var(--purplef);color:var(--purple);border:1px solid var(--purpleb)}
+.badge-advantage{background:var(--greenf);color:var(--green);border:1px solid var(--greenb)}
+.badge-problem{background:var(--redf);color:var(--red);border:1px solid var(--redb)}
+.q-body{flex:1;overflow-y:auto;padding:24px 22px}
+.q-topic-tag{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:600;color:var(--tx4);background:var(--bg);border:1px solid var(--border);border-radius:100px;padding:4px 12px;margin-bottom:16px}
+.q-number{font-size:.75rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.q-title{font-size:1.1rem;font-weight:800;color:var(--tx);margin-bottom:16px;line-height:1.3}
+.q-divider{height:2px;background:linear-gradient(90deg,var(--blue),transparent);border-radius:100px;margin-bottom:18px;width:48px}
+.q-text{font-size:.97rem;color:var(--tx2);line-height:1.85;font-weight:400}
+.q-tip{background:var(--bluef);border:1px solid var(--blueb);border-radius:10px;padding:13px 16px;margin-top:22px}
+.q-tip-label{font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:5px}
+.q-tip-text{font-size:.8rem;color:var(--tx3);line-height:1.55}
+
+/* RIGHT — WRITE PANEL */
+.w-panel{display:flex;flex-direction:column;background:var(--bg);overflow:hidden}
+.w-panel-hdr{padding:12px 20px;border-bottom:1px solid var(--border);background:#fff;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;gap:10px;flex-wrap:wrap}
+.w-panel-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx4)}
+.wc-wrap{display:flex;align-items:center;gap:8px}
+.wc-bar-bg{width:100px;height:6px;background:var(--border);border-radius:100px;overflow:hidden}
+.wc-bar-fill{height:100%;border-radius:100px;transition:width .3s,background .3s;width:0%}
+.wc-label{font-size:.78rem;font-weight:700;min-width:60px;text-align:right;font-variant-numeric:tabular-nums}
+.w-body{flex:1;padding:16px;display:flex;flex-direction:column;gap:12px;overflow-y:auto}
+.essay-textarea{flex:1;width:100%;min-height:320px;padding:16px;border:2px solid var(--border2);border-radius:var(--radius);font-family:var(--sans);font-size:.95rem;color:var(--tx);line-height:1.85;resize:none;outline:none;background:#fff;transition:border .2s;box-shadow:var(--shadow)}
+.essay-textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,86,219,.08)}
+.essay-textarea::placeholder{color:var(--tx4)}
+.w-actions{display:flex;gap:10px;flex-wrap:wrap}
+.submit-btn{flex:1;padding:14px 22px;background:var(--blue);color:#fff;border:none;border-radius:var(--radius);font-family:var(--sans);font-size:.95rem;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 2px 8px rgba(26,86,219,.25)}
+.submit-btn:hover{background:var(--blue2);transform:translateY(-1px);box-shadow:0 4px 16px rgba(26,86,219,.3)}
+.submit-btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+.clear-btn{padding:14px 18px;background:#fff;color:var(--tx3);border:1.5px solid var(--border2);border-radius:var(--radius);font-family:var(--sans);font-size:.88rem;font-weight:600;cursor:pointer;transition:all .15s}
+.clear-btn:hover{border-color:var(--red);color:var(--red)}
+
+/* ERROR */
+.w-err{display:none;background:var(--redf);border:1px solid var(--redb);border-radius:9px;padding:10px 14px;font-size:.82rem;color:var(--red)}
+.w-err.on{display:block}
+
+/* LOADING */
+.loading-overlay{display:none;padding:40px 20px;text-align:center;background:#fff;border-radius:var(--radius);border:1.5px solid var(--border);box-shadow:var(--shadow2)}
+.loading-overlay.on{display:block}
+.ld-spinner{width:56px;height:56px;border:3px solid var(--blueb);border-top-color:var(--blue);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ld-title{font-size:1rem;font-weight:700;color:var(--tx);margin-bottom:4px}
+.ld-sub{font-size:.82rem;color:var(--tx3);margin-bottom:14px}
+.ld-steps{display:flex;flex-direction:column;gap:6px;max-width:280px;margin:0 auto}
+.ld-step{display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:8px;font-size:.78rem;color:var(--tx4);border:1px solid var(--border);background:var(--bg);transition:all .3s}
+.ld-step.act{background:var(--bluef);border-color:var(--blueb);color:var(--blue);font-weight:600}
+.ld-step.done{background:var(--greenf);border-color:var(--greenb);color:var(--green);font-weight:600}
+.ld-status{font-size:.75rem;color:var(--blue);font-weight:600;margin-bottom:10px;min-height:16px}
+</style>
+</head>
+<body>
+
+
+<!-- RESULTS STYLES -->
+<style>
+/* RESULTS */
+.results-section{display:none;padding:0 16px 24px}
+.results-section.on{display:block}
+
+/* Band card */
+.band-card{background:#fff;border:1.5px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:14px;box-shadow:var(--shadow)}
+.band-top{background:linear-gradient(135deg,#1e3a5f 0%,#0f2d1a 100%);padding:22px 20px;display:flex;align-items:center;gap:16px}
+@media(max-width:520px){.band-top{flex-direction:column;text-align:center;gap:12px}}
+.band-circle{width:82px;height:82px;border-radius:50%;border:3px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
+.band-num{font-size:2.2rem;font-weight:800;color:#fff;line-height:1;font-variant-numeric:tabular-nums}
+.band-lbl{font-size:.48rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.band-right{flex:1}
+.band-verdict{font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:4px;line-height:1.3}
+.band-overview{font-size:.82rem;color:rgba(255,255,255,.7);line-height:1.65}
+.crit-row{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border)}
+@media(max-width:480px){.crit-row{grid-template-columns:repeat(2,1fr)}.crit-item:nth-child(2){border-right:none}.crit-item:nth-child(1),.crit-item:nth-child(2){border-bottom:1px solid var(--border)}}
+.crit-item{padding:14px 8px;text-align:center;border-right:1px solid var(--border)}
+.crit-item:last-child{border-right:none}
+.crit-val{font-size:1.4rem;font-weight:800;line-height:1;margin-bottom:4px;font-variant-numeric:tabular-nums}
+.crit-bar-bg{height:4px;background:var(--border);border-radius:100px;margin:0 8px 5px;overflow:hidden}
+.crit-bar-fill{height:100%;border-radius:100px;transition:width 1s cubic-bezier(.4,0,.2,1)}
+.crit-lbl{font-size:.56rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--tx4);line-height:1.3}
+
+/* Accordion */
+.acc{background:#fff;border:1.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:10px;transition:border-color .2s}
+.acc.open{border-color:var(--acc-col,var(--blue))}
+.acc-hdr{display:flex;align-items:center;gap:9px;padding:13px 16px;cursor:pointer;user-select:none}
+.acc-hdr:hover{background:var(--bg)}
+.acc-ico{font-size:.95rem;width:22px;text-align:center;flex-shrink:0}
+.acc-title{font-size:.85rem;font-weight:700;color:var(--tx);flex:1}
+.acc-badge{font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:100px}
+.acc-arrow{font-size:.75rem;color:var(--tx4);transition:transform .22s;flex-shrink:0}
+.acc-body{display:none;padding:14px 16px;border-top:1px solid var(--border)}
+.acc-body.open{display:block}
+
+/* Points */
+.pt-list{display:flex;flex-direction:column;gap:6px}
+.pt{display:flex;align-items:flex-start;gap:8px;padding:9px 12px;border-radius:9px;font-size:.82rem;line-height:1.6}
+.pt.str{background:var(--greenf);border:1px solid var(--greenb);color:#065f46}
+.pt.imp{background:var(--orangef);border:1px solid var(--orangeb);color:#7c2d12}
+
+/* Error blocks */
+.err-block{background:var(--redf);border:1px solid var(--redb);border-radius:10px;padding:12px 14px;margin-bottom:8px}
+.err-block:last-child{margin-bottom:0}
+.err-type-row{display:flex;align-items:center;gap:7px;margin-bottom:8px}
+.err-num{width:20px;height:20px;border-radius:50%;background:var(--red);color:#fff;font-size:.62rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.err-type-badge{font-size:.6rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:4px;background:var(--orangef);border:1px solid var(--orangeb);color:var(--orange)}
+.err-row{display:flex;align-items:stretch;border-radius:8px;overflow:hidden;font-size:.85rem;line-height:1.6}
+.err-wrong{flex:1;padding:8px 12px;background:rgba(224,36,36,.08);color:#991b1b;font-family:Georgia,serif}
+.err-sep{display:flex;align-items:center;padding:0 10px;background:var(--border);color:var(--tx3);font-weight:700;flex-shrink:0}
+.err-right{flex:1;padding:8px 12px;background:var(--greenf);color:#065f46;font-family:Georgia,serif}
+
+/* Spell blocks */
+.spell-row{display:flex;align-items:stretch;border-radius:8px;overflow:hidden;font-size:.84rem;margin-bottom:7px}
+.spell-row:last-child{margin-bottom:0}
+.spell-wrong{flex:1;padding:8px 12px;background:rgba(224,36,36,.07);color:#991b1b;font-family:monospace}
+.spell-sep{display:flex;align-items:center;padding:0 10px;background:var(--border);color:var(--tx3);font-weight:700;flex-shrink:0}
+.spell-right{flex:1;padding:8px 12px;background:var(--greenf);color:#065f46;font-family:monospace}
+.spell-ctx{font-size:.73rem;color:var(--tx4);padding:3px 2px 8px;font-style:italic}
+
+/* Vocab */
+.vocab-weak{display:flex;align-items:stretch;border-radius:9px;overflow:hidden;font-size:.83rem;margin-bottom:6px;border:1px solid var(--orangeb)}
+.vocab-weak:last-child{margin-bottom:0}
+.vw-left{flex:1;padding:8px 13px;background:var(--orangef);color:#7c2d12;font-family:Georgia,serif}
+.vw-sep{display:flex;align-items:center;padding:0 9px;background:var(--border);color:var(--tx3);font-weight:700;flex-shrink:0}
+.vw-right{flex:1;padding:8px 13px;background:var(--greenf);color:#065f46;font-family:Georgia,serif}
+.vw-reason{font-size:.68rem;color:var(--orange);font-weight:600;margin-left:6px}
+.better-pool-box{background:var(--greenf);border:1px solid var(--greenb);border-radius:10px;padding:12px 14px;margin-top:10px}
+.better-pool-title{font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.better-pills{display:flex;flex-wrap:wrap;gap:6px}
+.better-pill{font-size:.76rem;font-weight:600;padding:4px 11px;border-radius:100px;background:rgba(5,122,85,.1);border:1px solid var(--greenb);color:var(--green)}
+
+/* Crit summary */
+.crit-summary{font-size:.83rem;color:var(--tx2);line-height:1.65;padding:10px 13px;background:var(--bg);border-radius:8px;border-left:3px solid currentColor;margin-bottom:10px}
+.acc-sub{font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin:12px 0 7px;color:var(--tx4)}
+.acc-sub:first-child{margin-top:0}
+
+/* Model answer */
+.model-box{background:var(--yellowf);border-left:4px solid #d97706;border-radius:0 10px 10px 0;padding:13px 16px;font-family:Georgia,serif;font-size:.92rem;color:var(--tx2);line-height:1.85;font-style:italic;margin-top:8px}
+.model-label{font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#d97706;margin-bottom:7px}
+
+/* Motivational */
+.motiv-card{background:var(--greenf);border:1.5px solid var(--greenb);border-radius:12px;padding:15px 17px;margin-bottom:12px}
+.motiv-lbl{font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:6px}
+.motiv-txt{font-size:.88rem;color:#065f46;line-height:1.65;font-weight:500}
+
+/* Next steps */
+.ns-card{background:#fff;border:1.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:12px}
+.ns-hdr{background:linear-gradient(135deg,#1e3a5f,#0f2d1a);color:#fff;font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:11px 16px}
+.ns-item{display:flex;gap:11px;padding:12px 16px;border-top:1px solid var(--border)}
+.ns-item-ico{font-size:1.1rem;flex-shrink:0;margin-top:2px}
+.ns-item-lbl{font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--tx4);margin-bottom:3px}
+.ns-item-txt{font-size:.84rem;color:var(--tx);line-height:1.5;font-weight:500}
+
+/* Examiner note */
+.exam-note{background:var(--yellowf);border:1.5px solid var(--yellowb);border-radius:12px;padding:13px 16px;margin-bottom:12px}
+.exam-lbl{font-size:.64rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--yellow);margin-bottom:6px;display:flex;align-items:center;gap:5px}
+.exam-txt{font-size:.84rem;color:var(--tx2);line-height:1.65}
+
+/* Re-evaluate btn */
+.re-eval-btn{width:100%;padding:13px;background:#fff;color:var(--blue);border:2px solid var(--blue);border-radius:var(--radius);font-family:var(--sans);font-size:.9rem;font-weight:700;cursor:pointer;transition:all .15s;margin-top:4px}
+.re-eval-btn:hover{background:var(--bluef)}
+</style>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <a class="tb-back" href="https://computerielts.com/writing-practice/" id="backBtn">← Back</a>
+  <div class="tb-info">
+    <div class="tb-test-label">Writing Task 2 · Academic</div>
+    <div class="tb-test-title" id="tbTitle">Loading...</div>
+  </div>
+  <div class="tb-right">
+    <div class="timer-box" id="timerBox">
+      <span class="timer-ico">⏱️</span>
+      <span class="timer-val" id="timerVal">40:00</span>
+    </div>
+    <div class="tb-nav">
+      <button class="tb-nav-btn" id="prevBtn" title="Previous test" onclick="navTest(-1)">◀</button>
+      <button class="tb-nav-btn" id="nextBtn" title="Next test" onclick="navTest(1)">▶</button>
+    </div>
+  </div>
+</div>
+
+<!-- SPLIT -->
+<div class="split">
+  <!-- LEFT: QUESTION -->
+  <div class="q-panel">
+    <div class="q-panel-hdr">
+      <span class="q-panel-label">📋 Question</span>
+      <span class="q-type-badge badge-opinion" id="qTypeBadge">Opinion Essay</span>
+    </div>
+    <div class="q-body">
+      <div class="q-topic-tag" id="qTopicTag">💻 Technology & Society</div>
+      <div class="q-number" id="qNumber">Test #1</div>
+      <div class="q-title" id="qTitle">Loading question...</div>
+      <div class="q-divider"></div>
+      <div class="q-text" id="qText"></div>
+      <div class="q-tip">
+        <div class="q-tip-label">💡 Examiner Tip</div>
+        <div class="q-tip-text" id="qTip">Write at least 250 words. Plan your essay: Introduction → Body 1 → Body 2 → Conclusion. Use linking words and varied vocabulary.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: WRITE + RESULTS -->
+  <div class="w-panel" id="wPanel">
+    <!-- Write area -->
+    <div id="writeArea">
+      <div class="w-panel-hdr">
+        <span class="w-panel-label">✍️ Your Answer</span>
+        <div class="wc-wrap">
+          <div class="wc-bar-bg"><div class="wc-bar-fill" id="wcFill" style="background:var(--red)"></div></div>
+          <span class="wc-label" id="wcLabel" style="color:var(--red)">0 / 250</span>
+        </div>
+      </div>
+      <div class="w-body">
+        <textarea class="essay-textarea" id="essayTa" placeholder="Start writing your essay here...&#10;&#10;Tip: Begin with a clear introduction that paraphrases the question and states your position." oninput="updateWC()"></textarea>
+        <div class="w-err" id="wErr"></div>
+        <div class="w-actions">
+          <button class="submit-btn" id="submitBtn" onclick="doEvaluate()">✦ Submit & Get AI Band Score</button>
+          <button class="clear-btn" onclick="clearEssay()">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading -->
+    <div class="loading-overlay" id="ldOverlay" style="margin:16px">
+      <div class="ld-spinner"></div>
+      <div class="ld-title">Evaluating your essay...</div>
+      <div class="ld-sub">Applying strict IELTS examiner standards</div>
+      <div class="ld-status" id="ldStatus">Reading essay structure...</div>
+      <div class="ld-steps">
+        <div class="ld-step" id="ls1">🎯 Scoring Task Response...</div>
+        <div class="ld-step" id="ls2">🔗 Checking Coherence & Cohesion...</div>
+        <div class="ld-step" id="ls3">📚 Evaluating Vocabulary...</div>
+        <div class="ld-step" id="ls4">✍️ Identifying Grammar Errors...</div>
+        <div class="ld-step" id="ls5">🔤 Scanning Spelling Mistakes...</div>
+        <div class="ld-step" id="ls6">📊 Calculating Band Score...</div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="results-section" id="resultsSection">
+      <div style="padding:14px 0 10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+        <div style="font-size:.9rem;font-weight:800;color:var(--tx)">📊 Your Results</div>
+        <button class="re-eval-btn" style="width:auto;padding:7px 16px;font-size:.8rem" onclick="reEvaluate()">🔄 Re-evaluate</button>
+      </div>
+      <!-- Band card -->
+      <div class="band-card">
+        <div class="band-top">
+          <div class="band-circle" id="bandCircle">
+            <div class="band-num" id="bandNum">--</div>
+            <div class="band-lbl">Band Score</div>
+          </div>
+          <div class="band-right">
+            <div class="band-verdict" id="bandVerdict">--</div>
+            <div class="band-overview" id="bandOverview"></div>
+          </div>
+        </div>
+        <div class="crit-row" id="critRow"></div>
+      </div>
+      <!-- Accordions -->
+      <div id="accWrap"></div>
+      <!-- Motiv -->
+      <div class="motiv-card" id="motivCard" style="display:none">
+        <div class="motiv-lbl">🌟 Examiner's Message</div>
+        <div class="motiv-txt" id="motivTxt"></div>
+      </div>
+      <!-- Next steps -->
+      <div class="ns-card" id="nsCard" style="display:none">
+        <div class="ns-hdr">🎯 Your Personalised Study Plan</div>
+        <div id="nsItems"></div>
+      </div>
+      <!-- Examiner note -->
+      <div class="exam-note" id="examNote" style="display:none">
+        <div class="exam-lbl">📌 Chief Examiner's Observation</div>
+        <div class="exam-txt" id="examTxt"></div>
+      </div>
+      <button class="re-eval-btn" onclick="reEvaluate()">✦ Evaluate a New Essay</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+const _K = 'AIzaSyB9FPPi29aCS0lZwYnkD-m3IScrJDQhOfA';
+const MODELS = ['gemini-2.0-flash-lite','gemini-1.5-flash','gemini-1.5-flash-002','gemini-1.5-pro'];
+const LIST_PAGE = 'https://computerielts.com/writing-practice/';
+
+const QUESTIONS = [
+  {id:1,topic:'Technology & Society',type:'Discussion Essay',title:'AI & Automation',question:'Some people believe that artificial intelligence will replace humans in most fields of work. Others think AI will create more high-skilled opportunities. Discuss both views and give your opinion.',tip:'Address both views equally, then clearly state your own position in the conclusion.'},
+  {id:2,topic:'Technology & Society',type:'Opinion Essay',title:'Social Media & Relationships',question:'As people spend more time on social media, they are becoming more isolated from their real-life communities. To what extent do you agree or disagree?',tip:'State your position clearly in the introduction. Support with 2 specific reasons and real-world examples.'},
+  {id:3,topic:'Technology & Society',type:'Advantages & Disadvantages',title:'Remote Work',question:'In many countries, working from home has become common for office employees. Do the advantages of this trend outweigh the disadvantages?',tip:'Discuss both sides fairly before giving your overall judgement on which outweighs the other.'},
+  {id:4,topic:'Technology & Society',type:'Opinion Essay',title:'Online Learning',question:'Many universities now offer complete degrees online, reducing the need for physical classrooms. Is this a positive or negative development?',tip:'Choose one clear position (positive OR negative) and support it with strong evidence throughout.'},
+  {id:5,topic:'Technology & Society',type:'Problem & Solution',title:'Mobile Devices & Children',question:'Young children are spending hours every day using smartphones and tablets. What are the problems associated with this, and what solutions can you suggest?',tip:'Identify 2-3 specific problems, then propose realistic solutions for each. Link them clearly.'},
+  {id:6,topic:'Technology & Society',type:'Advantages & Disadvantages',title:'Cashless Society',question:'Many nations are moving toward a completely cashless economy where all transactions are digital. Do the advantages outweigh the disadvantages?',tip:'Be balanced. Discuss both advantages and disadvantages before reaching a clear conclusion.'},
+  {id:7,topic:'Technology & Society',type:'Opinion Essay',title:'Technological Gap',question:'The rapid development of technology is widening the gap between the rich and the poor. To what extent do you agree?',tip:'You can partially agree. Use specific examples like digital access inequality to support your view.'},
+  {id:8,topic:'Technology & Society',type:'Advantages & Disadvantages',title:'News Consumption',question:'People now rely heavily on social media platforms for daily news rather than traditional newspapers or television broadcasts. Discuss the advantages and disadvantages.',tip:'Give equal coverage to both advantages and disadvantages. Use phrases like "On the other hand..."'},
+  {id:9,topic:'Environment & Energy',type:'Opinion Essay',title:'Individual vs. Government Responsibility',question:'Some people think individuals can do little to protect the environment, and only large corporations and governments can make a difference. To what extent do you agree or disagree?',tip:'You may partially agree. Acknowledge the individual\'s role while arguing that governments have greater responsibility.'},
+  {id:10,topic:'Environment & Energy',type:'Problem & Solution',title:'Global Warming & International Cooperation',question:'Climate change is a global problem, but many countries prioritize their own economic growth over environmental agreements. What are the causes of this, and what are the solutions?',tip:'Identify causes (e.g. economic incentives, political pressure) and match each with a specific solution.'},
+  {id:11,topic:'Environment & Energy',type:'Opinion Essay',title:'Fossil Fuels vs. Green Energy',question:'Governments should heavily tax fossil fuels to encourage companies and individuals to switch to renewable energy sources. Do you agree or disagree?',tip:'State a clear agree/disagree position. Consider economic impact alongside environmental benefits.'},
+  {id:12,topic:'Environment & Energy',type:'Opinion Essay',title:'Plastic Pollution',question:'Single-use plastics are causing severe damage to marine life and ecosystems. Should governments completely ban single-use plastics?',tip:'Take a clear stance. If you agree with a ban, suggest practical alternatives to strengthen your argument.'},
+  {id:13,topic:'Environment & Energy',type:'Problem & Solution',title:'Loss of Biodiversity',question:'Many animal and plant species are becoming extinct due to human activity. Why is this happening, and what measures can be taken to protect biodiversity?',tip:'Focus on 2 main causes (deforestation, pollution) and propose concrete, realistic solutions.'},
+  {id:14,topic:'Environment & Energy',type:'Opinion Essay',title:'Urban Green Spaces',question:'Instead of building more residential blocks, city planners should allocate more space for public parks and trees. To what extent do you agree?',tip:'Consider the housing shortage issue as a counter-argument, then explain why green spaces are still vital.'},
+  {id:15,topic:'Education & Youth',type:'Discussion Essay',title:'University vs. Vocational Training',question:'Some people believe that a university degree is the best route to a successful career, while others think technical or vocational training is more practical. Discuss both views.',tip:'Present each view fairly in a separate paragraph. Your conclusion should reflect on which has greater merit.'},
+  {id:16,topic:'Education & Youth',type:'Opinion Essay',title:'Compulsory Community Service',question:'High school students should be required to complete a certain number of hours of unpaid community service to graduate. Do you agree or disagree?',tip:'Consider social and personal development benefits. Acknowledge potential drawbacks briefly.'},
+  {id:17,topic:'Education & Youth',type:'Discussion Essay',title:'Ability Grouping',question:'Some educators believe students should be grouped into classes based on their academic abilities. Others feel that students of all abilities should study together. Discuss both views.',tip:'Discuss both views objectively. Use examples from education research if possible.'},
+  {id:18,topic:'Education & Youth',type:'Opinion Essay',title:'Art and Music Funding',question:'Secondary schools should focus entirely on STEM subjects rather than spending budget on art and music classes. To what extent do you agree?',tip:'A partial disagreement works well here. Argue that arts develop creativity and emotional intelligence, which STEM needs.'},
+  {id:19,topic:'Education & Youth',type:'Problem & Solution',title:'Unemployment Among Graduates',question:'In many countries, young people complete their university degrees but struggle to find relevant employment. What are the reasons for this, and how can it be resolved?',tip:'Identify structural reasons (skills mismatch, oversupply of graduates) and propose institutional solutions.'},
+  {id:20,topic:'Education & Youth',type:'Discussion Essay',title:'Boarding School vs. Day School',question:'Sending children to boarding schools benefits their personal development. Others think it harms their emotional connection with family. Discuss both views.',tip:'Use a clear structure: view 1 paragraph, view 2 paragraph, then your balanced conclusion.'},
+  {id:21,topic:'Education & Youth',type:'Opinion Essay',title:'Homework Burden',question:'Giving students large amounts of homework everyday causes unnecessary stress and does not improve academic performance. Do you agree or disagree?',tip:'Use research-based evidence. Distinguish between appropriate homework and excessive amounts.'},
+  {id:22,topic:'Health & Lifestyle',type:'Opinion Essay',title:'Sugar Tax',question:'Obesity rates are rising globally. Some people suggest that governments should introduce a high tax on fast food and sugary drinks to encourage healthier diets. Do you agree or disagree?',tip:'Discuss effectiveness of the policy alongside potential economic disadvantages for lower-income families.'},
+  {id:23,topic:'Health & Lifestyle',type:'Opinion Essay',title:'Healthcare Funding',question:'Free healthcare should be a fundamental right for every citizen, and governments should fund it entirely through taxes. To what extent do you agree?',tip:'Address fiscal sustainability concerns while arguing for universal healthcare access as a human right.'},
+  {id:24,topic:'Health & Lifestyle',type:'Problem & Solution',title:'Sedentary Lifestyles',question:'Modern office work and digital entertainment mean people live highly sedentary lives, causing major public health issues. What are the causes, and what can be done to encourage physical activity?',tip:'Focus on modern lifestyle causes. Solutions should cover both individual behaviour and policy-level changes.'},
+  {id:25,topic:'Health & Lifestyle',type:'Advantages & Disadvantages',title:'Traditional vs. Modern Diet',question:'People are shifting from traditional home-cooked meals to processed fast foods. What are the impacts of this change on individuals and society?',tip:'Discuss health, cultural and economic impacts. Maintain a balanced analytical tone throughout.'},
+  {id:26,topic:'Health & Lifestyle',type:'Problem & Solution',title:'Mental Health Awareness',question:'Stress and anxiety levels among working professionals have increased significantly in recent years. What factors contribute to this trend, and how can companies support their employees?',tip:'Identify workplace factors (workload, lack of support) and propose HR and policy-level solutions.'},
+  {id:27,topic:'Urbanization & Globalization',type:'Problem & Solution',title:'Rural-to-Urban Migration',question:'More and more people are moving from rural villages to mega-cities in search of work. What problems does this cause for both rural areas and crowded cities?',tip:'Discuss problems for BOTH rural depopulation and urban overcrowding — this is specifically asked in the prompt.'},
+  {id:28,topic:'Urbanization & Globalization',type:'Opinion Essay',title:'Public Transport vs. Cars',question:'The best way to reduce traffic congestion in major cities is to make public transportation completely free of charge. To what extent do you agree or disagree?',tip:'You may partially agree. Acknowledge this as one solution while suggesting other complementary measures.'},
+  {id:29,topic:'Urbanization & Globalization',type:'Opinion Essay',title:'Loss of Local Culture',question:'Globalization is causing many local languages and cultural traditions to disappear as western lifestyle spreads. Is this a positive or negative development?',tip:'Take a clear position. Use specific examples of endangered languages or cultural practices for impact.'},
+  {id:30,topic:'Urbanization & Globalization',type:'Problem & Solution',title:'Housing Shortages',question:'Affordable housing is becoming scarce in major cities. Should governments cap rent prices, or should they build new cities outside existing urban zones?',tip:'Compare both solutions critically. You may argue one is more effective, or advocate a combined approach.'},
+  {id:31,topic:'Urbanization & Globalization',type:'Discussion Essay',title:'International Tourism',question:'Tourism brings economic benefits to a country, but it can also destroy local historic sites and disturb indigenous communities. Discuss both sides and give your opinion.',tip:'Give equal space to both economic benefits and cultural/environmental costs before stating your position.'},
+  {id:32,topic:'Economy & Work',type:'Advantages & Disadvantages',title:'Universal Basic Income',question:'Some economic experts suggest that governments should provide every citizen with a regular, unconditional sum of money regardless of their employment status. Do the advantages outweigh the disadvantages?',tip:'Discuss economic feasibility, impact on work motivation, and poverty reduction as key angles.'},
+  {id:33,topic:'Economy & Work',type:'Problem & Solution',title:'Work-Life Balance',question:'Finding a healthy balance between work and personal life is becoming increasingly difficult. Why is this the case, and what can employers do to help?',tip:'Focus on modern work culture factors. Solutions should be employer-specific as the question asks.'},
+  {id:34,topic:'Economy & Work',type:'Opinion Essay',title:'Retirement Age',question:'As life expectancy increases, the official retirement age should be raised to 70. To what extent do you agree or disagree?',tip:'Consider both economic necessity and the physical challenges of older workers. A partial agreement is valid.'},
+  {id:35,topic:'Economy & Work',type:'Problem & Solution',title:'Materialism & Consumerism',question:'Modern society has become highly consumerist, where people define their worth based on the products they buy. What are the reasons behind this, and how does it affect society?',tip:'Link causes (advertising, social media) to specific social effects like debt, environmental damage.'},
+  {id:36,topic:'Economy & Work',type:'Problem & Solution',title:'Equal Pay',question:'Despite legal frameworks, a gender pay gap still exists in several industries. Why does this inequality persist, and what measures can eliminate it?',tip:'Identify structural causes (promotion bias, caregiving burden) and propose both policy and cultural solutions.'},
+  {id:37,topic:'Government & Crime',type:'Discussion Essay',title:'Space Exploration vs. Poverty',question:'Governments spend billions of dollars on space exploration. Some believe this money should be spent on solving poverty and homelessness on Earth instead. Discuss both views.',tip:'Acknowledge long-term scientific value of space exploration while presenting the humanitarian argument fairly.'},
+  {id:38,topic:'Government & Crime',type:'Discussion Essay',title:'CCTV and Privacy',question:'The widespread installation of security cameras in public spaces reduces crime but destroys personal privacy. Discuss both sides.',tip:'Present security benefits and privacy concerns with equal depth. Avoid being one-sided.'},
+  {id:39,topic:'Government & Crime',type:'Opinion Essay',title:'Rehabilitation vs. Punishment',question:'The primary goal of a prison system should be to reform and educate criminals so they can reintegrate into society, rather than simply punishing them. To what extent do you agree?',tip:'Use recidivism rates and rehabilitation success stories to support the reform argument effectively.'},
+  {id:40,topic:'Government & Crime',type:'Opinion Essay',title:'Art & Infrastructure Budget',question:'Governments should spend public funds on essential infrastructure like roads and hospitals rather than funding public art installations and museums. Do you agree or disagree?',tip:'A partial disagreement works well: argue that both infrastructure and culture are essential for a thriving society.'},
+  {id:41,topic:'Government & Crime',type:'Opinion Essay',title:'Youth Crime',question:'Juvenile delinquency is on the rise. Some people believe parents should be legally held responsible for their children\'s crimes. Do you agree?',tip:'Consider the limits of parental control. Discuss whether legal responsibility is fair and effective.'},
+  {id:42,topic:'Culture, Media & Family',type:'Advantages & Disadvantages',title:'Working Parents',question:'In many modern families, both parents work full-time. How does this affect the development of their children and the stability of the family structure?',tip:'Discuss both positive effects (financial security, role models) and negative effects (less parental time) on children.'},
+  {id:43,topic:'Culture, Media & Family',type:'Opinion Essay',title:'Preserving Historic Buildings',question:'Historic buildings are expensive to maintain. Some argue they should be demolished to make way for modern offices and roads. What is your opinion?',tip:'Argue for preservation using cultural identity, tourism revenue and educational value as evidence.'},
+  {id:44,topic:'Culture, Media & Family',type:'Advantages & Disadvantages',title:'Influence of Celebrities',question:'Famous actors, athletes, and internet influencers have a massive impact on the values and behaviors of young people. Is this influence more positive or negative?',tip:'Give balanced examples. Consider both positive (charity, health promotion) and negative (materialism, unrealistic standards) influences.'},
+  {id:45,topic:'Culture, Media & Family',type:'Discussion Essay',title:'Elderly Care',question:'In the past, older family members were cared for at home by their children. Today, more people are moving their elderly parents to specialized care homes. Discuss both views.',tip:'Discuss family care vs professional care homes. Consider quality of care, emotional bond, and practicality.'},
+  {id:46,topic:'Culture, Media & Family',type:'Problem & Solution',title:'News Bias',question:'Mainstream media often focuses exclusively on negative stories and disasters rather than positive developments. What impact does this have on individuals and public perception?',tip:'Identify psychological impacts (anxiety, cynicism) and societal impacts (distrust in institutions). Suggest media reform solutions.'},
+  {id:47,topic:'Culture, Media & Family',type:'Advantages & Disadvantages',title:'Fast Fashion',question:'Cheap clothing brands allow people to buy new clothes frequently, but fast fashion has high environmental costs. Discuss the advantages and disadvantages.',tip:'Discuss affordability and accessibility as advantages; pollution and exploitation as disadvantages.'},
+  {id:48,topic:'Culture, Media & Family',type:'Opinion Essay',title:'Advertising Targeted at Children',question:'TV and internet advertisements often target young children who cannot distinguish commercial intent. Should advertising aimed at children be banned?',tip:'Use the vulnerability of children as your main argument. Acknowledge industry perspective briefly.'},
+  {id:49,topic:'Culture, Media & Family',type:'Opinion Essay',title:'Gender Roles in Family',question:'Men and women should share household chores and childcare duties exactly 50/50. To what extent do you agree or disagree?',tip:'Consider practical challenges (different working hours, personal preferences) while supporting gender equality in principle.'},
+  {id:50,topic:'Culture, Media & Family',type:'Discussion Essay',title:'International Aid',question:'Wealthy countries have a moral obligation to help poor countries with financial aid during natural disasters. Or should they focus solely on their own citizens first? Discuss both views.',tip:'Present both global solidarity and domestic responsibility arguments. Your conclusion should reflect a nuanced personal view.'}
+];
+
+const BADGE_CLASS = {
+  'Opinion Essay':'badge-opinion',
+  'Discussion Essay':'badge-discuss',
+  'Advantages & Disadvantages':'badge-advantage',
+  'Problem & Solution':'badge-problem'
+};
+const TOPIC_ICON = {
+  'Technology & Society':'💻','Environment & Energy':'🌍','Education & Youth':'🎓',
+  'Health & Lifestyle':'🏥','Urbanization & Globalization':'🏙️','Economy & Work':'💼',
+  'Government & Crime':'🏛️','Culture, Media & Family':'🎨'
+};
+const CRIT_COLS = {task_achievement:'#1a56db',coherence:'#057a55',lexical:'#6c2bd9',grammar:'#c2410c'};
+
+let currentId = 1, timerSec = 2400, timerIv = null, stepIv = null, modelIdx = 0, lastEssay = '';
+
+function g(id){return document.getElementById(id)}
+function esc(s){return(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>')}
+function wc(t){t=(t||'').trim();return t?t.split(/\s+/).length:0}
+
+/* LOAD QUESTION FROM URL */
+function loadQuestion(){
+  const params = new URLSearchParams(window.location.search);
+  const id = parseInt(params.get('test')) || 1;
+  const q = QUESTIONS.find(x=>x.id===id) || QUESTIONS[0];
+  currentId = q.id;
+  g('tbTitle').textContent = 'Test #'+q.id+' — '+q.title;
+  g('qNumber').textContent = 'Test #'+q.id+' of '+QUESTIONS.length;
+  g('qTitle').textContent = q.title;
+  g('qText').textContent = q.question;
+  g('qTip').textContent = q.tip || 'Write at least 250 words. Use clear paragraphs and linking words.';
+  g('qTopicTag').textContent = (TOPIC_ICON[q.topic]||'📝')+' '+q.topic;
+  const badge = g('qTypeBadge');
+  badge.textContent = q.type;
+  badge.className = 'q-type-badge '+(BADGE_CLASS[q.type]||'badge-opinion');
+  g('prevBtn').disabled = q.id <= 1;
+  g('nextBtn').disabled = q.id >= QUESTIONS.length;
+  document.title = 'Test #'+q.id+' — '+q.title+' | IELTS Writing Practice';
+}
+
+function navTest(dir){
+  const newId = currentId + dir;
+  if(newId < 1 || newId > QUESTIONS.length) return;
+  window.location.href = window.location.pathname + '?test=' + newId;
+}
+
+/* TIMER */
+function startTimer(){
+  clearInterval(timerIv);
+  timerSec = 2400;
+  renderTimer();
+  timerIv = setInterval(()=>{
+    timerSec--;
+    renderTimer();
+    if(timerSec <= 0){ clearInterval(timerIv); g('timerVal').textContent = '00:00'; }
+  }, 1000);
+}
+function renderTimer(){
+  const m = Math.floor(timerSec/60), s = timerSec%60;
+  g('timerVal').textContent = String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+  const box = g('timerBox');
+  box.className = 'timer-box' + (timerSec<=300?' danger':timerSec<=600?' warn':'');
+}
+
+/* WORD COUNT */
+function updateWC(){
+  const n = wc(g('essayTa').value);
+  const pct = Math.min(100, Math.round(n/250*100));
+  const col = n>=250?'var(--green)':n>=175?'#d97706':'var(--red)';
+  const fill = g('wcFill'); fill.style.width=pct+'%'; fill.style.background=col;
+  const lbl = g('wcLabel'); lbl.textContent=n+' / 250'; lbl.style.color=col;
+}
+function clearEssay(){
+  g('essayTa').value='';
+  updateWC();
+  g('wErr').className='w-err';
+  g('resultsSection').className='results-section';
+  g('writeArea').style.display='block';
+}
+function reEvaluate(){ clearEssay(); window.scrollTo({top:0,behavior:'smooth'}); }
+</script>
+
+
+<script>
+/* EVALUATE */
+function doEvaluate(){
+  const essay = (g('essayTa').value||'').trim();
+  const err = g('wErr');
+  if(!essay){ err.textContent='⚠️ Please write your essay first.'; err.className='w-err on'; return; }
+  if(wc(essay)<40){ err.textContent='⚠️ Essay too short — please write at least 40 words.'; err.className='w-err on'; return; }
+  err.className='w-err';
+  lastEssay = essay;
+  const q = QUESTIONS.find(x=>x.id===currentId)||QUESTIONS[0];
+  g('writeArea').style.display='none';
+  g('resultsSection').className='results-section';
+  g('ldOverlay').className='loading-overlay on';
+  g('submitBtn').disabled=true;
+  startSteps();
+  modelIdx=0;
+  tryModels(essay, q);
+}
+
+function startSteps(){
+  const ids=['ls1','ls2','ls3','ls4','ls5','ls6'];
+  ids.forEach(id=>{const e=g(id);if(e)e.className='ld-step'});
+  g(ids[0]).className='ld-step act';
+  let i=1;
+  stepIv=setInterval(()=>{
+    if(i-1<ids.length){ g(ids[i-1]).className='ld-step done'; }
+    if(i<ids.length){ g(ids[i]).className='ld-step act'; i++; }
+    else clearInterval(stepIv);
+  },2600);
+}
+function stopSteps(){
+  clearInterval(stepIv);
+  ['ls1','ls2','ls3','ls4','ls5','ls6'].forEach(id=>{const e=g(id);if(e)e.className='ld-step done'});
+  g('ldOverlay').className='loading-overlay';
+  g('submitBtn').disabled=false;
+}
+
+function tryModels(essay, q){
+  if(modelIdx>=MODELS.length){ modelIdx=0; setTimeout(()=>tryModels(essay,q),8000); return; }
+  const model=MODELS[modelIdx];
+  g('ldStatus').textContent='Analysing with '+model+'...';
+  callGemini(model, essay, q)
+    .then(d=>{ stopSteps(); showResults(d); })
+    .catch(()=>{ modelIdx++; setTimeout(()=>tryModels(essay,q),1800); });
+}
+
+function buildPrompt(essay, q){
+  return `You are a strict IELTS examiner with 10 years of official Cambridge Assessment marking experience.
+CRITICAL: Be REALISTIC and HARSH. Do NOT inflate scores. Most candidates score 5.5–6.5, not 7+.
+
+TASK: IELTS Writing Task 2 — ${q.type}
+QUESTION: ${q.question}
+ESSAY: ${essay}
+
+BAND GUIDE (be strict):
+Band 9: Near perfect. Only 1 in 500 candidates.
+Band 8: Very few errors. Very rare.
+Band 7: Good with occasional errors.
+Band 6.5: Noticeable errors in grammar OR vocabulary.
+Band 6: Frequent errors affecting communication.
+Band 5.5: Many errors. Limited range. MOST common.
+Band 5: Significant errors throughout.
+
+Return ONLY valid JSON. No markdown. Start with { end with }
+
+{"overall_band":6.0,"verdict":"Modest User — frequent grammar errors reduce the score.","overview":"Two honest sentences about essay quality.","word_count":255,"vocab_score":42,"criteria":{"task_achievement":{"score":6.0,"label":"Task Response","summary":"Assessment.","strengths":["s1","s2"],"improvements":["i1","i2"]},"coherence":{"score":5.5,"label":"Coherence and Cohesion","summary":"Assessment.","strengths":["s1"],"improvements":["i1","i2"]},"lexical":{"score":6.0,"label":"Lexical Resource","summary":"Assessment.","strengths":["s1"],"improvements":["i1"]},"grammar":{"score":5.5,"label":"Grammatical Range & Accuracy","summary":"Assessment.","strengths":["s1"],"improvements":["i1","i2"]}},"grammar_corrections":[{"wrong":"exact wrong phrase from essay","right":"corrected version","error_type":"Tense Error"},{"wrong":"exact wrong phrase","right":"corrected","error_type":"Article Missing"}],"spelling_errors":[{"wrong":"misspelled","right":"correct","context":"sentence it appeared in"}],"vocab_weak_pairs":[{"wrong":"exact weak word from essay","better":"academic alternative","reason":"why weak"},{"wrong":"another weak word","better":"better option","reason":"overused"}],"better_pool":["consequently","furthermore","substantial","predominantly","mitigate","exacerbate","lucrative","detrimental"],"key_strengths":["specific strength with evidence","strength 2","strength 3"],"priority_improvements":["specific action 1","specific action 2","specific action 3"],"motivational_feedback":"Two honest encouraging sentences.","next_steps":["specific weekly task","grammar drill","mock test plan"],"model_answer_opening":"3-4 Band 9 quality sentences for this exact task prompt.","examiner_note_strict":"One unique specific observation about this script."}`;
+}
+
+function callGemini(model, essay, q){
+  const body = JSON.stringify({
+    contents:[{parts:[{text:buildPrompt(essay,q)}]}],
+    generationConfig:{temperature:0.15,maxOutputTokens:5000},
+    safetySettings:[
+      {category:'HARM_CATEGORY_HARASSMENT',threshold:'BLOCK_NONE'},
+      {category:'HARM_CATEGORY_HATE_SPEECH',threshold:'BLOCK_NONE'},
+      {category:'HARM_CATEGORY_SEXUALLY_EXPLICIT',threshold:'BLOCK_NONE'},
+      {category:'HARM_CATEGORY_DANGEROUS_CONTENT',threshold:'BLOCK_NONE'}
+    ]
+  });
+  const url='https://generativelanguage.googleapis.com/v1beta/models/'+model+':generateContent?key='+_K;
+  return fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body})
+    .then(r=>{ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+    .then(data=>{
+      const raw=((data.candidates||[])[0]?.content?.parts||[]).map(p=>p.text||'').join('');
+      if(!raw) throw new Error('empty');
+      return parseJSON(raw);
+    });
+}
+
+function parseJSON(raw){
+  const txt=raw.replace(/```json\s*/gi,'').replace(/```\s*/g,'').trim();
+  try{ return JSON.parse(txt); }catch(e){}
+  let depth=0,start=-1,best='';
+  for(let i=0;i<txt.length;i++){
+    if(txt[i]==='{'){if(depth===0)start=i;depth++;}
+    else if(txt[i]==='}'){depth--;if(depth===0&&start!==-1){const c=txt.substring(start,i+1);if(c.length>best.length)best=c;start=-1;}}
+  }
+  if(best){try{return JSON.parse(best);}catch(e){try{return JSON.parse(best.replace(/,\s*}/g,'}').replace(/,\s*]/g,']'));}catch(e2){}}}
+  throw new Error('parse failed');
+}
+
+/* SHOW RESULTS */
+function showResults(d){
+  g('resultsSection').className='results-section on';
+  const band=parseFloat(d.overall_band)||0;
+  const crit=d.criteria||{};
+  const keys=['task_achievement','coherence','lexical','grammar'];
+  const bandCol=band>=7.5?'#057a55':band>=6.5?'#d97706':band>=5.5?'#c2410c':'#e02424';
+
+  /* Band */
+  const circle=g('bandCircle');
+  circle.style.borderColor=bandCol;
+  circle.style.boxShadow='0 0 24px '+bandCol+'33';
+  const bn=g('bandNum'); bn.textContent=band.toFixed(1); bn.style.color='#fff';
+  g('bandVerdict').textContent=d.verdict||bandLabel(band);
+  g('bandOverview').textContent=d.overview||'';
+
+  /* Criteria tiles */
+  const cr=g('critRow');
+  cr.innerHTML=keys.map(k=>{
+    const c=crit[k];if(!c)return'';
+    const sc=parseFloat(c.score)||0;
+    const col=CRIT_COLS[k];
+    const lbl=(c.label||k).replace('Task Response','Task Resp.').replace('Coherence and Cohesion','Coherence').replace('Lexical Resource','Lexical').replace('Grammatical Range & Accuracy','Grammar');
+    return `<div class="crit-item">
+      <div class="crit-val" style="color:${col}">${sc.toFixed(1)}</div>
+      <div class="crit-bar-bg"><div class="crit-bar-fill" data-w="${sc/9*100}%" style="width:0%;background:${col}"></div></div>
+      <div class="crit-lbl">${esc(lbl)}</div>
+    </div>`;
+  }).join('');
+  setTimeout(()=>{
+    cr.querySelectorAll('.crit-bar-fill').forEach(b=>{
+      b.style.transition='width 1s cubic-bezier(.4,0,.2,1)';
+      b.style.width=b.getAttribute('data-w');
+    });
+  },200);
+
+  /* Accordions */
+  const wrap=g('accWrap'); let html='';
+
+  if(d.key_strengths?.length){
+    html+=mkAcc('✅','Overall Strengths',null,'#057a55',
+      `<div class="pt-list">${d.key_strengths.map(s=>`<div class="pt str">✓ ${esc(s)}</div>`).join('')}</div>`,true);
+  }
+  if(d.priority_improvements?.length){
+    html+=mkAcc('🎯','Priority Improvements',null,'#c2410c',
+      `<div class="pt-list">${d.priority_improvements.map(s=>`<div class="pt imp">→ ${esc(s)}</div>`).join('')}</div>`,true);
+  }
+
+  const gc=d.grammar_corrections||[];
+  if(gc.length){
+    const badge=`<span class="acc-badge" style="background:var(--redf);color:var(--red);border:1px solid var(--redb)">${gc.length} errors</span>`;
+    const body=gc.map((item,i)=>`
+      <div class="err-block">
+        <div class="err-type-row"><span class="err-num">${i+1}</span><span class="err-type-badge">${esc(item.error_type||'Grammar Error')}</span></div>
+        <div class="err-row">
+          <div class="err-wrong">❌ ${esc(item.wrong||'')}</div>
+          <div class="err-sep">→</div>
+          <div class="err-right">✅ ${esc(item.right||item.corrected||'')}</div>
+        </div>
+      </div>`).join('');
+    html+=mkAcc('✍️','Grammar Corrections',badge,'#e02424',body,true);
+  }
+
+  const se=d.spelling_errors||[];
+  if(se.length){
+    const badge=`<span class="acc-badge" style="background:var(--orangef);color:var(--orange);border:1px solid var(--orangeb)">${se.length} found</span>`;
+    const body=se.map(item=>`
+      <div class="spell-row">
+        <div class="spell-wrong">✗ ${esc(item.wrong||'')}</div>
+        <div class="spell-sep">→</div>
+        <div class="spell-right">✓ ${esc(item.right||'')}</div>
+      </div>
+      ${item.context?`<div class="spell-ctx">In: "${esc(item.context)}"</div>`:''}`).join('');
+    html+=mkAcc('🔤','Spelling Errors',badge,'#c2410c',body,false);
+  }
+
+  const pairs=d.vocab_weak_pairs||[], pool=d.better_pool||[];
+  if(pairs.length||pool.length){
+    const badge=pairs.length?`<span class="acc-badge" style="background:var(--orangef);color:var(--orange);border:1px solid var(--orangeb)">${pairs.length} issues</span>`:'';
+    let body='';
+    if(pairs.length){
+      body+=`<div class="acc-sub">Weak Words → Smarter Alternatives</div>`;
+      body+=pairs.map(p=>`
+        <div class="vocab-weak">
+          <div class="vw-left">❌ ${esc(p.wrong||'')}${p.reason?`<span class="vw-reason">(${esc(p.reason)})</span>`:''}</div>
+          <div class="vw-sep">→</div>
+          <div class="vw-right">✔ ${esc(p.better||'')}</div>
+        </div>`).join('');
+    }
+    if(pool.length){
+      body+=`<div class="better-pool-box"><div class="better-pool-title">👉 Use These in Your Next Essay</div><div class="better-pills">${pool.map(w=>`<span class="better-pill">✔ ${esc(w)}</span>`).join('')}</div></div>`;
+    }
+    html+=mkAcc('📚','Vocabulary — Weak Words & Better Alternatives',badge,'#6c2bd9',body,false);
+  }
+
+  keys.forEach(k=>{
+    const c=crit[k];if(!c)return;
+    const sc=parseFloat(c.score)||0;const col=CRIT_COLS[k];
+    const badge=`<span class="acc-badge" style="font-weight:800;color:${col};background:rgba(0,0,0,.04);border:1.5px solid ${col}40">${sc.toFixed(1)}</span>`;
+    let body='';
+    if(c.summary) body+=`<div class="crit-summary" style="border-left-color:${col}">${esc(c.summary)}</div>`;
+    if(c.strengths?.length){ body+=`<div class="acc-sub">Strengths</div><div class="pt-list">${c.strengths.map(s=>`<div class="pt str">✓ ${esc(s)}</div>`).join('')}</div>`; }
+    if(c.improvements?.length){ body+=`<div class="acc-sub">Areas to Improve</div><div class="pt-list">${c.improvements.map(s=>`<div class="pt imp">→ ${esc(s)}</div>`).join('')}</div>`; }
+    html+=mkAcc(null,c.label||k,badge,col,body,false);
+  });
+
+  if(d.model_answer_opening){
+    html+=mkAcc('💎','Band 9 Model Opening',null,'#d97706',
+      `<div class="model-label">How a Band 9 response would open this task:</div><div class="model-box">${esc(d.model_answer_opening)}</div>`,false);
+  }
+  wrap.innerHTML=html;
+
+  /* Motivational */
+  if(d.motivational_feedback){ g('motivCard').style.display='block'; g('motivTxt').textContent=d.motivational_feedback; }
+
+  /* Next steps */
+  const steps=d.next_steps||[];
+  if(steps.length){
+    g('nsCard').style.display='block';
+    const icons=['📝','🎯','⏱️'], lbls=['Practice This Week','Grammar / Vocab Focus','Mock Test Plan'];
+    g('nsItems').innerHTML=steps.map((s,i)=>`<div class="ns-item"><div class="ns-item-ico">${icons[i]||'📌'}</div><div><div class="ns-item-lbl">${lbls[i]||'Step '+(i+1)}</div><div class="ns-item-txt">${esc(s)}</div></div></div>`).join('');
+  }
+
+  /* Examiner note */
+  if(d.examiner_note_strict||d.examiner_note){
+    g('examNote').style.display='block';
+    g('examTxt').textContent=d.examiner_note_strict||d.examiner_note;
+  }
+
+  setTimeout(()=>{ g('resultsSection').scrollIntoView({behavior:'smooth',block:'start'}); },120);
+}
+
+function mkAcc(ico,title,badgeHtml,col,body,open){
+  const id='ac'+Math.random().toString(36).slice(2,8);
+  return `<div class="acc${open?' open':''}" style="--acc-col:${col}">
+    <div class="acc-hdr" onclick="togAcc('${id}',this)">
+      ${ico?`<span class="acc-ico">${ico}</span>`:`<span style="width:10px;height:10px;border-radius:50%;background:${col};display:inline-block;flex-shrink:0"></span>`}
+      <span class="acc-title">${title}</span>
+      ${badgeHtml||''}
+      <span class="acc-arrow" id="ar${id}" style="transform:${open?'rotate(180deg)':'rotate(0)'}">▾</span>
+    </div>
+    <div class="acc-body${open?' open':''}" id="${id}">${body}</div>
+  </div>`;
+}
+function togAcc(id,hdr){
+  const body=g(id);if(!body)return;
+  const isOpen=body.classList.contains('open');
+  body.classList.toggle('open',!isOpen);
+  hdr.parentNode.classList.toggle('open',!isOpen);
+  const ar=g('ar'+id);if(ar)ar.style.transform=!isOpen?'rotate(180deg)':'rotate(0)';
+}
+function bandLabel(b){
+  if(b>=8.5)return'Expert User';if(b>=7.5)return'Very Good User';
+  if(b>=6.5)return'Competent User';if(b>=5.5)return'Modest User';
+  if(b>=4.5)return'Limited User';return'Extremely Limited User';
+}
+
+/* INIT */
+loadQuestion();
+startTimer();
+updateWC();
+</script>
+</body>
+</html>

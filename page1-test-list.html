@@ -137,7 +137,9 @@ body{font-family:var(--sans);background:var(--bg);color:var(--tx);min-height:100
 </div>
 
 <script>
-const PRACTICE_PAGE = 'https://computerielts.com/writing-practice/';
+// ✏️ UPDATE THIS to your WordPress writing practice page URL
+// Example: 'https://computerielts.com/writing-test/'
+const PRACTICE_PAGE = 'https://computerielts.com/writing-practice/?test=';
 
 const QUESTIONS = [
   {id:1,topic:'Technology & Society',type:'Discussion Essay',title:'AI & Automation',question:'Some people believe that artificial intelligence will replace humans in most fields of work. Others think AI will create more high-skilled opportunities. Discuss both views and give your opinion.'},
@@ -255,7 +257,7 @@ function renderCards(){
 }
 
 function openTest(id){
-  window.location.href = PRACTICE_PAGE + '?test=' + id;
+  window.location.href = PRACTICE_PAGE + id;
 }
 
 renderCards();

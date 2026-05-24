@@ -412,30 +412,48 @@ function g(id){return document.getElementById(id)}
 function esc(s){return(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>')}
 function wc(t){t=(t||'').trim();return t?t.split(/\s+/).length:0}
 
-/* LOAD QUESTION FROM URL */
+/* LOAD QUESTION FROM URL — supports ?test=N, #test=N, and WordPress permalink formats */
+function getTestId(){
+  /* 1. Standard query string: ?test=2 */
+  var qs = new URLSearchParams(window.location.search);
+  if(qs.get('test')) return parseInt(qs.get('test'))||1;
+  /* 2. Hash fallback: #test=2 */
+  if(window.location.hash){
+    var hm = window.location.hash.match(/[#&]test=(\d+)/);
+    if(hm) return parseInt(hm[1])||1;
+  }
+  /* 3. WordPress sometimes puts params after ? in different order — scan all params */
+  for(var [k,v] of qs.entries()){
+    if(k==='test'||k==='test_id'||k==='id') return parseInt(v)||1;
+  }
+  return 1;
+}
+
 function loadQuestion(){
-  const params = new URLSearchParams(window.location.search);
-  const id = parseInt(params.get('test')) || 1;
-  const q = QUESTIONS.find(x=>x.id===id) || QUESTIONS[0];
+  var id = getTestId();
+  var q = QUESTIONS.find(function(x){return x.id===id;}) || QUESTIONS[0];
   currentId = q.id;
-  g('tbTitle').textContent = 'Test #'+q.id+' — '+q.title;
-  g('qNumber').textContent = 'Test #'+q.id+' of '+QUESTIONS.length;
-  g('qTitle').textContent = q.title;
-  g('qText').textContent = q.question;
-  g('qTip').textContent = q.tip || 'Write at least 250 words. Use clear paragraphs and linking words.';
-  g('qTopicTag').textContent = (TOPIC_ICON[q.topic]||'📝')+' '+q.topic;
-  const badge = g('qTypeBadge');
-  badge.textContent = q.type;
-  badge.className = 'q-type-badge '+(BADGE_CLASS[q.type]||'badge-opinion');
-  g('prevBtn').disabled = q.id <= 1;
-  g('nextBtn').disabled = q.id >= QUESTIONS.length;
-  document.title = 'Test #'+q.id+' — '+q.title+' | IELTS Writing Practice';
+  /* Safely set each element — guard against null if DOM not ready */
+  var el;
+  if((el=g('tbTitle'))) el.textContent='Test #'+q.id+' — '+q.title;
+  if((el=g('qNumber'))) el.textContent='Test #'+q.id+' of '+QUESTIONS.length;
+  if((el=g('qTitle'))) el.textContent=q.title;
+  if((el=g('qText'))) el.textContent=q.question;
+  if((el=g('qTip'))) el.textContent=q.tip||'Write at least 250 words. Use clear paragraphs and linking words.';
+  if((el=g('qTopicTag'))) el.textContent=(TOPIC_ICON[q.topic]||'📝')+' '+q.topic;
+  var badge=g('qTypeBadge');
+  if(badge){ badge.textContent=q.type; badge.className='q-type-badge '+(BADGE_CLASS[q.type]||'badge-opinion'); }
+  if((el=g('prevBtn'))) el.disabled=(q.id<=1);
+  if((el=g('nextBtn'))) el.disabled=(q.id>=QUESTIONS.length);
+  document.title='Test #'+q.id+' — '+q.title+' | IELTS Writing Practice';
 }
 
 function navTest(dir){
-  const newId = currentId + dir;
-  if(newId < 1 || newId > QUESTIONS.length) return;
-  window.location.href = window.location.pathname + '?test=' + newId;
+  var newId=currentId+dir;
+  if(newId<1||newId>QUESTIONS.length) return;
+  /* Build URL preserving existing path, replacing test param */
+  var url=window.location.pathname+'?test='+newId;
+  window.location.href=url;
 }
 
 /* TIMER */
@@ -739,10 +757,18 @@ function bandLabel(b){
   if(b>=4.5)return'Limited User';return'Extremely Limited User';
 }
 
-/* INIT */
-loadQuestion();
-startTimer();
-updateWC();
+/* INIT — use DOMContentLoaded to guarantee DOM is ready before populating */
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',function(){
+    loadQuestion();
+    startTimer();
+    updateWC();
+  });
+} else {
+  loadQuestion();
+  startTimer();
+  updateWC();
+}
 </script>
 </body>
 </html>

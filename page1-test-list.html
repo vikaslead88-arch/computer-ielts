@@ -1,477 +1,508 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>IELTS Writing Task 2 Practice Tests — Computer IELTS</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --orange:#ea580c;--orange2:#c2410c;--orangef:#fff7ed;--orangeb:#fed7aa;
-  --purple:#7c3aed;--purple2:#6d28d9;--purplef:#f5f3ff;--purpleb:#ddd6fe;
-  --blue:#2563eb;--bluef:#eff6ff;--blueb:#bfdbfe;
-  --green:#059669;--greenf:#f0fdf4;--greenb:#bbf7d0;
-  --red:#dc2626;--redf:#fff5f5;--redb:#fecaca;
-  --bg:#f9fafb;--card:#ffffff;--border:#e5e7eb;--border2:#d1d5db;
-  --tx:#111827;--tx2:#374151;--tx3:#6b7280;--tx4:#9ca3af;
-  --sans:'Inter',system-ui,sans-serif;
-  --radius:12px;
-  --shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.06);
-  --shadow2:0 4px 16px rgba(0,0,0,.10);
-}
-body{font-family:var(--sans);background:var(--bg);color:var(--tx);min-height:100vh;display:flex;flex-direction:column}
-</style>
-
-<style>
-/* ── HEADER ── */
-.site-header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(229,231,235,.8);box-shadow:0 1px 12px rgba(0,0,0,.06)}
-.hdr-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;gap:8px}
-.hdr-logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0}
-.logo-mark{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--orange),var(--purple));display:flex;align-items:center;justify-content:center;font-size:.95rem;font-weight:900;color:#fff;letter-spacing:-.02em;box-shadow:0 2px 8px rgba(124,58,237,.28)}
-.logo-text{font-size:1rem;font-weight:800;color:var(--tx);line-height:1}
-.logo-text span{color:var(--orange)}
-.hdr-nav{display:flex;align-items:center;gap:2px;margin-left:20px;flex:1}
-.nav-item{position:relative}
-.nav-link{display:flex;align-items:center;gap:4px;padding:8px 12px;border-radius:8px;font-size:.85rem;font-weight:600;color:var(--tx3);text-decoration:none;cursor:pointer;border:none;background:none;font-family:var(--sans);transition:color .15s,background .15s;white-space:nowrap}
-.nav-link:hover,.nav-link.active{color:var(--orange);background:var(--orangef)}
-.nav-arrow{font-size:.6rem;opacity:.6;transition:transform .2s}
-.nav-item:hover .nav-arrow{transform:rotate(180deg)}
-.nav-dropdown{display:none;position:absolute;top:calc(100% + 6px);left:0;min-width:200px;background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow2);padding:6px;z-index:300}
-.nav-item:hover .nav-dropdown{display:block}
-.dd-link{display:block;padding:9px 13px;border-radius:8px;font-size:.83rem;font-weight:500;color:var(--tx2);text-decoration:none;transition:background .15s,color .15s}
-.dd-link:hover{background:var(--orangef);color:var(--orange)}
-.hdr-actions{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0}
-.btn-login{padding:8px 16px;border-radius:9px;border:1.5px solid var(--border2);background:#fff;font-size:.83rem;font-weight:600;color:var(--tx2);cursor:pointer;font-family:var(--sans);text-decoration:none;transition:border-color .15s,color .15s}
-.btn-login:hover{border-color:var(--orange);color:var(--orange)}
-.btn-start{padding:8px 18px;border-radius:9px;background:linear-gradient(135deg,var(--orange),var(--purple));border:none;font-size:.83rem;font-weight:700;color:#fff;cursor:pointer;font-family:var(--sans);text-decoration:none;box-shadow:0 2px 8px rgba(234,88,12,.25);transition:opacity .15s,transform .15s}
-.btn-start:hover{opacity:.9;transform:translateY(-1px)}
-.hdr-hamburger{display:none;flex-direction:column;gap:5px;padding:8px;border:none;background:none;cursor:pointer}
-.hdr-hamburger span{display:block;width:22px;height:2px;background:var(--tx);border-radius:2px;transition:all .2s}
-@media(max-width:768px){.hdr-nav{display:none}.hdr-hamburger{display:flex}.btn-login{display:none}}
-</style>
-
-<style>
-/* ── MOBILE NAV ── */
-.mobile-nav{display:none;position:fixed;inset:0;z-index:400;background:rgba(0,0,0,.5)}
-.mobile-nav.open{display:block}
-.mobile-nav-panel{position:absolute;top:0;right:0;width:280px;height:100%;background:#fff;padding:20px;overflow-y:auto;box-shadow:-4px 0 20px rgba(0,0,0,.12)}
-.mobile-nav-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border:none;background:var(--bg);border-radius:8px;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.mobile-nav-logo{display:flex;align-items:center;gap:8px;margin-bottom:20px;padding-top:4px}
-.mobile-nav-section{margin-bottom:16px}
-.mobile-nav-section-title{font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--tx4);padding:0 6px;margin-bottom:6px}
-.mobile-nav-link{display:block;padding:10px 12px;border-radius:9px;font-size:.88rem;font-weight:600;color:var(--tx2);text-decoration:none;transition:background .15s,color .15s}
-.mobile-nav-link:hover{background:var(--orangef);color:var(--orange)}
-.mobile-nav-actions{display:flex;flex-direction:column;gap:8px;margin-top:12px}
-
-/* ── BREADCRUMB ── */
-.breadcrumb{max-width:1200px;margin:0 auto;padding:12px 24px 0;display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--tx4)}
-.breadcrumb a{color:var(--tx4);text-decoration:none;transition:color .15s}
-.breadcrumb a:hover{color:var(--orange)}
-.breadcrumb-sep{opacity:.5}
-
-/* ── HERO ── */
-.hero{max-width:1200px;margin:0 auto;padding:28px 24px 20px}
-.hero h1{font-size:1.75rem;font-weight:800;color:var(--tx);margin-bottom:10px;line-height:1.25}
-.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--orange),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero p{font-size:.95rem;color:var(--tx3);line-height:1.7;max-width:680px}
-.hero-meta{display:flex;align-items:center;gap:12px;margin-top:14px;flex-wrap:wrap}
-.hero-badge{display:inline-flex;align-items:center;gap:5px;font-size:.75rem;font-weight:600;padding:5px 12px;border-radius:100px;border:1px solid var(--border2);background:#fff;color:var(--tx3)}
-</style>
-
-<style>
-/* ── FILTER BAR ── */
-.filter-bar{max-width:1200px;margin:0 auto;padding:0 24px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.filter-tabs{display:flex;gap:4px;flex-wrap:wrap;flex:1}
-.tab-btn{padding:7px 16px;border-radius:100px;border:1.5px solid var(--border2);background:#fff;font-size:.8rem;font-weight:600;color:var(--tx3);cursor:pointer;font-family:var(--sans);transition:all .15s;white-space:nowrap}
-.tab-btn:hover{border-color:var(--orange);color:var(--orange)}
-.tab-btn.active{background:linear-gradient(135deg,var(--orange),var(--purple));border-color:transparent;color:#fff;box-shadow:0 2px 8px rgba(234,88,12,.25)}
-.search-wrap{position:relative;flex-shrink:0}
-.search-input{padding:8px 12px 8px 34px;border-radius:9px;border:1.5px solid var(--border2);background:#fff;font-size:.83rem;font-family:var(--sans);color:var(--tx);width:220px;outline:none;transition:border-color .15s}
-.search-input:focus{border-color:var(--orange)}
-.search-ico{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:.85rem;pointer-events:none;opacity:.5}
-
-/* ── GRID ── */
-.grid-section{max-width:1200px;margin:0 auto;padding:0 24px 40px;flex:1}
-.test-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-@media(max-width:1024px){.test-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:700px){.test-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:440px){.test-grid{grid-template-columns:1fr}}
-
-/* ── CARD ── */
-.test-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--radius);padding:16px 15px;cursor:pointer;transition:transform .18s,box-shadow .18s,border-color .18s;position:relative;display:flex;flex-direction:column;gap:8px}
-.test-card:hover{transform:translateY(-3px);box-shadow:var(--shadow2);border-color:var(--orange)}
-.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:6px}
-.card-icon{font-size:1.3rem;line-height:1;flex-shrink:0}
-.card-num{font-size:.65rem;font-weight:800;letter-spacing:.08em;color:var(--tx4)}
-.card-type-badge{display:inline-flex;align-items:center;font-size:.6rem;font-weight:700;padding:3px 8px;border-radius:100px;white-space:nowrap}
-.badge-opinion{background:var(--bluef);color:var(--blue);border:1px solid var(--blueb)}
-.badge-discussion{background:var(--purplef);color:var(--purple);border:1px solid var(--purpleb)}
-.badge-advantages{background:var(--greenf);color:var(--green);border:1px solid var(--greenb)}
-.badge-problem{background:var(--redf);color:var(--red);border:1px solid var(--redb)}
-.card-title{font-size:.88rem;font-weight:700;color:var(--tx);line-height:1.35}
-.card-topic{font-size:.72rem;font-weight:500;color:var(--tx4)}
-.card-footer{margin-top:auto;padding-top:8px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
-.card-start{font-size:.72rem;font-weight:700;color:var(--orange)}
-.card-arrow{font-size:.8rem;color:var(--tx4)}
-
-/* ── NO RESULTS ── */
-.no-results{text-align:center;padding:60px 20px;color:var(--tx4)}
-.no-results .nr-icon{font-size:2.5rem;margin-bottom:10px}
-.no-results p{font-size:.95rem}
-</style>
-
-<style>
-/* ── FOOTER ── */
-.site-footer{background:#111827;color:#fff;margin-top:auto}
-.footer-inner{max-width:1200px;margin:0 auto;padding:48px 24px 32px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
-@media(max-width:768px){.footer-inner{grid-template-columns:1fr 1fr;gap:24px}}
-@media(max-width:480px){.footer-inner{grid-template-columns:1fr}}
-.footer-brand{}
-.footer-logo{display:flex;align-items:center;gap:9px;margin-bottom:12px;text-decoration:none}
-.footer-logo-mark{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--orange),var(--purple));display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:900;color:#fff}
-.footer-logo-text{font-size:.95rem;font-weight:800;color:#fff}
-.footer-logo-text span{color:var(--orange)}
-.footer-tagline{font-size:.82rem;color:#9ca3af;line-height:1.65;margin-bottom:16px;max-width:240px}
-.footer-social{display:flex;gap:8px}
-.social-btn{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.82rem;text-decoration:none;color:#fff;transition:background .15s}
-.social-btn:hover{background:rgba(255,255,255,.16)}
-.footer-col-title{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6b7280;margin-bottom:14px}
-.footer-links{display:flex;flex-direction:column;gap:8px}
-.footer-link{font-size:.83rem;color:#d1d5db;text-decoration:none;transition:color .15s}
-.footer-link:hover{color:var(--orange)}
-.footer-bottom{max-width:1200px;margin:0 auto;padding:16px 24px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
-.footer-copy{font-size:.75rem;color:#6b7280}
-.footer-bottom-links{display:flex;gap:16px}
-.footer-bottom-links a{font-size:.75rem;color:#6b7280;text-decoration:none;transition:color .15s}
-.footer-bottom-links a:hover{color:var(--orange)}
-</style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>IELTS Writing Task 2 Practice Tests | Free AI Band Score — computerielts.com</title>
+<meta name="description" content="Practice IELTS Academic Writing Task 2 with 50 free essay prompts. Get instant AI band scores, grammar corrections, and examiner feedback. No login needed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
+<style>
+:root{
+  --blue:#2563eb;--blue2:#1d4ed8;--blue-xxl:#eff6ff;--blue-xl:#dbeafe;
+  --teal:#0891b2;--teal-lt:#06b6d4;--teal-xl:#ecfeff;
+  --purple:#7c3aed;--purple-lt:#8b5cf6;--purple-xl:#f5f3ff;
+  --green:#059669;--green-lt:#10b981;--green-xl:#ecfdf5;
+  --orange:#ea580c;--orange-lt:#f97316;--orange-xl:#fff7ed;
+  --pink:#db2777;
+  --tx:#0f172a;--tx2:#1e293b;--tx3:#475569;--tx4:#94a3b8;
+  --bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;
+  --border:#e2e8f0;--border2:#cbd5e1;
+  --sh-sm:0 2px 8px rgba(0,0,0,.06);
+  --sh:0 4px 20px rgba(0,0,0,.07);
+  --sh-xl:0 24px 80px rgba(0,0,0,.12);
+  --r:12px;--r-lg:16px;--hh:68px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#fff;color:var(--tx);line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit;transition:all .2s}
+button{font-family:'Inter',sans-serif;cursor:pointer;border:none;background:none;outline:none}
+ul{list-style:none}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:#f1f5f9}
+::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px}
+
+/* ═══ HEADER (exact computerielts.com style) ═══ */
+#hdr{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.96);backdrop-filter:blur(24px) saturate(200%);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+#hdr.scrolled{box-shadow:0 4px 32px rgba(0,0,0,.09)}
+.hdr-inner{width:100%;max-width:1440px;margin:0 auto;padding:0 48px;height:var(--hh);display:flex;align-items:center;gap:6px}
+.ci-logo{display:flex;align-items:center;gap:11px;flex-shrink:0;text-decoration:none}
+.ci-logo-mark{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#2563eb 0%,#06b6d4 60%,#7c3aed 100%);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:#fff;font-family:'Manrope',sans-serif;letter-spacing:-.5px;flex-shrink:0;box-shadow:0 4px 16px rgba(37,99,235,.35);position:relative;overflow:hidden}
+.ci-logo-mark::before{content:'';position:absolute;top:-40%;left:-40%;width:180%;height:180%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.25),transparent 60%)}
+.ci-logo-text{display:flex;flex-direction:column;line-height:1.1}
+.ci-logo-name{font-size:16px;font-weight:800;color:var(--tx);letter-spacing:-.04em;font-family:'Manrope',sans-serif}
+.ci-logo-tag{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;background:linear-gradient(135deg,var(--blue),var(--teal-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-menu{display:flex;align-items:center;gap:2px;margin-left:28px}
+.nav-a{display:flex;align-items:center;gap:5px;padding:9px 13px;font-size:13.5px;font-weight:500;color:var(--tx3);border-radius:9px;transition:all .18s;white-space:nowrap}
+.nav-a:hover,.nav-a.on{color:var(--blue);background:var(--blue-xxl)}
+.nav-chev{font-size:9px;transition:transform .2s}
+.nav-it{position:relative}
+.nav-it.open .nav-chev{transform:rotate(180deg)}
+.dd{position:absolute;top:calc(100% + 8px);left:50%;min-width:260px;background:rgba(255,255,255,.98);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--sh-xl);padding:8px;opacity:0;pointer-events:none;transform:translateX(-50%) translateY(-6px) scale(.97);transition:all .2s cubic-bezier(.16,1,.3,1);z-index:200}
+.dd.wide{min-width:480px;display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.nav-it.open .dd{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0) scale(1)}
+.dd-a{display:flex;align-items:flex-start;gap:11px;padding:11px 12px;border-radius:10px;transition:background .15s;color:var(--tx)}
+.dd-a:hover{background:var(--bg2)}
+.dd-ico{width:36px;height:36px;flex-shrink:0;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px}
+.di-bl{background:var(--blue-xxl);color:var(--blue)}.di-te{background:var(--teal-xl);color:var(--teal)}
+.di-pu{background:var(--purple-xl);color:var(--purple)}.di-gr{background:var(--green-xl);color:var(--green)}
+.di-or{background:var(--orange-xl);color:var(--orange)}.di-pk{background:#fdf2f8;color:var(--pink)}
+.dd-t{font-size:13px;font-weight:600;color:var(--tx);margin-bottom:2px}
+.dd-s{font-size:11.5px;color:var(--tx4);line-height:1.4}
+.dd-badge{font-size:9px;font-weight:700;background:linear-gradient(135deg,#10b981,#059669);color:#fff;padding:2px 6px;border-radius:100px;margin-left:6px;vertical-align:middle}
+.dd-sep{grid-column:1/-1;border-top:1px solid var(--border);margin:4px 0}
+.nav-auth{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0}
+.btn-login{padding:9px 20px;font-size:13.5px;font-weight:600;color:var(--tx2);background:#fff;border:1.5px solid var(--border2);border-radius:9px;transition:all .18s}
+.btn-login:hover{border-color:var(--blue);color:var(--blue)}
+.btn-start{padding:9px 22px;font-size:13.5px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--blue),var(--teal-lt));border-radius:9px;box-shadow:0 2px 12px rgba(37,99,235,.28);transition:all .2s;display:flex;align-items:center;gap:6px}
+.btn-start:hover{transform:translateY(-1px);box-shadow:0 5px 22px rgba(37,99,235,.4)}
+.hamburger{display:none;width:40px;height:40px;background:#fff;border:1.5px solid var(--border);border-radius:9px;align-items:center;justify-content:center;font-size:16px;color:var(--tx);margin-left:auto}
+</style>
+
+<style>
+/* ═══ MOBILE DRAWER ═══ */
+.drawer{display:none;position:fixed;inset:0;z-index:3000}
+.drawer.open{display:block}
+.drawer-back{position:absolute;inset:0;background:rgba(10,15,30,.65);backdrop-filter:blur(5px)}
+.drawer-panel{position:absolute;right:0;top:0;bottom:0;width:min(340px,88vw);background:#fff;transform:translateX(100%);transition:transform .28s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column}
+.drawer.open .drawer-panel{transform:translateX(0)}
+.dr-hd{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.dr-close{width:34px;height:34px;border:1px solid var(--border);border-radius:8px;color:var(--tx3);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.dr-body{flex:1;overflow-y:auto;padding:12px}
+.dr-lbl{font-size:9.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--tx4);padding:4px 10px;margin-bottom:3px;margin-top:10px}
+.dr-link{display:flex;align-items:center;gap:9px;padding:10px;border-radius:9px;font-size:13.5px;font-weight:500;color:var(--tx2);transition:background .15s}
+.dr-link:hover{background:var(--bg2);color:var(--orange)}
+.dr-link i{width:15px;text-align:center;font-size:12px;color:var(--tx4)}
+.dr-ft{padding:12px 14px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:7px}
+.dr-login{padding:11px;border-radius:9px;border:1.5px solid var(--border2);color:var(--tx);font-weight:600;font-size:13.5px;text-align:center;display:block;transition:all .2s}
+.dr-start{padding:12px;border-radius:9px;background:linear-gradient(135deg,var(--orange),var(--purple-lt));color:#fff;font-weight:700;font-size:13.5px;text-align:center;display:flex;align-items:center;justify-content:center;gap:6px}
+
+/* ═══ PAGE CONTENT ═══ */
+/* Breadcrumb */
+.breadcrumb{background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 48px}
+.bc-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--tx4)}
+.bc-inner a{color:var(--tx4);transition:color .2s}.bc-inner a:hover{color:var(--orange)}
+.bc-sep{color:var(--border2)}.bc-cur{color:var(--orange);font-weight:600}
+
+/* Hero intro */
+.pg-intro{padding:36px 48px 24px;background:#fff}
+.pg-intro-inner{max-width:1280px;margin:0 auto}
+.pg-intro h1{font-family:'Manrope',sans-serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;color:var(--tx);letter-spacing:-.04em;margin-bottom:12px;line-height:1.15}
+.pg-intro h1 .hl{background:linear-gradient(135deg,var(--orange),var(--purple-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.pg-intro p{font-size:15px;color:var(--tx3);line-height:1.8;max-width:720px}
+.pg-intro-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.meta-pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px;background:var(--bg2);border:1px solid var(--border);color:var(--tx3)}
+
+/* Filter bar */
+.filter-bar{padding:12px 48px 0;background:#fff;border-bottom:1px solid var(--border)}
+.fb-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-bottom:14px}
+.filter-tabs{display:flex;gap:5px;flex-wrap:wrap}
+.f-tab{padding:7px 16px;border-radius:100px;font-size:12.5px;font-weight:600;border:1.5px solid var(--border);background:#fff;color:var(--tx3);transition:all .18s;cursor:pointer}
+.f-tab.on,.f-tab:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+.search-box{position:relative}
+.search-ico{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--tx4);font-size:12px}
+.search-inp{padding:8px 13px 8px 32px;border:1.5px solid var(--border2);border-radius:9px;font-family:'Inter',sans-serif;font-size:12.5px;color:var(--tx);background:#fff;outline:none;width:210px;transition:border .2s}
+.search-inp:focus{border-color:var(--orange)}
+.result-count{font-size:12.5px;color:var(--tx4)}
+.result-count strong{color:var(--tx)}
+
+/* Grid */
+.grid-wrap{max-width:1280px;margin:0 auto;padding:24px 48px 56px}
+.tests-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+
+/* Card */
+.t-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--r-lg);padding:16px 15px;cursor:pointer;transition:all .22s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;gap:9px;text-decoration:none;color:inherit;position:relative;overflow:hidden}
+.t-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--purple-lt))}
+.t-card:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(234,88,12,.14);border-color:rgba(234,88,12,.4)}
+.tc-top{display:flex;align-items:center;justify-content:space-between}
+.tc-num{font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--tx4)}
+.tc-badge{font-size:9px;font-weight:700;padding:3px 8px;border-radius:100px}
+.b-op{background:var(--blue-xxl);color:var(--blue);border:1px solid var(--blue-xl)}
+.b-di{background:var(--purple-xl);color:var(--purple);border:1px solid #ddd6fe}
+.b-ad{background:var(--green-xl);color:var(--green);border:1px solid #bbf7d0}
+.b-pr{background:#fff1f2;color:#e11d48;border:1px solid #fecdd3}
+.tc-icon{font-size:1.5rem;line-height:1}
+.tc-title{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:var(--tx);line-height:1.3}
+.tc-topic{font-size:10.5px;color:var(--tx4);font-weight:500}
+.tc-action{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:8px;background:var(--orange-xl);border:1px solid rgba(234,88,12,.2);font-size:11.5px;font-weight:700;color:var(--orange);transition:all .2s}
+.t-card:hover .tc-action{background:var(--orange);color:#fff}
+
+/* Empty */
+.empty-state{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--tx4)}
+
+/* Responsive */
+@media(max-width:1200px){.tests-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){.tests-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){
+  .nav-menu,.nav-auth{display:none}.hamburger{display:flex}
+  .hdr-inner,.breadcrumb,.pg-intro,.filter-bar,.grid-wrap{padding-left:16px;padding-right:16px}
+}
+@media(max-width:480px){.tests-grid{grid-template-columns:1fr 1fr}}
+</style>
+
+<style>
+/* ═══ FOOTER (exact computerielts.com style) ═══ */
+footer{background:#0a0f1e;color:#64748b;padding:0}
+.footer-top{max-width:1440px;margin:0 auto;padding:48px 64px 36px;display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:44px}
+.ft-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.ft-logo .fl-ic{width:36px;height:36px;background:linear-gradient(135deg,var(--blue),var(--teal-lt));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#fff;font-family:'Manrope',sans-serif}
+.ft-logo .fl-nm{font-size:15px;font-weight:800;color:#e2e8f0;font-family:'Manrope',sans-serif}
+.ft-desc{font-size:12.5px;line-height:1.8;color:#475569;max-width:230px;margin-bottom:16px}
+.ft-socials{display:flex;gap:7px}
+.ft-soc{width:32px;height:32px;border-radius:8px;background:#1e293b;border:1px solid #334155;display:flex;align-items:center;justify-content:center;color:#64748b;font-size:13px;transition:all .2s}
+.ft-soc:hover{background:var(--blue);border-color:var(--blue);color:#fff;transform:translateY(-2px)}
+.ft-col h4{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#64748b;margin-bottom:13px}
+.ft-col ul li{margin-bottom:8px}
+.ft-col ul li a{font-size:12.5px;color:#475569;transition:color .2s}
+.ft-col ul li a:hover{color:#38bdf8}
+.footer-disc{max-width:1440px;margin:0 auto;padding:15px 64px;border-top:1px solid #1e293b;text-align:center}
+.footer-disc p{font-size:11px;color:#334155;line-height:1.7;margin:0}
+.footer-bot{max-width:1440px;margin:0 auto;padding:15px 64px;border-top:1px solid #1e293b;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:9px}
+.footer-bot p{font-size:11.5px;color:#334155;margin:0}
+.ft-links{display:flex;gap:16px}
+.ft-links a{font-size:11.5px;color:#475569;transition:color .2s}
+.ft-links a:hover{color:#38bdf8}
+@media(max-width:1024px){.footer-top{grid-template-columns:1fr 1fr;gap:28px}}
+@media(max-width:640px){
+  .footer-top{padding:32px 20px;grid-template-columns:1fr}
+  .footer-disc,.footer-bot{padding:13px 20px}
+  .footer-bot{flex-direction:column;text-align:center}
+}
+</style>
 <body>
 
-<!-- ══════════════════ HEADER ══════════════════ -->
-<header class="site-header">
+
+<!-- ══════════ HEADER ══════════ -->
+<header id="hdr">
   <div class="hdr-inner">
-    <a class="hdr-logo" href="/">
-      <div class="logo-mark">CI</div>
-      <div class="logo-text"><span>Computer</span> IELTS</div>
+    <a class="ci-logo" href="/">
+      <div class="ci-logo-mark">CI</div>
+      <div class="ci-logo-text">
+        <span class="ci-logo-name">Computer IELTS</span>
+        <span class="ci-logo-tag">Computer-Based Practice</span>
+      </div>
     </a>
-    <nav class="hdr-nav">
-      <div class="nav-item">
-        <button class="nav-link">Mock Tests <span class="nav-arrow">▾</span></button>
-        <div class="nav-dropdown">
-          <a class="dd-link" href="#">Academic Reading</a>
-          <a class="dd-link" href="#">General Reading</a>
-          <a class="dd-link" href="#">Listening</a>
-          <a class="dd-link" href="#">Writing Task 1</a>
-          <a class="dd-link" href="#">Writing Task 2</a>
+    <nav class="nav-menu">
+      <div class="nav-it" id="nd-mock">
+        <button class="nav-a" onclick="openDD('nd-mock')"><i class="fa fa-layer-group" style="font-size:12px"></i> Mock Tests <i class="fa fa-chevron-down nav-chev"></i></button>
+        <div class="dd wide">
+          <a class="dd-a" href="/academic-reading/"><div class="dd-ico di-bl"><i class="fa fa-book-open"></i></div><div><div class="dd-t">Academic Reading</div><div class="dd-s">Full timed tests · 40 Qs · Band scored</div></div></a>
+          <a class="dd-a" href="/general-reading/"><div class="dd-ico di-gr"><i class="fa fa-file-alt"></i></div><div><div class="dd-t">General Reading</div><div class="dd-s">Sections 1, 2 &amp; 3 · Real format</div></div></a>
+          <a class="dd-a" href="/listening/"><div class="dd-ico di-pu"><i class="fa fa-headphones"></i></div><div><div class="dd-t">Listening Tests</div><div class="dd-s">4 sections with real audio</div></div></a>
+          <a class="dd-a" href="/writing/"><div class="dd-ico di-or"><i class="fa fa-pen-nib"></i></div><div><div class="dd-t">Writing Evaluation<span class="dd-badge">NEW</span></div><div class="dd-s">AI feedback on Task 1 &amp; Task 2</div></div></a>
+          <div class="dd-sep"></div>
+          <a class="dd-a" href="/full-mock/"><div class="dd-ico di-te"><i class="fa fa-trophy"></i></div><div><div class="dd-t">Full Mock Tests</div><div class="dd-s">Complete IELTS simulation</div></div></a>
+          <a class="dd-a" href="/mini-tests/"><div class="dd-ico di-pk"><i class="fa fa-bolt"></i></div><div><div class="dd-t">Mini Practice</div><div class="dd-s">Quick 15-min targeted sessions</div></div></a>
         </div>
       </div>
-      <div class="nav-item">
-        <button class="nav-link active">Self Practice <span class="nav-arrow">▾</span></button>
-        <div class="nav-dropdown">
-          <a class="dd-link" href="#">Reading Practice</a>
-          <a class="dd-link" href="#" style="color:var(--orange);font-weight:700">Writing Task 2</a>
-          <a class="dd-link" href="#">Vocabulary Builder</a>
+      <div class="nav-it" id="nd-self">
+        <button class="nav-a on" onclick="openDD('nd-self')"><i class="fa fa-dumbbell" style="font-size:12px"></i> Self Practice <i class="fa fa-chevron-down nav-chev"></i></button>
+        <div class="dd">
+          <a class="dd-a" href="/reading-practice/"><div class="dd-ico di-bl"><i class="fa fa-book-open"></i></div><div><div class="dd-t">Reading</div><div class="dd-s">Passage-by-passage skill building</div></div></a>
+          <a class="dd-a" href="/ielts-writing-task-2-pracctice-test/"><div class="dd-ico di-or"><i class="fa fa-pen-alt"></i></div><div><div class="dd-t">Writing Task 2</div><div class="dd-s">50 prompts · AI examiner feedback</div></div></a>
+          <a class="dd-a" href="/speaking-practice/"><div class="dd-ico di-gr"><i class="fa fa-microphone"></i></div><div><div class="dd-t">Speaking</div><div class="dd-s">Cue cards, Part 1, 2 &amp; 3 tips</div></div></a>
+          <a class="dd-a" href="/listening-practice/"><div class="dd-ico di-pu"><i class="fa fa-headphones"></i></div><div><div class="dd-t">Listening</div><div class="dd-s">Audio practice with transcripts</div></div></a>
         </div>
       </div>
-      <div class="nav-item">
-        <button class="nav-link">IELTS Tips <span class="nav-arrow">▾</span></button>
-        <div class="nav-dropdown">
-          <a class="dd-link" href="#">Band Score Guide</a>
-          <a class="dd-link" href="#">Essay Templates</a>
-          <a class="dd-link" href="#">Common Mistakes</a>
+      <div class="nav-it" id="nd-tips">
+        <button class="nav-a" onclick="openDD('nd-tips')"><i class="fa fa-lightbulb" style="font-size:12px"></i> IELTS Tips <i class="fa fa-chevron-down nav-chev"></i></button>
+        <div class="dd">
+          <a class="dd-a" href="/band-9-tips/"><div class="dd-ico di-or"><i class="fa fa-star"></i></div><div><div class="dd-t">Band 9 Strategies</div><div class="dd-s">Expert tips for each section</div></div></a>
+          <a class="dd-a" href="/vocabulary/"><div class="dd-ico di-bl"><i class="fa fa-spell-check"></i></div><div><div class="dd-t">Vocabulary Builder</div><div class="dd-s">Academic wordlists &amp; flashcards</div></div></a>
+          <a class="dd-a" href="/grammar/"><div class="dd-ico di-gr"><i class="fa fa-pencil-alt"></i></div><div><div class="dd-t">Grammar Guide</div><div class="dd-s">Fix common grammar mistakes</div></div></a>
+          <a class="dd-a" href="/band-calculator/"><div class="dd-ico di-pu"><i class="fa fa-calculator"></i></div><div><div class="dd-t">Band Score Calculator</div><div class="dd-s">Predict your IELTS score instantly</div></div></a>
         </div>
       </div>
+      <a class="nav-a" href="/blog/"><i class="fa fa-rss" style="font-size:12px"></i> Blog</a>
+      <a class="nav-a" href="/pricing/"><i class="fa fa-tag" style="font-size:12px"></i> Pricing</a>
     </nav>
-    <div class="hdr-actions">
-      <a class="btn-login" href="#">Login</a>
-      <a class="btn-start" href="#">Start Free</a>
+    <div class="nav-auth">
+      <button class="btn-login">Log In</button>
+      <button class="btn-start" onclick="location.href='#tests'"><i class="fa fa-play" style="font-size:11px"></i> Start Free</button>
     </div>
-    <button class="hdr-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="hamburger" onclick="openDrawer()"><i class="fa fa-bars"></i></button>
   </div>
 </header>
 
-<!-- ══════════════════ MOBILE NAV ══════════════════ -->
-<div class="mobile-nav" id="mobileNav" onclick="closeMobileNavOutside(event)">
-  <div class="mobile-nav-panel">
-    <button class="mobile-nav-close" onclick="toggleMobileNav()">✕</button>
-    <div class="mobile-nav-logo">
-      <div class="logo-mark">CI</div>
-      <div class="logo-text"><span>Computer</span> IELTS</div>
+<!-- MOBILE DRAWER -->
+<div class="drawer" id="mDrawer">
+  <div class="drawer-back" onclick="closeDrawer()"></div>
+  <div class="drawer-panel">
+    <div class="dr-hd">
+      <a class="ci-logo" href="/"><div class="ci-logo-mark" style="width:34px;height:34px;font-size:12px;border-radius:9px">CI</div><span class="ci-logo-name" style="font-size:14px">Computer IELTS</span></a>
+      <button class="dr-close" onclick="closeDrawer()"><i class="fa fa-times"></i></button>
     </div>
-    <div class="mobile-nav-section">
-      <div class="mobile-nav-section-title">Mock Tests</div>
-      <a class="mobile-nav-link" href="#">Academic Reading</a>
-      <a class="mobile-nav-link" href="#">Listening</a>
-      <a class="mobile-nav-link" href="#">Writing Task 1</a>
-      <a class="mobile-nav-link" href="#">Writing Task 2</a>
+    <div class="dr-body">
+      <div class="dr-lbl">Mock Tests</div>
+      <a class="dr-link" href="/academic-reading/"><i class="fa fa-book-open"></i> Academic Reading</a>
+      <a class="dr-link" href="/general-reading/"><i class="fa fa-file-alt"></i> General Reading</a>
+      <a class="dr-link" href="/listening/"><i class="fa fa-headphones"></i> Listening Tests</a>
+      <a class="dr-link" href="/writing/"><i class="fa fa-pen-nib"></i> Writing Evaluation</a>
+      <div class="dr-lbl">Self Practice</div>
+      <a class="dr-link" href="/reading-practice/"><i class="fa fa-book-open"></i> Reading</a>
+      <a class="dr-link" href="/ielts-writing-task-2-pracctice-test/" style="color:var(--orange);font-weight:700"><i class="fa fa-pen-alt"></i> Writing Task 2</a>
+      <a class="dr-link" href="/speaking-practice/"><i class="fa fa-microphone"></i> Speaking</a>
+      <a class="dr-link" href="/listening-practice/"><i class="fa fa-headphones"></i> Listening</a>
+      <div class="dr-lbl">Resources</div>
+      <a class="dr-link" href="/band-9-tips/"><i class="fa fa-lightbulb"></i> IELTS Tips</a>
+      <a class="dr-link" href="/blog/"><i class="fa fa-rss"></i> Blog</a>
     </div>
-    <div class="mobile-nav-section">
-      <div class="mobile-nav-section-title">Self Practice</div>
-      <a class="mobile-nav-link" href="#">Reading Practice</a>
-      <a class="mobile-nav-link" href="#" style="color:var(--orange);font-weight:700">Writing Task 2</a>
-      <a class="mobile-nav-link" href="#">Vocabulary Builder</a>
-    </div>
-    <div class="mobile-nav-section">
-      <div class="mobile-nav-section-title">IELTS Tips</div>
-      <a class="mobile-nav-link" href="#">Band Score Guide</a>
-      <a class="mobile-nav-link" href="#">Essay Templates</a>
-    </div>
-    <div class="mobile-nav-actions">
-      <a class="btn-login" href="#" style="text-align:center">Login</a>
-      <a class="btn-start" href="#" style="text-align:center">Start Free</a>
+    <div class="dr-ft">
+      <a class="dr-login" href="/login/">Log In</a>
+      <a class="dr-start" href="#tests" onclick="closeDrawer()"><i class="fa fa-play" style="font-size:11px"></i> Start Free Practice</a>
     </div>
   </div>
 </div>
 
-
-<!-- ══════════════════ BREADCRUMB ══════════════════ -->
-<nav class="breadcrumb" aria-label="breadcrumb">
-  <a href="/">Home</a>
-  <span class="breadcrumb-sep">/</span>
-  <a href="#">Self Practice</a>
-  <span class="breadcrumb-sep">/</span>
-  <span>Writing Task 2</span>
-</nav>
-
-<!-- ══════════════════ HERO ══════════════════ -->
-<section class="hero">
-  <h1>IELTS Writing Task 2 <em>Practice Tests</em></h1>
-  <p>Choose from 50 exam-style essay questions covering all major IELTS topics and question types. Write your essay in the practice environment and receive an instant AI band score with detailed examiner feedback.</p>
-  <div class="hero-meta">
-    <div class="hero-badge">✍️ 50 Practice Tests</div>
-    <div class="hero-badge">🎯 All Question Types</div>
-    <div class="hero-badge">⚡ Instant AI Band Score</div>
-    <div class="hero-badge">📚 Academic IELTS</div>
-  </div>
-</section>
-
-<!-- ══════════════════ FILTER BAR ══════════════════ -->
-<div class="filter-bar">
-  <div class="filter-tabs" id="filterTabs">
-    <button class="tab-btn active" onclick="setFilter('all')">All (50)</button>
-    <button class="tab-btn" onclick="setFilter('opinion')">Opinion</button>
-    <button class="tab-btn" onclick="setFilter('discussion')">Discussion</button>
-    <button class="tab-btn" onclick="setFilter('advantages')">Advantages</button>
-    <button class="tab-btn" onclick="setFilter('problem')">Problem &amp; Solution</button>
-  </div>
-  <div class="search-wrap">
-    <span class="search-ico">🔍</span>
-    <input class="search-input" type="text" id="searchInput" placeholder="Search topics..." oninput="doSearch()"/>
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="bc-inner">
+    <a href="/"><i class="fa fa-home"></i> Home</a>
+    <span class="bc-sep">/</span>
+    <a href="/self-practice/">Self Practice</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-cur">IELTS Writing Task 2</span>
   </div>
 </div>
 
-<!-- ══════════════════ GRID ══════════════════ -->
-<main class="grid-section">
-  <div class="test-grid" id="tGrid"></div>
-</main>
-
-
-<!-- ══════════════════ FOOTER ══════════════════ -->
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a class="footer-logo" href="/">
-        <div class="footer-logo-mark">CI</div>
-        <div class="footer-logo-text"><span>Computer</span> IELTS</div>
-      </a>
-      <p class="footer-tagline">The most realistic computer-based IELTS practice platform — used by thousands of test-takers worldwide.</p>
-      <div class="footer-social">
-        <a class="social-btn" href="#" aria-label="YouTube">▶</a>
-        <a class="social-btn" href="#" aria-label="Instagram">📸</a>
-        <a class="social-btn" href="#" aria-label="Facebook">f</a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-col-title">Mock Tests</div>
-      <div class="footer-links">
-        <a class="footer-link" href="#">Academic Reading</a>
-        <a class="footer-link" href="#">General Reading</a>
-        <a class="footer-link" href="#">Listening Tests</a>
-        <a class="footer-link" href="#">Writing Task 1</a>
-        <a class="footer-link" href="#">Writing Task 2</a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-col-title">Study IELTS</div>
-      <div class="footer-links">
-        <a class="footer-link" href="#">Band Score Guide</a>
-        <a class="footer-link" href="#">Essay Templates</a>
-        <a class="footer-link" href="#">Vocabulary Builder</a>
-        <a class="footer-link" href="#">Common Grammar Mistakes</a>
-        <a class="footer-link" href="#">IELTS Tips &amp; Tricks</a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-col-title">Company</div>
-      <div class="footer-links">
-        <a class="footer-link" href="#">About Us</a>
-        <a class="footer-link" href="#">Blog</a>
-        <a class="footer-link" href="#">Contact</a>
-        <a class="footer-link" href="#">Privacy Policy</a>
-        <a class="footer-link" href="#">Terms of Service</a>
-      </div>
+<!-- INTRO -->
+<div class="pg-intro">
+  <div class="pg-intro-inner">
+    <h1>IELTS Writing Task 2 <span class="hl">Practice Tests</span></h1>
+    <p>Choose from 50 exam-style essay questions covering all major IELTS Academic topics — Technology, Environment, Education, Health, Economy and more. Select a test, write your essay in the timed practice environment, and receive an instant <strong>AI band score</strong> with detailed examiner feedback including grammar corrections, vocabulary upgrades and a personalised study plan. Completely free, no login required.</p>
+    <div class="pg-intro-meta">
+      <span class="meta-pill"><i class="fa fa-pen-alt"></i> 50 Essay Prompts</span>
+      <span class="meta-pill"><i class="fa fa-th-large"></i> 4 Essay Types</span>
+      <span class="meta-pill"><i class="fa fa-clock"></i> 40-Min Timer</span>
+      <span class="meta-pill"><i class="fa fa-robot"></i> AI Band Score</span>
+      <span class="meta-pill"><i class="fa fa-star"></i> Free · No Login</span>
     </div>
   </div>
-  <div class="footer-bottom">
-    <span class="footer-copy">© 2025 Computer IELTS. All rights reserved.</span>
-    <div class="footer-bottom-links">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-      <a href="#">Sitemap</a>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar" id="tests">
+  <div class="fb-inner">
+    <div class="filter-tabs">
+      <button class="f-tab on" onclick="setFilter('all',this)">All (50)</button>
+      <button class="f-tab" onclick="setFilter('Opinion Essay',this)">Opinion Essay</button>
+      <button class="f-tab" onclick="setFilter('Discussion Essay',this)">Discussion</button>
+      <button class="f-tab" onclick="setFilter('Advantages & Disadvantages',this)">Adv &amp; Disadv</button>
+      <button class="f-tab" onclick="setFilter('Problem & Solution',this)">Problem &amp; Solution</button>
     </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="search-box">
+        <i class="fa fa-search search-ico"></i>
+        <input class="search-inp" id="searchInp" type="text" placeholder="Search topic..." oninput="doSearch()">
+      </div>
+      <span class="result-count">Showing <strong id="cnt">50</strong> tests</span>
+    </div>
+  </div>
+</div>
+
+<!-- GRID -->
+<div class="grid-wrap">
+  <div class="tests-grid" id="tGrid"></div>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="ft-logo"><div class="fl-ic">CI</div><div class="fl-nm">Computer IELTS</div></div>
+      <p class="ft-desc">The most realistic free IELTS computer-based test preparation platform. Train exactly like the real CBT exam. Always free.</p>
+      <div class="ft-socials">
+        <a class="ft-soc" href="#"><i class="fab fa-youtube"></i></a>
+        <a class="ft-soc" href="#"><i class="fab fa-instagram"></i></a>
+        <a class="ft-soc" href="#"><i class="fab fa-telegram-plane"></i></a>
+        <a class="ft-soc" href="#"><i class="fab fa-facebook-f"></i></a>
+        <a class="ft-soc" href="#"><i class="fab fa-discord"></i></a>
+      </div>
+    </div>
+    <div class="ft-col"><h4>Mock Tests</h4><ul>
+      <li><a href="/academic-reading/">Academic Reading</a></li>
+      <li><a href="/general-reading/">General Reading</a></li>
+      <li><a href="/listening/">Listening Tests</a></li>
+      <li><a href="/writing/">Writing Practice</a></li>
+      <li><a href="/full-mock/">Full Mock Tests</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Study IELTS</h4><ul>
+      <li><a href="/band-9-tips/">Band 9 Tips</a></li>
+      <li><a href="/vocabulary/">Vocabulary</a></li>
+      <li><a href="/grammar/">Grammar Guide</a></li>
+      <li><a href="/band-calculator/">Band Calculator</a></li>
+      <li><a href="/blog/">Blog</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Company</h4><ul>
+      <li><a href="/about/">About Us</a></li>
+      <li><a href="/contact/">Contact</a></li>
+      <li><a href="mailto:support@computerielts.com">support@computerielts.com</a></li>
+      <li><a href="/privacy/">Privacy Policy</a></li>
+      <li><a href="/terms/">Terms of Service</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-disc"><p><strong>Disclaimer:</strong> IELTS® is a registered trademark of British Council, IDP: IELTS Australia, and Cambridge Assessment English. computerielts.com is not affiliated with or endorsed by the trademark owners.</p></div>
+  <div class="footer-bot">
+    <p>© <span id="fyear"></span> computerielts.com — Free IELTS Computer-Based Practice</p>
+    <div class="ft-links"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/sitemap/">Sitemap</a></div>
   </div>
 </footer>
 
 
 <script>
-;(function(){
-'use strict';
+(function(){
+/* Year */
+var fy=document.getElementById('fyear');if(fy)fy.textContent=new Date().getFullYear();
 
-var TESTS = [
-  {id:1,  topic:'Technology & Society',   type:'Discussion',   title:'AI & Automation',            icon:'🤖'},
-  {id:2,  topic:'Technology & Society',   type:'Opinion',      title:'Social Media',                icon:'📱'},
-  {id:3,  topic:'Technology & Society',   type:'Advantages',   title:'Remote Work',                 icon:'🏠'},
-  {id:4,  topic:'Technology & Society',   type:'Opinion',      title:'Online Learning',             icon:'🎓'},
-  {id:5,  topic:'Technology & Society',   type:'Problem',      title:'Mobile Devices & Children',   icon:'👦'},
-  {id:6,  topic:'Technology & Society',   type:'Advantages',   title:'Cashless Society',            icon:'💳'},
-  {id:7,  topic:'Technology & Society',   type:'Opinion',      title:'Technological Gap',           icon:'📡'},
-  {id:8,  topic:'Technology & Society',   type:'Advantages',   title:'News Consumption',            icon:'📰'},
-  {id:9,  topic:'Environment & Energy',   type:'Opinion',      title:'Individual vs. Government',   icon:'🌍'},
-  {id:10, topic:'Environment & Energy',   type:'Problem',      title:'Global Warming',              icon:'🌡️'},
-  {id:11, topic:'Environment & Energy',   type:'Opinion',      title:'Fossil Fuels vs. Green Energy', icon:'⚡'},
-  {id:12, topic:'Environment & Energy',   type:'Opinion',      title:'Plastic Pollution',           icon:'🌊'},
-  {id:13, topic:'Environment & Energy',   type:'Problem',      title:'Loss of Biodiversity',        icon:'🦁'},
-  {id:14, topic:'Environment & Energy',   type:'Opinion',      title:'Urban Green Spaces',          icon:'🌿'},
-  {id:15, topic:'Education & Youth',      type:'Discussion',   title:'University vs. Vocational',   icon:'🏫'},
-  {id:16, topic:'Education & Youth',      type:'Opinion',      title:'Community Service',           icon:'🤝'},
-  {id:17, topic:'Education & Youth',      type:'Discussion',   title:'Ability Grouping',            icon:'📚'},
-  {id:18, topic:'Education & Youth',      type:'Opinion',      title:'Art and Music Funding',       icon:'🎨'},
-  {id:19, topic:'Education & Youth',      type:'Problem',      title:'Graduate Unemployment',       icon:'💼'},
-  {id:20, topic:'Education & Youth',      type:'Discussion',   title:'Boarding vs. Day School',     icon:'🏡'},
-  {id:21, topic:'Education & Youth',      type:'Opinion',      title:'Homework Burden',             icon:'📝'},
-  {id:22, topic:'Health & Lifestyle',     type:'Opinion',      title:'Sugar Tax',                   icon:'🍬'},
-  {id:23, topic:'Health & Lifestyle',     type:'Opinion',      title:'Healthcare Funding',          icon:'🏥'},
-  {id:24, topic:'Health & Lifestyle',     type:'Problem',      title:'Sedentary Lifestyles',        icon:'🏋️'},
-  {id:25, topic:'Health & Lifestyle',     type:'Advantages',   title:'Traditional vs. Modern Diet', icon:'🥗'},
-  {id:26, topic:'Health & Lifestyle',     type:'Problem',      title:'Mental Health at Work',       icon:'🧠'},
-  {id:27, topic:'Urbanization & Globalization', type:'Problem','title':'Rural-to-Urban Migration',  icon:'🏙️'},
-  {id:28, topic:'Urbanization & Globalization', type:'Opinion', title:'Public Transport vs. Cars',  icon:'🚌'},
-  {id:29, topic:'Urbanization & Globalization', type:'Opinion', title:'Loss of Local Culture',      icon:'🌏'},
-  {id:30, topic:'Urbanization & Globalization', type:'Problem', title:'Housing Shortages',          icon:'🏘️'},
-  {id:31, topic:'Urbanization & Globalization', type:'Discussion', title:'International Tourism',   icon:'✈️'},
-  {id:32, topic:'Economy & Work',         type:'Advantages',   title:'Universal Basic Income',      icon:'💰'},
-  {id:33, topic:'Economy & Work',         type:'Problem',      title:'Work-Life Balance',           icon:'⚖️'},
-  {id:34, topic:'Economy & Work',         type:'Opinion',      title:'Retirement Age',              icon:'👴'},
-  {id:35, topic:'Economy & Work',         type:'Problem',      title:'Materialism & Consumerism',   icon:'🛍️'},
-  {id:36, topic:'Economy & Work',         type:'Problem',      title:'Gender Pay Gap',              icon:'👩‍💼'},
-  {id:37, topic:'Government & Crime',     type:'Discussion',   title:'Space vs. Poverty',           icon:'🚀'},
-  {id:38, topic:'Government & Crime',     type:'Discussion',   title:'CCTV and Privacy',            icon:'📷'},
-  {id:39, topic:'Government & Crime',     type:'Opinion',      title:'Rehabilitation vs. Punishment', icon:'⚖️'},
-  {id:40, topic:'Government & Crime',     type:'Opinion',      title:'Art & Infrastructure Budget', icon:'🏛️'},
-  {id:41, topic:'Government & Crime',     type:'Opinion',      title:'Youth Crime',                 icon:'🔐'},
-  {id:42, topic:'Culture, Media & Family', type:'Advantages',  title:'Working Parents',             icon:'👨‍👩‍👧'},
-  {id:43, topic:'Culture, Media & Family', type:'Opinion',     title:'Preserving Historic Buildings', icon:'🏰'},
-  {id:44, topic:'Culture, Media & Family', type:'Advantages',  title:'Influence of Celebrities',    icon:'🌟'},
-  {id:45, topic:'Culture, Media & Family', type:'Discussion',  title:'Elderly Care',                icon:'👵'},
-  {id:46, topic:'Culture, Media & Family', type:'Problem',     title:'News Bias in Media',          icon:'📺'},
-  {id:47, topic:'Culture, Media & Family', type:'Advantages',  title:'Fast Fashion',                icon:'👗'},
-  {id:48, topic:'Culture, Media & Family', type:'Opinion',     title:'Advertising to Children',     icon:'🧒'},
-  {id:49, topic:'Culture, Media & Family', type:'Opinion',     title:'Gender Roles in Family',      icon:'👨‍👩‍👦'},
-  {id:50, topic:'Culture, Media & Family', type:'Discussion',  title:'International Aid',           icon:'🌐'}
+/* Header scroll */
+var hdr=document.getElementById('hdr');
+window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>30);},{passive:true});
+
+/* Dropdown */
+window.openDD=function(id){
+  document.querySelectorAll('.nav-it').forEach(function(el){if(el.id!==id)el.classList.remove('open');});
+  document.getElementById(id).classList.toggle('open');
+};
+document.addEventListener('click',function(e){if(!e.target.closest('.nav-it'))document.querySelectorAll('.nav-it').forEach(function(el){el.classList.remove('open');});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.nav-it').forEach(function(el){el.classList.remove('open');});closeDrawer();}});
+
+/* Drawer */
+window.openDrawer=function(){document.getElementById('mDrawer').classList.add('open');document.body.style.overflow='hidden';};
+window.closeDrawer=function(){document.getElementById('mDrawer').classList.remove('open');document.body.style.overflow='';};
+
+/* ── 50 TESTS ── */
+var TESTS=[
+  {id:1,  type:'Discussion Essay',   topic:'Technology & Society',         title:'AI & Automation',               icon:'🤖'},
+  {id:2,  type:'Opinion Essay',      topic:'Technology & Society',         title:'Social Media & Relationships',  icon:'📱'},
+  {id:3,  type:'Advantages & Disadvantages', topic:'Technology & Society', title:'Remote Work',                   icon:'🏠'},
+  {id:4,  type:'Opinion Essay',      topic:'Technology & Society',         title:'Online Learning',               icon:'🎓'},
+  {id:5,  type:'Problem & Solution', topic:'Technology & Society',         title:'Mobile Devices & Children',     icon:'👦'},
+  {id:6,  type:'Advantages & Disadvantages', topic:'Technology & Society', title:'Cashless Society',              icon:'💳'},
+  {id:7,  type:'Opinion Essay',      topic:'Technology & Society',         title:'Technological Gap',             icon:'📡'},
+  {id:8,  type:'Advantages & Disadvantages', topic:'Technology & Society', title:'News Consumption',              icon:'📰'},
+  {id:9,  type:'Opinion Essay',      topic:'Environment & Energy',         title:'Individual vs. Government',     icon:'🌍'},
+  {id:10, type:'Problem & Solution', topic:'Environment & Energy',         title:'Global Warming',                icon:'🌡️'},
+  {id:11, type:'Opinion Essay',      topic:'Environment & Energy',         title:'Fossil Fuels vs. Green Energy', icon:'⚡'},
+  {id:12, type:'Opinion Essay',      topic:'Environment & Energy',         title:'Plastic Pollution',             icon:'🌊'},
+  {id:13, type:'Problem & Solution', topic:'Environment & Energy',         title:'Loss of Biodiversity',          icon:'🦁'},
+  {id:14, type:'Opinion Essay',      topic:'Environment & Energy',         title:'Urban Green Spaces',            icon:'🌿'},
+  {id:15, type:'Discussion Essay',   topic:'Education & Youth',            title:'University vs. Vocational',     icon:'🏫'},
+  {id:16, type:'Opinion Essay',      topic:'Education & Youth',            title:'Compulsory Community Service',  icon:'🤝'},
+  {id:17, type:'Discussion Essay',   topic:'Education & Youth',            title:'Ability Grouping',              icon:'📚'},
+  {id:18, type:'Opinion Essay',      topic:'Education & Youth',            title:'Art and Music Funding',         icon:'🎨'},
+  {id:19, type:'Problem & Solution', topic:'Education & Youth',            title:'Graduate Unemployment',         icon:'💼'},
+  {id:20, type:'Discussion Essay',   topic:'Education & Youth',            title:'Boarding vs. Day School',       icon:'🏡'},
+  {id:21, type:'Opinion Essay',      topic:'Education & Youth',            title:'Homework Burden',               icon:'📝'},
+  {id:22, type:'Opinion Essay',      topic:'Health & Lifestyle',           title:'Sugar Tax',                     icon:'🍬'},
+  {id:23, type:'Opinion Essay',      topic:'Health & Lifestyle',           title:'Healthcare Funding',            icon:'🏥'},
+  {id:24, type:'Problem & Solution', topic:'Health & Lifestyle',           title:'Sedentary Lifestyles',          icon:'🏋️'},
+  {id:25, type:'Advantages & Disadvantages', topic:'Health & Lifestyle',   title:'Traditional vs. Modern Diet',   icon:'🥗'},
+  {id:26, type:'Problem & Solution', topic:'Health & Lifestyle',           title:'Mental Health at Work',         icon:'🧠'},
+  {id:27, type:'Problem & Solution', topic:'Urbanization & Globalization', title:'Rural-to-Urban Migration',      icon:'🏙️'},
+  {id:28, type:'Opinion Essay',      topic:'Urbanization & Globalization', title:'Public Transport vs. Cars',     icon:'🚌'},
+  {id:29, type:'Opinion Essay',      topic:'Urbanization & Globalization', title:'Loss of Local Culture',         icon:'🌏'},
+  {id:30, type:'Problem & Solution', topic:'Urbanization & Globalization', title:'Housing Shortages',             icon:'🏘️'},
+  {id:31, type:'Discussion Essay',   topic:'Urbanization & Globalization', title:'International Tourism',         icon:'✈️'},
+  {id:32, type:'Advantages & Disadvantages', topic:'Economy & Work',       title:'Universal Basic Income',        icon:'💰'},
+  {id:33, type:'Problem & Solution', topic:'Economy & Work',               title:'Work-Life Balance',             icon:'⚖️'},
+  {id:34, type:'Opinion Essay',      topic:'Economy & Work',               title:'Retirement Age',                icon:'👴'},
+  {id:35, type:'Problem & Solution', topic:'Economy & Work',               title:'Materialism & Consumerism',     icon:'🛍️'},
+  {id:36, type:'Problem & Solution', topic:'Economy & Work',               title:'Gender Pay Gap',                icon:'👩‍💼'},
+  {id:37, type:'Discussion Essay',   topic:'Government & Crime',           title:'Space Exploration vs. Poverty', icon:'🚀'},
+  {id:38, type:'Discussion Essay',   topic:'Government & Crime',           title:'CCTV and Privacy',              icon:'📷'},
+  {id:39, type:'Opinion Essay',      topic:'Government & Crime',           title:'Rehabilitation vs. Punishment', icon:'⚖️'},
+  {id:40, type:'Opinion Essay',      topic:'Government & Crime',           title:'Art & Infrastructure Budget',   icon:'🏛️'},
+  {id:41, type:'Opinion Essay',      topic:'Government & Crime',           title:'Youth Crime',                   icon:'🔐'},
+  {id:42, type:'Advantages & Disadvantages', topic:'Culture, Media & Family', title:'Working Parents',            icon:'👨‍👩‍👧'},
+  {id:43, type:'Opinion Essay',      topic:'Culture, Media & Family',      title:'Preserving Historic Buildings', icon:'🏰'},
+  {id:44, type:'Advantages & Disadvantages', topic:'Culture, Media & Family', title:'Influence of Celebrities',   icon:'🌟'},
+  {id:45, type:'Discussion Essay',   topic:'Culture, Media & Family',      title:'Elderly Care',                  icon:'👵'},
+  {id:46, type:'Problem & Solution', topic:'Culture, Media & Family',      title:'News Bias in Media',            icon:'📺'},
+  {id:47, type:'Advantages & Disadvantages', topic:'Culture, Media & Family', title:'Fast Fashion',               icon:'👗'},
+  {id:48, type:'Opinion Essay',      topic:'Culture, Media & Family',      title:'Advertising to Children',       icon:'🧒'},
+  {id:49, type:'Opinion Essay',      topic:'Culture, Media & Family',      title:'Gender Roles in Family',        icon:'👨‍👩‍👦'},
+  {id:50, type:'Discussion Essay',   topic:'Culture, Media & Family',      title:'International Aid',             icon:'🌐'}
 ];
 
-
-var TYPE_BADGE = {
-  'Opinion':    {cls:'badge-opinion',    label:'Opinion Essay'},
-  'Discussion': {cls:'badge-discussion', label:'Discussion Essay'},
-  'Advantages': {cls:'badge-advantages', label:'Advantages & Disadvantages'},
-  'Problem':    {cls:'badge-problem',    label:'Problem & Solution'}
+var TYPE_BADGE={
+  'Opinion Essay':            {cls:'b-op',  label:'Opinion Essay'},
+  'Discussion Essay':         {cls:'b-di',  label:'Discussion Essay'},
+  'Advantages & Disadvantages':{cls:'b-ad', label:'Adv & Disadvantages'},
+  'Problem & Solution':       {cls:'b-pr',  label:'Problem & Solution'}
 };
 
-var currentFilter = 'all';
-var currentSearch = '';
-
-function esc(s){
-  return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
+var activeFilter='all', activeSearch='';
 
 function renderGrid(){
-  var grid = document.getElementById('tGrid');
-  if(!grid) return;
-  var q = currentSearch.trim().toLowerCase();
-  var filtered = TESTS.filter(function(t){
-    var typeMatch = currentFilter === 'all' || t.type.toLowerCase() === currentFilter;
-    var searchMatch = !q ||
-      t.title.toLowerCase().indexOf(q) > -1 ||
-      t.topic.toLowerCase().indexOf(q) > -1 ||
-      t.type.toLowerCase().indexOf(q) > -1;
-    return typeMatch && searchMatch;
+  var q=(activeSearch||'').toLowerCase().trim();
+  var filtered=TESTS.filter(function(t){
+    var fm=(activeFilter==='all'||t.type===activeFilter);
+    var sm=!q||(t.title.toLowerCase().indexOf(q)>-1||t.topic.toLowerCase().indexOf(q)>-1);
+    return fm&&sm;
   });
-
-  if(filtered.length === 0){
-    grid.innerHTML = '<div class="no-results" style="grid-column:1/-1"><div class="nr-icon">🔍</div><p>No tests found. Try a different filter or search term.</p></div>';
+  var cnt=document.getElementById('cnt');
+  if(cnt)cnt.textContent=filtered.length;
+  var grid=document.getElementById('tGrid');
+  if(!grid)return;
+  if(!filtered.length){
+    grid.innerHTML='<div class="empty-state"><i class="fa fa-search" style="font-size:2rem;margin-bottom:12px;display:block;opacity:.4"></i><p style="font-size:.95rem">No tests found. Try a different filter.</p></div>';
     return;
   }
-
-  var html = '';
+  var html='';
   for(var i=0;i<filtered.length;i++){
-    var t = filtered[i];
-    var badge = TYPE_BADGE[t.type] || {cls:'badge-opinion', label:t.type};
-    html += '<div class="test-card" onclick="window.location.href=\'/wriring-task-2-test/?test='+t.id+'\'">' +
-      '<div class="card-top">' +
-        '<span class="card-icon">'+esc(t.icon)+'</span>' +
-        '<span class="card-num">Test #'+t.id+'</span>' +
-      '</div>' +
-      '<span class="card-type-badge '+badge.cls+'">'+esc(badge.label)+'</span>' +
-      '<div class="card-title">'+esc(t.title)+'</div>' +
-      '<div class="card-topic">'+esc(t.topic)+'</div>' +
-      '<div class="card-footer">' +
-        '<span class="card-start">Start Practice →</span>' +
-      '</div>' +
-    '</div>';
+    var t=filtered[i];
+    var b=TYPE_BADGE[t.type]||{cls:'b-op',label:t.type};
+    html+='<a class="t-card" href="/wriring-task-2-test/?test='+t.id+'">'
+      +'<div class="tc-top"><span class="tc-num">TEST #'+String(t.id).padStart(2,'0')+'</span>'
+      +'<span class="tc-badge '+b.cls+'">'+b.label+'</span></div>'
+      +'<div class="tc-icon">'+t.icon+'</div>'
+      +'<div class="tc-title">'+t.title+'</div>'
+      +'<div class="tc-topic"><i class="fa fa-tag" style="font-size:9px;margin-right:4px;opacity:.5"></i>'+t.topic+'</div>'
+      +'<div class="tc-action">Start Writing <i class="fa fa-arrow-right"></i></div>'
+      +'</a>';
   }
-  grid.innerHTML = html;
+  grid.innerHTML=html;
+  /* fade in */
+  grid.querySelectorAll('.t-card').forEach(function(el,i){
+    el.style.opacity='0';el.style.transform='translateY(12px)';
+    el.style.transition='opacity .35s ease '+(i*.025)+'s,transform .35s ease '+(i*.025)+'s';
+    setTimeout(function(){el.style.opacity='1';el.style.transform='none';},20);
+  });
 }
 
-window.setFilter = function(f){
-  currentFilter = f;
-  var btns = document.querySelectorAll('.tab-btn');
-  for(var i=0;i<btns.length;i++){
-    var b = btns[i];
-    var match = (f === 'all' && b.textContent.indexOf('All') === 0) ||
-                (f !== 'all' && b.textContent.toLowerCase().indexOf(f) === 0);
-    b.classList.toggle('active', !!match);
-  }
+window.setFilter=function(f,btn){
+  activeFilter=f;
+  document.querySelectorAll('.f-tab').forEach(function(b){b.classList.remove('on');});
+  if(btn)btn.classList.add('on');
   renderGrid();
 };
 
-window.doSearch = function(){
-  var inp = document.getElementById('searchInput');
-  currentSearch = inp ? inp.value : '';
+window.doSearch=function(){
+  var inp=document.getElementById('searchInp');
+  activeSearch=inp?inp.value:'';
   renderGrid();
 };
 
-document.addEventListener('DOMContentLoaded', function(){
-  renderGrid();
-});
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',renderGrid);
+}else{renderGrid();}
 
 })();
-</script>
-
-
-<script>
-function toggleMobileNav(){
-  var nav = document.getElementById('mobileNav');
-  if(nav) nav.classList.toggle('open');
-}
-function closeMobileNavOutside(e){
-  if(e.target === document.getElementById('mobileNav')) toggleMobileNav();
-}
 </script>
 </body>
 </html>

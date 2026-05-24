@@ -210,6 +210,21 @@ body{font-family:var(--sans);background:var(--bg);color:var(--tx);min-height:100
 /* Re-evaluate btn */
 .re-eval-btn{width:100%;padding:13px;background:#fff;color:var(--blue);border:2px solid var(--blue);border-radius:var(--radius);font-family:var(--sans);font-size:.9rem;font-weight:700;cursor:pointer;transition:all .15s;margin-top:4px}
 .re-eval-btn:hover{background:var(--bluef)}
+
+/* Vocab upgrade blocks */
+.vocab-upgrade-block{background:var(--orangef);border:1px solid var(--orangeb);border-radius:10px;padding:11px 14px;margin-bottom:8px}
+.vocab-upgrade-block:last-child{margin-bottom:0}
+.vu-current{font-size:.82rem;color:var(--orange);margin-bottom:7px}
+.vu-current strong{font-weight:700}
+.vu-opts{display:flex;flex-wrap:wrap;gap:6px}
+
+/* Fullscreen button */
+.fs-btn{width:34px;height:34px;border:1.5px solid var(--border);border-radius:8px;background:#fff;color:var(--tx3);font-size:.85rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0;font-family:var(--sans)}
+.fs-btn:hover{border-color:var(--blue);color:var(--blue)}
+/* Full-screen active state */
+:fullscreen .topbar{position:fixed;top:0;left:0;right:0;z-index:9999}
+:fullscreen body{overflow-y:auto}
+:-webkit-full-screen .topbar{position:fixed;top:0;left:0;right:0;z-index:9999}
 </style>
 
 <!-- TOP BAR -->
@@ -228,6 +243,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--tx);min-height:100
       <button class="tb-nav-btn" id="prevBtn" title="Previous test" onclick="navTest(-1)">◀</button>
       <button class="tb-nav-btn" id="nextBtn" title="Next test" onclick="navTest(1)">▶</button>
     </div>
+    <button class="fs-btn" id="fsBtn" title="Toggle fullscreen" onclick="toggleFS()">⛶</button>
   </div>
 </div>
 
@@ -546,25 +562,127 @@ function tryModels(essay, q){
 }
 
 function buildPrompt(essay, q){
-  return `You are a strict IELTS examiner with 10 years of official Cambridge Assessment marking experience.
-CRITICAL: Be REALISTIC and HARSH. Do NOT inflate scores. Most candidates score 5.5–6.5, not 7+.
+  return `You are a certified IELTS Academic Writing Task 2 examiner.
+Your task is to evaluate the candidate's essay exactly like a real IELTS examiner.
+You are NOT a writing assistant. You are NOT an essay rewriter. You are an examiner.
 
-TASK: IELTS Writing Task 2 — ${q.type}
+TASK TYPE: ${q.type}
 QUESTION: ${q.question}
 ESSAY: ${essay}
 
-BAND GUIDE (be strict):
-Band 9: Near perfect. Only 1 in 500 candidates.
-Band 8: Very few errors. Very rare.
-Band 7: Good with occasional errors.
-Band 6.5: Noticeable errors in grammar OR vocabulary.
-Band 6: Frequent errors affecting communication.
-Band 5.5: Many errors. Limited range. MOST common.
-Band 5: Significant errors throughout.
+================================================
+SCORING RULES
+================================================
 
-Return ONLY valid JSON. No markdown. Start with { end with }
+Score each criterion: 0, 0.5, 1.0 ... up to 9.0
 
-{"overall_band":6.0,"verdict":"Modest User — frequent grammar errors reduce the score.","overview":"Two honest sentences about essay quality.","word_count":255,"vocab_score":42,"criteria":{"task_achievement":{"score":6.0,"label":"Task Response","summary":"Assessment.","strengths":["s1","s2"],"improvements":["i1","i2"]},"coherence":{"score":5.5,"label":"Coherence and Cohesion","summary":"Assessment.","strengths":["s1"],"improvements":["i1","i2"]},"lexical":{"score":6.0,"label":"Lexical Resource","summary":"Assessment.","strengths":["s1"],"improvements":["i1"]},"grammar":{"score":5.5,"label":"Grammatical Range & Accuracy","summary":"Assessment.","strengths":["s1"],"improvements":["i1","i2"]}},"grammar_corrections":[{"wrong":"exact wrong phrase from essay","right":"corrected version","error_type":"Tense Error"},{"wrong":"exact wrong phrase","right":"corrected","error_type":"Article Missing"}],"spelling_errors":[{"wrong":"misspelled","right":"correct","context":"sentence it appeared in"}],"vocab_weak_pairs":[{"wrong":"exact weak word from essay","better":"academic alternative","reason":"why weak"},{"wrong":"another weak word","better":"better option","reason":"overused"}],"better_pool":["consequently","furthermore","substantial","predominantly","mitigate","exacerbate","lucrative","detrimental"],"key_strengths":["specific strength with evidence","strength 2","strength 3"],"priority_improvements":["specific action 1","specific action 2","specific action 3"],"motivational_feedback":"Two honest encouraging sentences.","next_steps":["specific weekly task","grammar drill","mock test plan"],"model_answer_opening":"3-4 Band 9 quality sentences for this exact task prompt.","examiner_note_strict":"One unique specific observation about this script."}`;
+Overall Band = average of all four, rounded by IELTS rules:
+- .25 → round DOWN
+- .75 → round UP
+Example: 7+7+6+7 = 6.75 → Overall 7.0
+
+CRITERION 1 — TASK RESPONSE
+✓ Answers ALL parts of the task
+✓ Clear position maintained throughout
+✓ Main ideas well developed with relevant support
+✗ Do NOT reward memorized templates or unnecessary complexity
+
+CRITERION 2 — COHERENCE & COHESION
+✓ Paragraph organization and logical progression
+✓ Transitions and referencing
+✗ Do NOT penalize "On one hand / On the other hand" unless repetitive
+
+CRITERION 3 — LEXICAL RESOURCE
+✓ Vocabulary range, natural collocations, precision
+✓ Topic-specific language, repetition control
+✗ Do NOT penalize necessary keyword repetition (e.g. social media, education, technology)
+✗ Do NOT suggest unnatural academic synonyms like "primary catalyst" for "main problem"
+GOOD upgrades: main issue → central concern / underlying factor
+
+CRITERION 4 — GRAMMATICAL RANGE & ACCURACY
+✓ Sentence variety, accuracy, clauses, punctuation
+✗ Only mark REAL grammar errors. Never overcorrect.
+✗ "social media has become" is CORRECT. Do not change it.
+
+GRAMMAR CORRECTIONS — max 5 real mistakes only:
+Format: { original, corrected, reason }
+If grammar mostly accurate, return empty array.
+
+VOCABULARY UPGRADES — max 5 useful improvements only:
+Format: { current, better_options: ["opt1","opt2"], reason }
+Prefer Band 7–8 vocabulary. Never force unnatural academic words.
+
+STRONG VOCABULARY — reward good words actually used in the essay.
+
+REPETITION — flag words used 4+ times (excluding topic keywords).
+
+================================================
+BAND SCORE GUIDE
+================================================
+9 → fully developed, virtually no errors
+8 → well developed, rare errors
+7 → sufficiently developed, some errors
+6 → underdeveloped, noticeable errors
+5 → partially addresses task, frequent errors
+4 → minimal response, many errors
+
+================================================
+RETURN ONLY VALID JSON — no markdown, no explanation
+================================================
+
+{
+  "overall_band": 6.5,
+  "headline": "One-line summary of essay performance",
+  "verdict": "Competent User — clear argument but vocabulary range is limited.",
+  "overview": "Two honest sentences about overall essay quality.",
+  "word_count": 262,
+  "criteria": {
+    "task_achievement": {
+      "score": 6.5,
+      "label": "Task Response",
+      "summary": "Assessment sentence.",
+      "strengths": ["strength 1", "strength 2"],
+      "improvements": ["improvement 1", "improvement 2"]
+    },
+    "coherence": {
+      "score": 6.5,
+      "label": "Coherence and Cohesion",
+      "summary": "Assessment sentence.",
+      "strengths": ["strength 1"],
+      "improvements": ["improvement 1"]
+    },
+    "lexical": {
+      "score": 6.0,
+      "label": "Lexical Resource",
+      "summary": "Assessment sentence.",
+      "strengths": ["strength 1"],
+      "improvements": ["improvement 1"]
+    },
+    "grammar": {
+      "score": 6.0,
+      "label": "Grammatical Range and Accuracy",
+      "summary": "Assessment sentence.",
+      "strengths": ["strength 1"],
+      "improvements": ["improvement 1"]
+    }
+  },
+  "grammar_corrections": [
+    { "original": "exact wrong phrase from essay", "corrected": "corrected version", "reason": "Subject-verb agreement" }
+  ],
+  "vocab_upgrades": [
+    { "current": "weak word from essay", "better_options": ["better option 1", "better option 2"], "reason": "why this is an improvement" }
+  ],
+  "strong_vocab": ["good word 1", "good word 2", "good phrase 3"],
+  "repetition": [
+    { "word": "repeated word", "count": 5 }
+  ],
+  "key_strengths": ["specific strength with evidence", "strength 2", "strength 3"],
+  "priority_improvements": ["specific action 1", "specific action 2", "specific action 3"],
+  "motivational_feedback": "Two honest encouraging sentences.",
+  "next_steps": ["specific weekly task", "grammar drill", "mock test plan"],
+  "model_answer_opening": "3-4 Band 9 quality sentences for this exact task prompt.",
+  "examiner_comment": "50-80 word final examiner comment rewarding clarity, natural English, good argument development. Do not inflate. Do not overcriticize."
+}`;
 }
 
 function callGemini(model, essay, q){
@@ -608,13 +726,17 @@ function showResults(d){
   const keys=['task_achievement','coherence','lexical','grammar'];
   const bandCol=band>=7.5?'#057a55':band>=6.5?'#d97706':band>=5.5?'#c2410c':'#e02424';
 
-  /* Band */
+  /* Band circle */
   const circle=g('bandCircle');
   circle.style.borderColor=bandCol;
   circle.style.boxShadow='0 0 24px '+bandCol+'33';
   const bn=g('bandNum'); bn.textContent=band.toFixed(1); bn.style.color='#fff';
   g('bandVerdict').textContent=d.verdict||bandLabel(band);
-  g('bandOverview').textContent=d.overview||'';
+  /* headline under verdict */
+  const ov=g('bandOverview');
+  ov.innerHTML='';
+  if(d.headline){ const h=document.createElement('div'); h.style.cssText='font-size:.78rem;font-weight:700;color:rgba(255,255,255,.9);margin-bottom:4px'; h.textContent=d.headline; ov.appendChild(h); }
+  if(d.overview){ const p=document.createElement('div'); p.style.cssText='font-size:.78rem;color:rgba(255,255,255,.65);line-height:1.6'; p.textContent=d.overview; ov.appendChild(p); }
 
   /* Criteria tiles */
   const cr=g('critRow');
@@ -622,7 +744,7 @@ function showResults(d){
     const c=crit[k];if(!c)return'';
     const sc=parseFloat(c.score)||0;
     const col=CRIT_COLS[k];
-    const lbl=(c.label||k).replace('Task Response','Task Resp.').replace('Coherence and Cohesion','Coherence').replace('Lexical Resource','Lexical').replace('Grammatical Range & Accuracy','Grammar');
+    const lbl=(c.label||k).replace('Task Response','Task Resp.').replace('Coherence and Cohesion','Coherence').replace('Lexical Resource','Lexical').replace('Grammatical Range and Accuracy','Grammar').replace('Grammatical Range & Accuracy','Grammar');
     return `<div class="crit-item">
       <div class="crit-val" style="color:${col}">${sc.toFixed(1)}</div>
       <div class="crit-bar-bg"><div class="crit-bar-fill" data-w="${sc/9*100}%" style="width:0%;background:${col}"></div></div>
@@ -639,62 +761,73 @@ function showResults(d){
   /* Accordions */
   const wrap=g('accWrap'); let html='';
 
+  /* 1 — Overall Strengths */
   if(d.key_strengths?.length){
     html+=mkAcc('✅','Overall Strengths',null,'#057a55',
       `<div class="pt-list">${d.key_strengths.map(s=>`<div class="pt str">✓ ${esc(s)}</div>`).join('')}</div>`,true);
   }
+
+  /* 2 — Priority Improvements */
   if(d.priority_improvements?.length){
     html+=mkAcc('🎯','Priority Improvements',null,'#c2410c',
       `<div class="pt-list">${d.priority_improvements.map(s=>`<div class="pt imp">→ ${esc(s)}</div>`).join('')}</div>`,true);
   }
 
+  /* 3 — Grammar Corrections (new schema: original/corrected/reason) */
   const gc=d.grammar_corrections||[];
   if(gc.length){
-    const badge=`<span class="acc-badge" style="background:var(--redf);color:var(--red);border:1px solid var(--redb)">${gc.length} errors</span>`;
-    const body=gc.map((item,i)=>`
-      <div class="err-block">
-        <div class="err-type-row"><span class="err-num">${i+1}</span><span class="err-type-badge">${esc(item.error_type||'Grammar Error')}</span></div>
+    const badge=`<span class="acc-badge" style="background:var(--redf);color:var(--red);border:1px solid var(--redb)">${gc.length} error${gc.length>1?'s':''}</span>`;
+    const body=gc.map((item,i)=>{
+      const orig=item.original||item.wrong||'';
+      const corr=item.corrected||item.right||'';
+      const reason=item.reason||item.error_type||'Grammar Error';
+      return `<div class="err-block">
+        <div class="err-type-row"><span class="err-num">${i+1}</span><span class="err-type-badge">${esc(reason)}</span></div>
         <div class="err-row">
-          <div class="err-wrong">❌ ${esc(item.wrong||'')}</div>
+          <div class="err-wrong">❌ ${esc(orig)}</div>
           <div class="err-sep">→</div>
-          <div class="err-right">✅ ${esc(item.right||item.corrected||'')}</div>
+          <div class="err-right">✅ ${esc(corr)}</div>
         </div>
-      </div>`).join('');
+      </div>`;
+    }).join('');
     html+=mkAcc('✍️','Grammar Corrections',badge,'#e02424',body,true);
   }
 
-  const se=d.spelling_errors||[];
-  if(se.length){
-    const badge=`<span class="acc-badge" style="background:var(--orangef);color:var(--orange);border:1px solid var(--orangeb)">${se.length} found</span>`;
-    const body=se.map(item=>`
-      <div class="spell-row">
-        <div class="spell-wrong">✗ ${esc(item.wrong||'')}</div>
-        <div class="spell-sep">→</div>
-        <div class="spell-right">✓ ${esc(item.right||'')}</div>
-      </div>
-      ${item.context?`<div class="spell-ctx">In: "${esc(item.context)}"</div>`:''}`).join('');
-    html+=mkAcc('🔤','Spelling Errors',badge,'#c2410c',body,false);
-  }
-
-  const pairs=d.vocab_weak_pairs||[], pool=d.better_pool||[];
-  if(pairs.length||pool.length){
-    const badge=pairs.length?`<span class="acc-badge" style="background:var(--orangef);color:var(--orange);border:1px solid var(--orangeb)">${pairs.length} issues</span>`:'';
+  /* 4 — Vocabulary Upgrades (new schema: current / better_options[] / reason) */
+  const vu=d.vocab_upgrades||d.vocab_weak_pairs||[];
+  const sv=d.strong_vocab||[];
+  if(vu.length||sv.length){
+    const badge=vu.length?`<span class="acc-badge" style="background:var(--orangef);color:var(--orange);border:1px solid var(--orangeb)">${vu.length} upgrade${vu.length>1?'s':''}</span>`:'';
     let body='';
-    if(pairs.length){
-      body+=`<div class="acc-sub">Weak Words → Smarter Alternatives</div>`;
-      body+=pairs.map(p=>`
-        <div class="vocab-weak">
-          <div class="vw-left">❌ ${esc(p.wrong||'')}${p.reason?`<span class="vw-reason">(${esc(p.reason)})</span>`:''}</div>
-          <div class="vw-sep">→</div>
-          <div class="vw-right">✔ ${esc(p.better||'')}</div>
-        </div>`).join('');
+    if(vu.length){
+      body+=`<div class="acc-sub">💡 Vocabulary Upgrades</div>`;
+      body+=vu.map(p=>{
+        const cur=p.current||p.wrong||'';
+        const opts=Array.isArray(p.better_options)?p.better_options:(p.better?[p.better]:[]);
+        const reason=p.reason||'';
+        return `<div class="vocab-upgrade-block">
+          <div class="vu-current">Current: <strong>${esc(cur)}</strong>${reason?` <span class="vw-reason">(${esc(reason)})</span>`:''}</div>
+          <div class="vu-opts">${opts.map(o=>`<span class="better-pill">✔ ${esc(o)}</span>`).join('')}</div>
+        </div>`;
+      }).join('');
     }
-    if(pool.length){
-      body+=`<div class="better-pool-box"><div class="better-pool-title">👉 Use These in Your Next Essay</div><div class="better-pills">${pool.map(w=>`<span class="better-pill">✔ ${esc(w)}</span>`).join('')}</div></div>`;
+    if(sv.length){
+      body+=`<div class="acc-sub" style="margin-top:14px">⭐ Strong Vocabulary Used Well</div>`;
+      body+=`<div class="better-pills">${sv.map(w=>`<span class="better-pill" style="background:rgba(26,86,219,.08);border-color:var(--blueb);color:var(--blue)">✓ ${esc(w)}</span>`).join('')}</div>`;
     }
-    html+=mkAcc('📚','Vocabulary — Weak Words & Better Alternatives',badge,'#6c2bd9',body,false);
+    html+=mkAcc('📚','Vocabulary Analysis',badge,'#6c2bd9',body,false);
   }
 
+  /* 5 — Repetition Analysis */
+  const rep=d.repetition||[];
+  if(rep.length){
+    const badge=`<span class="acc-badge" style="background:var(--yellowf);color:var(--yellow);border:1px solid var(--yellowb)">${rep.length} flagged</span>`;
+    const body=`<div class="acc-sub">Words used 4+ times (excluding topic keywords)</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px">${rep.map(r=>`<span style="display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:100px;background:var(--yellowf);border:1px solid var(--yellowb);font-size:.78rem;font-weight:700;color:var(--yellow)">🔁 ${esc(r.word||r)} <span style="font-size:.65rem;opacity:.7">×${r.count||''}</span></span>`).join('')}</div>`;
+    html+=mkAcc('🔁','Repetition Analysis',badge,'#9f580a',body,false);
+  }
+
+  /* 6 — Per-criterion detail accordions */
   keys.forEach(k=>{
     const c=crit[k];if(!c)return;
     const sc=parseFloat(c.score)||0;const col=CRIT_COLS[k];
@@ -706,13 +839,15 @@ function showResults(d){
     html+=mkAcc(null,c.label||k,badge,col,body,false);
   });
 
+  /* 7 — Band 9 Model Opening */
   if(d.model_answer_opening){
     html+=mkAcc('💎','Band 9 Model Opening',null,'#d97706',
       `<div class="model-label">How a Band 9 response would open this task:</div><div class="model-box">${esc(d.model_answer_opening)}</div>`,false);
   }
+
   wrap.innerHTML=html;
 
-  /* Motivational */
+  /* Motivational card */
   if(d.motivational_feedback){ g('motivCard').style.display='block'; g('motivTxt').textContent=d.motivational_feedback; }
 
   /* Next steps */
@@ -723,10 +858,11 @@ function showResults(d){
     g('nsItems').innerHTML=steps.map((s,i)=>`<div class="ns-item"><div class="ns-item-ico">${icons[i]||'📌'}</div><div><div class="ns-item-lbl">${lbls[i]||'Step '+(i+1)}</div><div class="ns-item-txt">${esc(s)}</div></div></div>`).join('');
   }
 
-  /* Examiner note */
-  if(d.examiner_note_strict||d.examiner_note){
+  /* Final Examiner Comment (new field) */
+  const comment=d.examiner_comment||d.examiner_note_strict||d.examiner_note||'';
+  if(comment){
     g('examNote').style.display='block';
-    g('examTxt').textContent=d.examiner_note_strict||d.examiner_note;
+    g('examTxt').textContent=comment;
   }
 
   setTimeout(()=>{ g('resultsSection').scrollIntoView({behavior:'smooth',block:'start'}); },120);
@@ -755,6 +891,33 @@ function bandLabel(b){
   if(b>=8.5)return'Expert User';if(b>=7.5)return'Very Good User';
   if(b>=6.5)return'Competent User';if(b>=5.5)return'Modest User';
   if(b>=4.5)return'Limited User';return'Extremely Limited User';
+}
+
+/* FULLSCREEN */
+function toggleFS(){
+  var btn=g('fsBtn');
+  var el=document.documentElement;
+  var isFS=!!(document.fullscreenElement||document.webkitFullscreenElement||document.mozFullScreenElement);
+  if(isFS){
+    if(document.exitFullscreen) document.exitFullscreen();
+    else if(document.webkitExitFullscreen) document.webkitExitFullscreen();
+    else if(document.mozCancelFullScreen) document.mozCancelFullScreen();
+  } else {
+    if(el.requestFullscreen) el.requestFullscreen();
+    else if(el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+    else if(el.mozRequestFullScreen) el.mozRequestFullScreen();
+  }
+}
+document.addEventListener('fullscreenchange',syncFSBtn);
+document.addEventListener('webkitfullscreenchange',syncFSBtn);
+document.addEventListener('mozfullscreenchange',syncFSBtn);
+function syncFSBtn(){
+  var btn=g('fsBtn');if(!btn)return;
+  var isFS=!!(document.fullscreenElement||document.webkitFullscreenElement||document.mozFullScreenElement);
+  btn.textContent=isFS?'✕':'⛶';
+  btn.title=isFS?'Exit fullscreen':'Enter fullscreen';
+  btn.style.borderColor=isFS?'var(--blue)':'var(--border)';
+  btn.style.color=isFS?'var(--blue)':'var(--tx3)';
 }
 
 /* INIT — use DOMContentLoaded to guarantee DOM is ready before populating */

@@ -43,39 +43,39 @@ body{font-family:var(--sans);background:var(--bg);color:var(--tx);min-height:100
 .tb-nav-btn:hover{border-color:var(--blue);color:var(--blue)}
 .tb-nav-btn:disabled{opacity:.35;cursor:not-allowed}
 
-/* SPLIT LAYOUT */
-.split{display:grid;grid-template-columns:1fr 1fr;flex:1;min-height:0;height:calc(100vh - 56px)}
-@media(max-width:768px){.split{grid-template-columns:1fr;height:auto}}
+/* TOP-BOTTOM LAYOUT */
+.split{display:flex;flex-direction:column;flex:1;min-height:0}
 
-/* LEFT — QUESTION PANEL */
-.q-panel{background:#fff;border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden}
-.q-panel-hdr{padding:16px 20px;border-bottom:1px solid var(--border);background:var(--bg);display:flex;align-items:center;gap:10px;flex-shrink:0}
+/* TOP — QUESTION PANEL */
+.q-panel{background:#fff;border-bottom:2px solid var(--border);display:flex;flex-direction:column}
+.q-panel-hdr{padding:14px 24px;border-bottom:1px solid var(--border);background:var(--bg);display:flex;align-items:center;gap:10px;flex-shrink:0}
 .q-panel-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx4)}
 .q-type-badge{font-size:.62rem;font-weight:700;padding:3px 9px;border-radius:100px;margin-left:auto}
 .badge-opinion{background:var(--bluef);color:var(--blue);border:1px solid var(--blueb)}
 .badge-discuss{background:var(--purplef);color:var(--purple);border:1px solid var(--purpleb)}
 .badge-advantage{background:var(--greenf);color:var(--green);border:1px solid var(--greenb)}
 .badge-problem{background:var(--redf);color:var(--red);border:1px solid var(--redb)}
-.q-body{flex:1;overflow-y:auto;padding:24px 22px}
-.q-topic-tag{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:600;color:var(--tx4);background:var(--bg);border:1px solid var(--border);border-radius:100px;padding:4px 12px;margin-bottom:16px}
-.q-number{font-size:.75rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
-.q-title{font-size:1.1rem;font-weight:800;color:var(--tx);margin-bottom:16px;line-height:1.3}
-.q-divider{height:2px;background:linear-gradient(90deg,var(--blue),transparent);border-radius:100px;margin-bottom:18px;width:48px}
-.q-text{font-size:.97rem;color:var(--tx2);line-height:1.85;font-weight:400}
-.q-tip{background:var(--bluef);border:1px solid var(--blueb);border-radius:10px;padding:13px 16px;margin-top:22px}
+.q-body{padding:20px 24px;display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start}
+.q-body-left{flex:1;min-width:260px}
+.q-topic-tag{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:600;color:var(--tx4);background:var(--bg);border:1px solid var(--border);border-radius:100px;padding:4px 12px;margin-bottom:10px}
+.q-number{font-size:.75rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.q-title{font-size:1.05rem;font-weight:800;color:var(--tx);margin-bottom:12px;line-height:1.3}
+.q-divider{height:2px;background:linear-gradient(90deg,var(--blue),transparent);border-radius:100px;margin-bottom:14px;width:48px}
+.q-text{font-size:.95rem;color:var(--tx2);line-height:1.8;font-weight:400}
+.q-tip{background:var(--bluef);border:1px solid var(--blueb);border-radius:10px;padding:12px 15px;margin-top:14px;max-width:340px}
 .q-tip-label{font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:5px}
-.q-tip-text{font-size:.8rem;color:var(--tx3);line-height:1.55}
+.q-tip-text{font-size:.78rem;color:var(--tx3);line-height:1.55}
 
-/* RIGHT — WRITE PANEL */
-.w-panel{display:flex;flex-direction:column;background:var(--bg);overflow:hidden}
-.w-panel-hdr{padding:12px 20px;border-bottom:1px solid var(--border);background:#fff;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;gap:10px;flex-wrap:wrap}
+/* BOTTOM — WRITE PANEL */
+.w-panel{display:flex;flex-direction:column;background:var(--bg)}
+.w-panel-hdr{padding:12px 24px;border-bottom:1px solid var(--border);background:#fff;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;gap:10px;flex-wrap:wrap}
 .w-panel-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx4)}
 .wc-wrap{display:flex;align-items:center;gap:8px}
 .wc-bar-bg{width:100px;height:6px;background:var(--border);border-radius:100px;overflow:hidden}
 .wc-bar-fill{height:100%;border-radius:100px;transition:width .3s,background .3s;width:0%}
 .wc-label{font-size:.78rem;font-weight:700;min-width:60px;text-align:right;font-variant-numeric:tabular-nums}
-.w-body{flex:1;padding:16px;display:flex;flex-direction:column;gap:12px;overflow-y:auto}
-.essay-textarea{flex:1;width:100%;min-height:320px;padding:16px;border:2px solid var(--border2);border-radius:var(--radius);font-family:var(--sans);font-size:.95rem;color:var(--tx);line-height:1.85;resize:none;outline:none;background:#fff;transition:border .2s;box-shadow:var(--shadow)}
+.w-body{padding:16px 24px;display:flex;flex-direction:column;gap:12px}
+.essay-textarea{width:100%;min-height:280px;padding:16px;border:2px solid var(--border2);border-radius:var(--radius);font-family:var(--sans);font-size:.95rem;color:var(--tx);line-height:1.85;resize:vertical;outline:none;background:#fff;transition:border .2s;box-shadow:var(--shadow)}
 .essay-textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,86,219,.08)}
 .essay-textarea::placeholder{color:var(--tx4)}
 .w-actions{display:flex;gap:10px;flex-wrap:wrap}
@@ -109,7 +109,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--tx);min-height:100
 <!-- RESULTS STYLES -->
 <style>
 /* RESULTS */
-.results-section{display:none;padding:0 16px 24px}
+.results-section{display:none;padding:0 24px 24px}
 .results-section.on{display:block}
 
 /* Band card */
@@ -214,7 +214,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--tx);min-height:100
 
 <!-- TOP BAR -->
 <div class="topbar">
-  <a class="tb-back" href="https://computerielts.com/writing-practice/" id="backBtn">← Back</a>
+  <a class="tb-back" href="https://computerielts.com/ielts-writing-task-2-pracctice-test/" id="backBtn">← Back</a>
   <div class="tb-info">
     <div class="tb-test-label">Writing Task 2 · Academic</div>
     <div class="tb-test-title" id="tbTitle">Loading...</div>
@@ -240,14 +240,16 @@ body{font-family:var(--sans);background:var(--bg);color:var(--tx);min-height:100
       <span class="q-type-badge badge-opinion" id="qTypeBadge">Opinion Essay</span>
     </div>
     <div class="q-body">
-      <div class="q-topic-tag" id="qTopicTag">💻 Technology & Society</div>
-      <div class="q-number" id="qNumber">Test #1</div>
-      <div class="q-title" id="qTitle">Loading question...</div>
-      <div class="q-divider"></div>
-      <div class="q-text" id="qText"></div>
+      <div class="q-body-left">
+        <div class="q-topic-tag" id="qTopicTag">💻 Technology & Society</div>
+        <div class="q-number" id="qNumber">Test #1</div>
+        <div class="q-title" id="qTitle">Loading question...</div>
+        <div class="q-divider"></div>
+        <div class="q-text" id="qText"></div>
+      </div>
       <div class="q-tip">
         <div class="q-tip-label">💡 Examiner Tip</div>
-        <div class="q-tip-text" id="qTip">Write at least 250 words. Plan your essay: Introduction → Body 1 → Body 2 → Conclusion. Use linking words and varied vocabulary.</div>
+        <div class="q-tip-text" id="qTip">Write at least 250 words. Plan your essay: Introduction → Body 1 → Body 2 → Conclusion.</div>
       </div>
     </div>
   </div>
@@ -274,7 +276,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--tx);min-height:100
     </div>
 
     <!-- Loading -->
-    <div class="loading-overlay" id="ldOverlay" style="margin:16px">
+    <div class="loading-overlay" id="ldOverlay" style="margin:16px 24px">
       <div class="ld-spinner"></div>
       <div class="ld-title">Evaluating your essay...</div>
       <div class="ld-sub">Applying strict IELTS examiner standards</div>
@@ -334,8 +336,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--tx);min-height:100
 
 <script>
 const _K = 'AIzaSyB9FPPi29aCS0lZwYnkD-m3IScrJDQhOfA';
-const MODELS = ['gemini-2.0-flash-lite','gemini-1.5-flash','gemini-1.5-flash-002','gemini-1.5-pro'];
-const LIST_PAGE = 'https://computerielts.com/writing-practice/';
+const MODELS = ['gemini-2.0-flash-preview'];
+const LIST_PAGE = 'https://computerielts.com/ielts-writing-task-2-pracctice-test/';
 
 const QUESTIONS = [
   {id:1,topic:'Technology & Society',type:'Discussion Essay',title:'AI & Automation',question:'Some people believe that artificial intelligence will replace humans in most fields of work. Others think AI will create more high-skilled opportunities. Discuss both views and give your opinion.',tip:'Address both views equally, then clearly state your own position in the conclusion.'},
@@ -487,7 +489,6 @@ function doEvaluate(){
   g('ldOverlay').className='loading-overlay on';
   g('submitBtn').disabled=true;
   startSteps();
-  modelIdx=0;
   tryModels(essay, q);
 }
 
@@ -510,12 +511,11 @@ function stopSteps(){
 }
 
 function tryModels(essay, q){
-  if(modelIdx>=MODELS.length){ modelIdx=0; setTimeout(()=>tryModels(essay,q),8000); return; }
-  const model=MODELS[modelIdx];
-  g('ldStatus').textContent='Analysing with '+model+'...';
+  const model=MODELS[0];
+  g('ldStatus').textContent='Computer IELTS is analysing your essay...';
   callGemini(model, essay, q)
     .then(d=>{ stopSteps(); showResults(d); })
-    .catch(()=>{ modelIdx++; setTimeout(()=>tryModels(essay,q),1800); });
+    .catch(()=>{ setTimeout(()=>tryModels(essay,q),3000); });
 }
 
 function buildPrompt(essay, q){

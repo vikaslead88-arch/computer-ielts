@@ -336,7 +336,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--tx);min-height:100
 
 <script>
 const _K = 'AIzaSyB9FPPi29aCS0lZwYnkD-m3IScrJDQhOfA';
-const MODELS = ['gemini-2.0-flash-preview'];
+const MODELS = ['gemini-2.0-flash','gemini-1.5-flash','gemini-1.5-pro'];
 const LIST_PAGE = 'https://computerielts.com/ielts-writing-task-2-pracctice-test/';
 
 const QUESTIONS = [
@@ -511,11 +511,19 @@ function stopSteps(){
 }
 
 function tryModels(essay, q){
-  const model=MODELS[0];
+  const model=MODELS[modelIdx];
   g('ldStatus').textContent='Computer IELTS is analysing your essay...';
   callGemini(model, essay, q)
     .then(d=>{ stopSteps(); showResults(d); })
-    .catch(()=>{ setTimeout(()=>tryModels(essay,q),3000); });
+    .catch(err=>{
+      modelIdx++;
+      if(modelIdx < MODELS.length){
+        setTimeout(()=>tryModels(essay,q),2000);
+      } else {
+        modelIdx=0;
+        setTimeout(()=>tryModels(essay,q),5000);
+      }
+    });
 }
 
 function buildPrompt(essay, q){

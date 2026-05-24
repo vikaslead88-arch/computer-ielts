@@ -1,0 +1,212 @@
+<!-- IELTS Writing Task 2 Practice Tests — paste this into WordPress HTML block -->
+
+<style>
+:root{
+  --orange:#ea580c;--orange-lt:#f97316;--orange-xl:#fff7ed;
+  --blue:#2563eb;--blue-xl:#dbeafe;--blue-xxl:#eff6ff;
+  --purple:#7c3aed;--purple-xl:#f5f3ff;
+  --green:#059669;--green-xl:#ecfdf5;
+  --red:#dc2626;--red-xl:#fff1f2;
+  --tx:#0f172a;--tx2:#1e293b;--tx3:#475569;--tx4:#94a3b8;
+  --border:#e2e8f0;--border2:#cbd5e1;
+  --bg2:#f8fafc;
+  --r:12px;--r-lg:16px;
+}
+
+/* ── INTRO ── */
+.wt2-intro{padding:32px 0 20px}
+.wt2-intro h1{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:var(--tx);letter-spacing:-.04em;margin-bottom:10px;line-height:1.15;font-family:inherit}
+.wt2-intro h1 .hl{background:linear-gradient(135deg,var(--orange),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.wt2-intro p{font-size:15px;color:var(--tx3);line-height:1.8;max-width:720px;margin-bottom:16px}
+.wt2-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.wt2-meta-pill{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;padding:5px 13px;border-radius:100px;background:var(--bg2);border:1px solid var(--border);color:var(--tx3)}
+
+/* ── FILTER BAR ── */
+.wt2-filter-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:12px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:24px}
+.wt2-tabs{display:flex;gap:5px;flex-wrap:wrap}
+.wt2-tab{padding:7px 16px;border-radius:100px;font-size:12.5px;font-weight:600;border:1.5px solid var(--border);background:#fff;color:var(--tx3);cursor:pointer;font-family:inherit;transition:all .18s}
+.wt2-tab:hover,.wt2-tab.on{background:var(--orange);border-color:var(--orange);color:#fff}
+.wt2-search-box{position:relative}
+.wt2-search-ico{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--tx4);font-size:12px;pointer-events:none}
+.wt2-search{padding:8px 13px 8px 32px;border:1.5px solid var(--border2);border-radius:9px;font-size:12.5px;font-family:inherit;color:var(--tx);background:#fff;outline:none;width:200px;transition:border .2s}
+.wt2-search:focus{border-color:var(--orange)}
+.wt2-count{font-size:12.5px;color:var(--tx4)}
+.wt2-count strong{color:var(--tx)}
+
+/* ── GRID ── */
+.wt2-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:1200px){.wt2-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:800px){.wt2-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.wt2-grid{grid-template-columns:1fr 1fr}}
+
+/* ── CARD ── */
+.wt2-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--r-lg);padding:15px 14px;cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;gap:8px;text-decoration:none;color:inherit;position:relative;overflow:hidden}
+.wt2-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--purple))}
+.wt2-card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(234,88,12,.13);border-color:rgba(234,88,12,.38)}
+.wt2-card:hover .wt2-card-cta{background:var(--orange);color:#fff}
+.wt2-card-top{display:flex;align-items:center;justify-content:space-between}
+.wt2-card-num{font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--tx4)}
+.wt2-card-badge{font-size:9px;font-weight:700;padding:3px 8px;border-radius:100px}
+.badge-op{background:var(--blue-xxl);color:var(--blue);border:1px solid var(--blue-xl)}
+.badge-di{background:var(--purple-xl);color:var(--purple);border:1px solid #ddd6fe}
+.badge-ad{background:var(--green-xl);color:var(--green);border:1px solid #bbf7d0}
+.badge-pr{background:var(--red-xl);color:var(--red);border:1px solid #fecdd3}
+.wt2-card-icon{font-size:1.4rem;line-height:1}
+.wt2-card-title{font-size:13px;font-weight:700;color:var(--tx);line-height:1.3}
+.wt2-card-topic{font-size:10px;color:var(--tx4)}
+.wt2-card-cta{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding:7px 10px;border-radius:8px;background:var(--orange-xl);border:1px solid rgba(234,88,12,.2);font-size:11px;font-weight:700;color:var(--orange);transition:all .2s}
+
+/* ── EMPTY ── */
+.wt2-empty{grid-column:1/-1;text-align:center;padding:48px 20px;color:var(--tx4);font-size:.95rem}
+</style>
+
+<!-- INTRO SECTION -->
+<div class="wt2-intro">
+  <h1>IELTS Writing Task 2 <span class="hl">Practice Tests</span></h1>
+  <p>Choose from 50 exam-style essay questions covering all major IELTS Academic topics — Technology, Environment, Education, Health, Economy and more. Write your essay in the timed practice environment and receive an instant <strong>AI band score</strong> with detailed examiner feedback including grammar corrections, vocabulary upgrades and a personalised study plan.</p>
+  <div class="wt2-meta">
+    <span class="wt2-meta-pill">✍️ 50 Essay Prompts</span>
+    <span class="wt2-meta-pill">🎯 4 Essay Types</span>
+    <span class="wt2-meta-pill">⏱️ 40-Min Timer</span>
+    <span class="wt2-meta-pill">🤖 AI Band Score</span>
+    <span class="wt2-meta-pill">⭐ Free · No Login</span>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="wt2-filter-bar">
+  <div class="wt2-tabs">
+    <button class="wt2-tab on" onclick="wt2Filter('all',this)">All (50)</button>
+    <button class="wt2-tab" onclick="wt2Filter('Opinion Essay',this)">Opinion Essay</button>
+    <button class="wt2-tab" onclick="wt2Filter('Discussion Essay',this)">Discussion</button>
+    <button class="wt2-tab" onclick="wt2Filter('Advantages & Disadvantages',this)">Adv &amp; Disadv</button>
+    <button class="wt2-tab" onclick="wt2Filter('Problem & Solution',this)">Problem &amp; Solution</button>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+    <div class="wt2-search-box">
+      <span class="wt2-search-ico">🔍</span>
+      <input class="wt2-search" id="wt2Search" type="text" placeholder="Search topic..." oninput="wt2Search()">
+    </div>
+    <span class="wt2-count">Showing <strong id="wt2Cnt">50</strong> tests</span>
+  </div>
+</div>
+
+<!-- TEST GRID -->
+<div class="wt2-grid" id="wt2Grid"></div>
+
+<script>
+(function(){
+var TESTS=[
+  {id:1,  type:'Discussion Essay',          topic:'Technology & Society',         title:'AI & Automation',               icon:'🤖'},
+  {id:2,  type:'Opinion Essay',             topic:'Technology & Society',         title:'Social Media & Relationships',  icon:'📱'},
+  {id:3,  type:'Advantages & Disadvantages',topic:'Technology & Society',         title:'Remote Work',                   icon:'🏠'},
+  {id:4,  type:'Opinion Essay',             topic:'Technology & Society',         title:'Online Learning',               icon:'🎓'},
+  {id:5,  type:'Problem & Solution',        topic:'Technology & Society',         title:'Mobile Devices & Children',     icon:'👦'},
+  {id:6,  type:'Advantages & Disadvantages',topic:'Technology & Society',         title:'Cashless Society',              icon:'💳'},
+  {id:7,  type:'Opinion Essay',             topic:'Technology & Society',         title:'Technological Gap',             icon:'📡'},
+  {id:8,  type:'Advantages & Disadvantages',topic:'Technology & Society',         title:'News Consumption',              icon:'📰'},
+  {id:9,  type:'Opinion Essay',             topic:'Environment & Energy',         title:'Individual vs. Government',     icon:'🌍'},
+  {id:10, type:'Problem & Solution',        topic:'Environment & Energy',         title:'Global Warming',                icon:'🌡️'},
+  {id:11, type:'Opinion Essay',             topic:'Environment & Energy',         title:'Fossil Fuels vs. Green Energy', icon:'⚡'},
+  {id:12, type:'Opinion Essay',             topic:'Environment & Energy',         title:'Plastic Pollution',             icon:'🌊'},
+  {id:13, type:'Problem & Solution',        topic:'Environment & Energy',         title:'Loss of Biodiversity',          icon:'🦁'},
+  {id:14, type:'Opinion Essay',             topic:'Environment & Energy',         title:'Urban Green Spaces',            icon:'🌿'},
+  {id:15, type:'Discussion Essay',          topic:'Education & Youth',            title:'University vs. Vocational',     icon:'🏫'},
+  {id:16, type:'Opinion Essay',             topic:'Education & Youth',            title:'Compulsory Community Service',  icon:'🤝'},
+  {id:17, type:'Discussion Essay',          topic:'Education & Youth',            title:'Ability Grouping',              icon:'📚'},
+  {id:18, type:'Opinion Essay',             topic:'Education & Youth',            title:'Art and Music Funding',         icon:'🎨'},
+  {id:19, type:'Problem & Solution',        topic:'Education & Youth',            title:'Graduate Unemployment',         icon:'💼'},
+  {id:20, type:'Discussion Essay',          topic:'Education & Youth',            title:'Boarding vs. Day School',       icon:'🏡'},
+  {id:21, type:'Opinion Essay',             topic:'Education & Youth',            title:'Homework Burden',               icon:'📝'},
+  {id:22, type:'Opinion Essay',             topic:'Health & Lifestyle',           title:'Sugar Tax',                     icon:'🍬'},
+  {id:23, type:'Opinion Essay',             topic:'Health & Lifestyle',           title:'Healthcare Funding',            icon:'🏥'},
+  {id:24, type:'Problem & Solution',        topic:'Health & Lifestyle',           title:'Sedentary Lifestyles',          icon:'🏋️'},
+  {id:25, type:'Advantages & Disadvantages',topic:'Health & Lifestyle',           title:'Traditional vs. Modern Diet',   icon:'🥗'},
+  {id:26, type:'Problem & Solution',        topic:'Health & Lifestyle',           title:'Mental Health at Work',         icon:'🧠'},
+  {id:27, type:'Problem & Solution',        topic:'Urbanization & Globalization', title:'Rural-to-Urban Migration',      icon:'🏙️'},
+  {id:28, type:'Opinion Essay',             topic:'Urbanization & Globalization', title:'Public Transport vs. Cars',     icon:'🚌'},
+  {id:29, type:'Opinion Essay',             topic:'Urbanization & Globalization', title:'Loss of Local Culture',         icon:'🌏'},
+  {id:30, type:'Problem & Solution',        topic:'Urbanization & Globalization', title:'Housing Shortages',             icon:'🏘️'},
+  {id:31, type:'Discussion Essay',          topic:'Urbanization & Globalization', title:'International Tourism',         icon:'✈️'},
+  {id:32, type:'Advantages & Disadvantages',topic:'Economy & Work',               title:'Universal Basic Income',        icon:'💰'},
+  {id:33, type:'Problem & Solution',        topic:'Economy & Work',               title:'Work-Life Balance',             icon:'⚖️'},
+  {id:34, type:'Opinion Essay',             topic:'Economy & Work',               title:'Retirement Age',                icon:'👴'},
+  {id:35, type:'Problem & Solution',        topic:'Economy & Work',               title:'Materialism & Consumerism',     icon:'🛍️'},
+  {id:36, type:'Problem & Solution',        topic:'Economy & Work',               title:'Gender Pay Gap',                icon:'👩‍💼'},
+  {id:37, type:'Discussion Essay',          topic:'Government & Crime',           title:'Space Exploration vs. Poverty', icon:'🚀'},
+  {id:38, type:'Discussion Essay',          topic:'Government & Crime',           title:'CCTV and Privacy',              icon:'📷'},
+  {id:39, type:'Opinion Essay',             topic:'Government & Crime',           title:'Rehabilitation vs. Punishment', icon:'⚖️'},
+  {id:40, type:'Opinion Essay',             topic:'Government & Crime',           title:'Art & Infrastructure Budget',   icon:'🏛️'},
+  {id:41, type:'Opinion Essay',             topic:'Government & Crime',           title:'Youth Crime',                   icon:'🔐'},
+  {id:42, type:'Advantages & Disadvantages',topic:'Culture, Media & Family',      title:'Working Parents',               icon:'👨‍👩‍👧'},
+  {id:43, type:'Opinion Essay',             topic:'Culture, Media & Family',      title:'Preserving Historic Buildings', icon:'🏰'},
+  {id:44, type:'Advantages & Disadvantages',topic:'Culture, Media & Family',      title:'Influence of Celebrities',      icon:'🌟'},
+  {id:45, type:'Discussion Essay',          topic:'Culture, Media & Family',      title:'Elderly Care',                  icon:'👵'},
+  {id:46, type:'Problem & Solution',        topic:'Culture, Media & Family',      title:'News Bias in Media',            icon:'📺'},
+  {id:47, type:'Advantages & Disadvantages',topic:'Culture, Media & Family',      title:'Fast Fashion',                  icon:'👗'},
+  {id:48, type:'Opinion Essay',             topic:'Culture, Media & Family',      title:'Advertising to Children',       icon:'🧒'},
+  {id:49, type:'Opinion Essay',             topic:'Culture, Media & Family',      title:'Gender Roles in Family',        icon:'👨‍👩‍👦'},
+  {id:50, type:'Discussion Essay',          topic:'Culture, Media & Family',      title:'International Aid',             icon:'🌐'}
+];
+
+var BADGE={
+  'Opinion Essay':            {cls:'badge-op',label:'Opinion Essay'},
+  'Discussion Essay':         {cls:'badge-di',label:'Discussion Essay'},
+  'Advantages & Disadvantages':{cls:'badge-ad',label:'Adv & Disadvantages'},
+  'Problem & Solution':       {cls:'badge-pr',label:'Problem & Solution'}
+};
+
+var activeFilter='all', activeSearch='';
+
+function esc(s){return(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function render(){
+  var q=activeSearch.trim().toLowerCase();
+  var list=TESTS.filter(function(t){
+    var fm=(activeFilter==='all'||t.type===activeFilter);
+    var sm=!q||(t.title.toLowerCase().indexOf(q)>-1||t.topic.toLowerCase().indexOf(q)>-1);
+    return fm&&sm;
+  });
+  var cnt=document.getElementById('wt2Cnt');
+  if(cnt)cnt.textContent=list.length;
+  var grid=document.getElementById('wt2Grid');
+  if(!grid)return;
+  if(!list.length){
+    grid.innerHTML='<div class="wt2-empty">🔍 No tests found. Try a different filter or search.</div>';
+    return;
+  }
+  var html='';
+  for(var i=0;i<list.length;i++){
+    var t=list[i];
+    var b=BADGE[t.type]||{cls:'badge-op',label:t.type};
+    html+='<a class="wt2-card" href="/wriring-task-2-test/?test='+t.id+'">'
+      +'<div class="wt2-card-top"><span class="wt2-card-num">TEST #'+String(t.id).padStart(2,'0')+'</span>'
+      +'<span class="wt2-card-badge '+b.cls+'">'+b.label+'</span></div>'
+      +'<div class="wt2-card-icon">'+esc(t.icon)+'</div>'
+      +'<div class="wt2-card-title">'+esc(t.title)+'</div>'
+      +'<div class="wt2-card-topic">'+esc(t.topic)+'</div>'
+      +'<div class="wt2-card-cta">Start Writing <span>→</span></div>'
+      +'</a>';
+  }
+  grid.innerHTML=html;
+}
+
+window.wt2Filter=function(f,btn){
+  activeFilter=f;
+  document.querySelectorAll('.wt2-tab').forEach(function(b){b.classList.remove('on');});
+  if(btn)btn.classList.add('on');
+  render();
+};
+
+window.wt2Search=function(){
+  var el=document.getElementById('wt2Search');
+  activeSearch=el?el.value:'';
+  render();
+};
+
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',render);
+}else{render();}
+
+})();
+</script>

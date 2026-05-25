@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>IELTS Computer-Based Listening Practice Test 1 | Online CBT</title>
+<meta name="description" content="IELTS Listening Practice Test 1 in full computer-based format. 40 questions, 40-minute timer, embedded audio, instant band score.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;overflow:hidden;font-family:Georgia,serif;font-size:15px;background:#eff6ff;}
+:root{
+  --bg:#eff6ff;--bg2:#ffffff;--bg3:#dbeafe;--bg4:#f0f9ff;
+  --bd:#bfdbfe;--tx:#1e3a5f;--tx2:#1e40af;--tx3:#64748b;
+  --pri:#1d4ed8;--gn:#059669;--rd:#dc2626;--yl:#d97706;--au:#0ea5e9;
+}
+body.dk{--bg:#0f172a;--bg2:#1e293b;--bg3:#0c1a35;--bg4:#0f2040;--bd:#1e3a5f;--tx:#e2e8f0;--tx2:#93c5fd;--tx3:#475569;--pri:#3b82f6;background:#0f172a;}
+
+
+#APP{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;background:var(--bg);color:var(--tx);}
+.scr{position:absolute;inset:0;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .2s;}
+.scr.on{opacity:1;pointer-events:all;}
+
+/* ── INTRO ── */
+.iscroll{flex:1;overflow-y:auto;}
+.hero{background:linear-gradient(135deg,#1d4ed8,#1e40af,#0ea5e9);padding:56px 20px 46px;text-align:center;}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);border-radius:100px;padding:5px 20px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#ffffff;margin-bottom:16px;}
+.hero h1{font-size:32px;font-weight:900;color:#ffffff !important;line-height:1.2;margin-bottom:12px;text-shadow:0 2px 14px rgba(0,0,0,.25);}
+.hero p{font-size:15px;color:rgba(255,255,255,.9);line-height:1.75;max-width:580px;margin:0 auto 26px;}
+.metas{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;}
+.meta{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:10px;padding:10px 18px;color:#fff;font-size:13px;font-weight:700;}
+.meta small{display:block;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:.72;margin-bottom:2px;}
+.ibody{max-width:820px;margin:0 auto;padding:30px 18px 70px;}
+.card{background:var(--bg2);border:1px solid var(--bd);border-radius:14px;padding:24px;margin-bottom:16px;box-shadow:0 2px 10px rgba(0,0,0,.05);}
+.card h2{font-size:16px;font-weight:700;color:var(--tx);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.card p{font-size:14px;color:#374151;line-height:1.85;margin-bottom:10px;}
+body.dk .card p{color:#94a3b8;}
+.card p:last-child{margin-bottom:0;}
+.acard{background:linear-gradient(135deg,rgba(14,165,233,.1),rgba(29,78,216,.07));border:1.5px solid rgba(14,165,233,.4);border-radius:14px;padding:22px 24px;margin-bottom:16px;}
+.acard h2{font-size:16px;font-weight:700;color:var(--tx);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.acard p{font-size:13px;color:#374151;line-height:1.75;margin-bottom:8px;}
+body.dk .acard p{color:#94a3b8;}
+.feats{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:10px;margin-bottom:16px;}
+.feat{background:var(--bg2);border:1px solid var(--bd);border-radius:11px;padding:14px;display:flex;gap:11px;align-items:flex-start;}
+.fico{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.fb{background:rgba(29,78,216,.1);}
+.ft{background:rgba(14,165,233,.1);}
+.fg{background:rgba(5,150,105,.1);}
+.fo{background:rgba(217,119,6,.1);}
+.feat h3{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:3px;}
+.feat p{font-size:12px;color:var(--tx3);line-height:1.5;}
+.parts{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:16px;}
+.part{background:var(--bg2);border:1px solid var(--bd);border-radius:11px;padding:14px 10px;text-align:center;}
+.pnum{font-size:20px;font-weight:800;color:var(--pri);font-family:monospace;margin-bottom:4px;}
+.plbl{font-size:11px;color:var(--tx3);line-height:1.4;}
+.rules{background:var(--bg2);border:1px solid var(--bd);border-radius:11px;padding:20px 22px;margin-bottom:18px;}
+.rules h3{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:12px;}
+.rule{display:flex;gap:10px;margin-bottom:10px;font-size:13px;color:#374151;line-height:1.55;}
+body.dk .rule{color:#94a3b8;}
+.rule:last-child{margin-bottom:0;}
+.rn{width:22px;height:22px;background:var(--pri);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px;}
+.bstart{width:100%;padding:17px;background:linear-gradient(135deg,#1d4ed8,#0ea5e9);color:#fff;border:none;border-radius:12px;font-size:17px;font-weight:700;cursor:pointer;font-family:Georgia,serif;transition:all .2s;box-shadow:0 4px 18px rgba(29,78,216,.35);}
+.bstart:hover{transform:translateY(-2px);}
+
+
+/* ── TOPBAR ── */
+.topbar{height:54px;flex-shrink:0;background:var(--bg2);border-bottom:2px solid var(--bd);display:flex;align-items:center;padding:0 14px;gap:8px;box-shadow:0 2px 8px rgba(0,0,0,.07);}
+.tlogo{width:36px;height:36px;background:linear-gradient(135deg,#1d4ed8,#0ea5e9);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#fff;flex-shrink:0;}
+.tnames{display:flex;flex-direction:column;min-width:0;flex:1;}
+.tname{font-size:13px;font-weight:800;color:var(--tx);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tsub{font-size:10px;font-weight:600;color:var(--pri);letter-spacing:.12em;text-transform:uppercase;}
+.tr{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.tbox{background:var(--bg3);border:1px solid var(--bd);padding:5px 13px;border-radius:6px;font-family:monospace;font-size:17px;font-weight:800;color:var(--tx);}
+.tbox.warn{color:var(--yl);border-color:var(--yl);}
+.tbox.crit{color:var(--rd);border-color:var(--rd);animation:bl .7s infinite;}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
+.tibtn{height:34px;padding:0 11px;border-radius:7px;border:1px solid var(--bd);background:var(--bg3);font-size:13px;font-weight:700;cursor:pointer;font-family:Georgia,serif;display:flex;align-items:center;gap:5px;flex-shrink:0;transition:all .2s;color:var(--tx3);}
+.tibtn:hover{background:var(--bd);color:var(--tx);}
+.bsub{background:linear-gradient(135deg,#1d4ed8,#0ea5e9);color:#fff;border:none;padding:7px 16px;border-radius:7px;font-size:13px;font-weight:700;cursor:pointer;font-family:Georgia,serif;white-space:nowrap;}
+.bsub:hover{opacity:.9;}
+
+/* ── AUDIO BAR ── */
+.abar{flex-shrink:0;background:linear-gradient(135deg,#1e3a8a,#1d4ed8);padding:9px 16px;display:flex;align-items:center;gap:12px;}
+.abar-lbl{font-size:11px;font-weight:700;color:rgba(255,255,255,.85);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;}
+.abar audio{flex:1;height:34px;min-width:0;}
+.abar-note{font-size:11px;color:rgba(255,255,255,.6);white-space:nowrap;flex-shrink:0;}
+
+/* ── PROGRESS ── */
+.prog{height:4px;flex-shrink:0;background:var(--bd);}
+.progf{height:100%;background:linear-gradient(90deg,#1d4ed8,#2563eb,#0ea5e9);width:0%;transition:width .4s;}
+
+/* ── TABS ── */
+.stabs{height:42px;flex-shrink:0;background:var(--bg2);display:flex;border-bottom:1px solid var(--bd);overflow-x:auto;}
+.stabs::-webkit-scrollbar{display:none;}
+.stab{padding:0 16px;font-size:13px;font-weight:700;color:var(--tx3);border:none;background:none;cursor:pointer;font-family:Georgia,serif;border-bottom:3px solid transparent;white-space:nowrap;transition:all .2s;height:100%;}
+.stab.on{color:var(--pri);border-bottom-color:var(--pri);}
+.stab:hover{color:var(--tx);}
+.stab-sp{flex:1;}
+.stab-cnt{padding:0 13px;font-size:12px;color:var(--tx3);display:flex;align-items:center;}
+
+/* ── QUESTION MAIN ── */
+.qmain{flex:1;overflow-y:auto;background:var(--bg);}
+.qbody{max-width:860px;margin:0 auto;padding:18px 16px 80px;}
+
+/* NOTE CARDS */
+.ncard{background:var(--bg2);border:2px solid var(--bd);border-radius:12px;padding:18px 20px;margin-bottom:18px;}
+.ncard-ttl{font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;}
+.nsec{margin-bottom:12px;}
+.nsec h4{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid var(--bd);}
+.nline{font-size:14px;color:#111827;line-height:2.4;display:flex;align-items:center;gap:4px;flex-wrap:wrap;}
+body.dk .nline{color:#e2e8f0;}
+.nbul{color:var(--pri);font-weight:700;margin-right:4px;}
+.nsub{margin-left:22px;}
+
+
+/* ── INLINE INPUT INSIDE NOTE CARD ── */
+.ni-wrap{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 3px;}
+.ni-num{font-size:10px;font-weight:700;color:var(--pri);text-align:center;margin-bottom:1px;line-height:1;}
+.ni{display:inline-block;width:130px;background:var(--bg2);border:1.5px dashed var(--pri);border-radius:6px;padding:4px 8px;font-size:13px;color:var(--tx);font-family:Georgia,serif;outline:none;transition:border-color .18s;text-align:center;}
+.ni:focus{border-style:solid;border-color:var(--pri);box-shadow:0 0 0 3px rgba(29,78,216,.1);}
+.ni.mok{border-style:solid;border-color:var(--gn)!important;background:rgba(5,150,105,.07)!important;color:var(--gn)!important;}
+.ni.mng{border-style:solid;border-color:var(--rd)!important;background:rgba(220,38,38,.05)!important;color:var(--rd)!important;}
+.ni-ar{font-size:11px;font-weight:700;margin-top:2px;text-align:center;display:none;}
+.ni-ar.on{display:block;}
+.ni-ar.ok{color:var(--gn);}
+.ni-ar.wc{color:var(--rd);}
+
+/* QUESTION SECTION HEADERS */
+.qsh{background:var(--bg2);border:1px solid var(--bd);border-radius:10px;padding:12px 15px;margin-bottom:12px;}
+.qsh-ttl{font-size:14px;font-weight:700;color:var(--pri);margin-bottom:6px;}
+.qsh-inst{font-size:13px;color:#374151;line-height:1.7;padding:8px 11px;background:rgba(29,78,216,.06);border-left:3px solid var(--pri);border-radius:0 6px 6px 0;}
+body.dk .qsh-inst{color:#94a3b8;}
+.qsh-inst b{color:var(--tx);}
+.optslist{background:rgba(29,78,216,.05);border-left:3px solid var(--pri);border-radius:0 6px 6px 0;padding:10px 13px;margin-top:8px;font-size:13px;color:#374151;line-height:1.9;}
+body.dk .optslist{color:#94a3b8;}
+
+/* Q BLOCKS */
+.qb{background:var(--bg2);border:1px solid var(--bd);border-radius:10px;padding:12px 15px;margin-bottom:8px;border-left:4px solid transparent;transition:all .15s;}
+.qb.ans{border-left-color:var(--pri);}
+.qb.ok{border-left-color:var(--gn)!important;background:rgba(5,150,105,.05)!important;}
+.qb.ng{border-left-color:var(--rd)!important;background:rgba(220,38,38,.05)!important;}
+.qrow{display:flex;align-items:flex-start;gap:9px;margin-bottom:9px;}
+.qnum{width:27px;height:27px;flex-shrink:0;border-radius:6px;background:var(--bg3);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;font-family:monospace;color:var(--tx3);}
+.qnum.f{background:var(--pri);border-color:var(--pri);color:#fff;}
+.qtxt{font-size:14px;color:#374151;line-height:1.65;flex:1;padding-top:3px;}
+body.dk .qtxt{color:#94a3b8;}
+
+/* MCQ OPTS */
+.opts{margin-left:36px;display:flex;flex-direction:column;gap:5px;}
+.opt{display:flex;align-items:flex-start;gap:9px;padding:9px 11px;background:var(--bg3);border:1.5px solid var(--bd);border-radius:8px;cursor:pointer;transition:all .15s;user-select:none;}
+.opt:hover{border-color:var(--pri);background:rgba(29,78,216,.04);}
+.opt.sel{border-color:var(--pri);background:rgba(29,78,216,.09);}
+.opt.mok{border-color:var(--gn)!important;background:rgba(5,150,105,.1)!important;}
+.opt.mng{border-color:var(--rd)!important;background:rgba(220,38,38,.08)!important;}
+.oltr{width:24px;height:24px;flex-shrink:0;border-radius:50%;background:var(--bg2);border:1.5px solid var(--bd);font-size:12px;font-weight:700;color:var(--tx3);display:flex;align-items:center;justify-content:center;}
+.opt.sel .oltr{background:var(--pri);border-color:var(--pri);color:#fff;}
+.opt.mok .oltr{background:var(--gn)!important;border-color:var(--gn)!important;color:#fff!important;}
+.opt.mng .oltr{background:var(--rd)!important;border-color:var(--rd)!important;color:#fff!important;}
+.otxt{font-size:13px;color:#374151;line-height:1.5;padding-top:2px;}
+body.dk .otxt{color:#94a3b8;}
+
+
+/* CHOOSE-2 CHECKBOXES */
+.ch2wrap{display:flex;flex-direction:column;gap:5px;}
+.ch2opt{display:flex;align-items:flex-start;gap:9px;padding:9px 11px;background:var(--bg3);border:1.5px solid var(--bd);border-radius:8px;cursor:pointer;transition:all .15s;user-select:none;}
+.ch2opt:hover{border-color:var(--pri);background:rgba(29,78,216,.04);}
+.ch2opt.sel{border-color:var(--pri);background:rgba(29,78,216,.09);}
+.ch2opt.mok{border-color:var(--gn)!important;background:rgba(5,150,105,.1)!important;}
+.ch2opt.mng{border-color:var(--rd)!important;background:rgba(220,38,38,.08)!important;}
+.ch2box{width:20px;height:20px;flex-shrink:0;border-radius:4px;background:var(--bg2);border:1.5px solid var(--bd);font-size:11px;font-weight:700;color:var(--tx3);display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.ch2opt.sel .ch2box{background:var(--pri);border-color:var(--pri);color:#fff;}
+.ch2opt.mok .ch2box{background:var(--gn)!important;border-color:var(--gn)!important;color:#fff!important;}
+.ch2opt.mng .ch2box{background:var(--rd)!important;border-color:var(--rd)!important;color:#fff!important;}
+
+/* ANSWER REVEAL */
+.ar{display:none;margin-top:8px;padding:7px 11px;border-left:4px solid var(--gn);background:rgba(5,150,105,.07);border-radius:0 6px 6px 0;font-size:13px;color:var(--gn);}
+.ar.on{display:block;}
+.ar.wc{border-left-color:var(--rd);background:rgba(220,38,38,.06);color:var(--rd);}
+
+/* DOTBAR */
+.dotbar{height:50px;flex-shrink:0;background:var(--bg2);border-top:1px solid var(--bd);overflow-x:auto;overflow-y:hidden;scrollbar-width:none;}
+.dotbar::-webkit-scrollbar{display:none;}
+.dbi{display:flex;align-items:center;height:100%;padding:0 10px;}
+.dg{display:flex;align-items:center;gap:3px;padding:0 8px;border-right:1px solid var(--bd);flex-shrink:0;}
+.dgl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3);margin-right:5px;white-space:nowrap;}
+.dot{width:23px;height:23px;border-radius:5px;background:var(--bg3);border:1.5px solid var(--bd);font-size:10px;font-weight:700;font-family:monospace;color:var(--tx3);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;flex-shrink:0;}
+.dot:hover,.dot.dn{background:var(--pri);border-color:var(--pri);color:#fff;}
+.dot.dok{background:var(--gn)!important;border-color:var(--gn)!important;color:#fff!important;}
+.dot.dng{background:var(--rd)!important;border-color:var(--rd)!important;color:#fff!important;}
+
+/* ── RESULTS ── */
+.rtop{height:54px;flex-shrink:0;background:var(--bg2);border-bottom:2px solid var(--bd);display:flex;align-items:center;justify-content:space-between;padding:0 20px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+.rtop span{font-size:14px;font-weight:700;color:var(--tx);}
+.rscroll{flex:1;overflow-y:auto;background:var(--bg);}
+.rbody{max-width:820px;margin:0 auto;padding:26px 16px 70px;}
+.ubanner{background:linear-gradient(135deg,#1d4ed8,#0ea5e9);border-radius:14px;padding:22px 26px;margin-bottom:18px;color:#fff;display:flex;align-items:center;gap:16px;}
+.uava{width:54px;height:54px;background:rgba(255,255,255,.22);border:2px solid rgba(255,255,255,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;}
+.uinfo h3{font-size:17px;font-weight:700;margin-bottom:4px;color:#fff;}
+.uinfo p{font-size:13px;opacity:.85;color:#fff;}
+.rhero{background:var(--bg2);border:1px solid var(--bd);border-radius:14px;overflow:hidden;margin-bottom:16px;}
+.rhtop{padding:34px;text-align:center;background:linear-gradient(135deg,#eff6ff,#dbeafe);border-bottom:1px solid var(--bd);}
+body.dk .rhtop{background:linear-gradient(135deg,#0c1a35,#071020);}
+.remi{font-size:50px;margin-bottom:8px;}
+.rband{font-size:70px;font-weight:800;font-family:monospace;letter-spacing:-.03em;margin-bottom:6px;}
+.bhi{color:#059669;}.bmid{color:#d97706;}.blo{color:#dc2626;}
+.rverd{font-size:20px;font-weight:700;color:var(--tx);margin-bottom:4px;}
+.rsub{font-size:13px;color:var(--tx3);}
+.rstats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--bd);}
+.stat{padding:16px 8px;text-align:center;border-right:1px solid var(--bd);}
+.stat:last-child{border-right:none;}
+.stn{font-size:28px;font-weight:700;font-family:monospace;line-height:1;margin-bottom:4px;}
+.stl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3);}
+.bandtbl{background:var(--bg2);border:1px solid var(--bd);border-radius:12px;overflow:hidden;margin-bottom:16px;}
+.btblh{padding:12px 16px;background:var(--bg3);border-bottom:1px solid var(--bd);font-size:13px;font-weight:700;color:var(--tx);}
+.brow{display:grid;grid-template-columns:1fr 1fr 2fr;padding:10px 16px;border-bottom:1px solid var(--bd);font-size:13px;align-items:center;gap:8px;}
+.brow:last-child{border:none;}
+.brow.active{background:rgba(29,78,216,.09);font-weight:700;}
+.brs{color:var(--tx3);}.brb{color:var(--pri);font-weight:700;font-family:monospace;}.brd{color:#374151;}
+body.dk .brd{color:#94a3b8;}
+.rbtns{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;}
+.rb{padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:Georgia,serif;border:1px solid transparent;transition:all .18s;}
+.rc{background:linear-gradient(135deg,#1d4ed8,#0ea5e9);color:#fff;box-shadow:0 2px 8px rgba(29,78,216,.25);}
+.rc:hover{opacity:.88;}
+.rg{background:var(--gn);color:#fff;box-shadow:0 2px 8px rgba(5,150,105,.2);}
+.rg:hover{opacity:.88;}
+.rh{background:var(--bg3);color:var(--tx3);border-color:var(--bd);}
+.rh:hover{background:var(--bd);color:var(--tx);}
+.rvw{background:var(--bg2);border:1px solid var(--bd);border-radius:12px;overflow:hidden;}
+.rvwh{padding:12px 16px;background:var(--bg3);border-bottom:1px solid var(--bd);font-size:13px;font-weight:700;color:var(--tx);}
+.ri{display:flex;align-items:flex-start;gap:8px;padding:10px 14px;border-bottom:1px solid var(--bd);}
+.ri:last-child{border:none;}
+.ri.rok{background:rgba(5,150,105,.04);}
+.ri.rng{background:rgba(220,38,38,.04);}
+.ri.rsk{background:rgba(217,119,6,.03);}
+.rn2{width:24px;height:24px;flex-shrink:0;border-radius:6px;font-size:11px;font-weight:700;font-family:monospace;display:flex;align-items:center;justify-content:center;}
+.rok .rn2{background:rgba(5,150,105,.14);color:var(--gn);}
+.rng .rn2{background:rgba(220,38,38,.12);color:var(--rd);}
+.rsk .rn2{background:rgba(217,119,6,.12);color:var(--yl);}
+.rbdy{flex:1;min-width:0;}
+.rq2{font-size:11px;color:var(--tx3);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rua{font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;}
+.rok .rua{color:var(--gn);}
+.rng .rua{color:var(--rd);}
+.rsk .rua{color:var(--yl);}
+.rcr{font-size:12px;color:var(--tx3);margin-top:3px;}
+.rcr span{color:var(--gn);font-weight:700;}
+
+/* MODAL */
+.mdbg{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);align-items:center;justify-content:center;}
+.mdbg.on{display:flex!important;}
+.mdbox{background:var(--bg2);border:1px solid var(--bd);border-radius:16px;padding:32px 26px;max-width:370px;width:92%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.15);}
+.mdico{font-size:42px;margin-bottom:12px;}
+.mdtit{font-size:18px;font-weight:700;color:var(--tx);margin-bottom:8px;}
+.mdtxt{font-size:13px;color:var(--tx3);line-height:1.7;margin-bottom:20px;}
+.mdbtns{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;}
+
+@media(max-width:600px){.tname{display:none!important;}.parts{grid-template-columns:repeat(2,1fr)!important;}}
+</style>
+
+
+</head>
+<body>
+<div id="APP">
+
+<!-- ═════════════ INTRO ═════════════ -->
+<div class="scr on" id="SCR_INTRO">
+<div class="iscroll">
+<div class="hero">
+  <div class="hero-badge">IELTS Academic &amp; General &middot; Computer-Based Listening Test 1</div>
+  <h1>IELTS Computer-Based<br>Listening Practice Test 1</h1>
+  <p>Experience authentic IELTS Listening in full computer-based test format. Four sections, 40 questions, embedded audio, and an instant estimated band score &mdash; designed to mirror the real CBT exam environment.</p>
+  <div class="metas">
+    <div class="meta"><small>Duration</small>40 Minutes</div>
+    <div class="meta"><small>Questions</small>40 Total</div>
+    <div class="meta"><small>Sections</small>4 Parts</div>
+    <div class="meta"><small>Format</small>Computer-Based</div>
+    <div class="meta"><small>Band Score</small>0 &ndash; 9</div>
+  </div>
+</div>
+<div class="ibody">
+<div class="card">
+  <h2>&#127911; About This Listening Test</h2>
+  <p>This Computer-Based IELTS Listening Practice Test 1 replicates the official IELTS CBT listening examination. It features four parts of increasing complexity covering everyday and academic contexts. Part 1 is a conversation about planning a family visit to a city. Part 2 is a monologue about visiting a football stadium. Part 3 is an academic discussion between two students on teaching handwriting to children. Part 4 is an academic lecture on research around the Chembe Bird Sanctuary.</p>
+  <p>All official question types are included: notes completion, multiple choice, matching, and choose-two. The 40-minute countdown timer mirrors the real test duration. Listen, answer, and submit to receive your estimated IELTS band score and full answer review instantly.</p>
+</div>
+<div class="acard">
+  <h2>&#127908; Audio Instructions</h2>
+  <p><strong>Click Play</strong> on the audio bar shown at the top during the test to start the listening audio. Make sure your volume is turned up before you begin. Use headphones for the best experience.</p>
+  <p>The audio contains all four parts in sequence. Scroll through the questions and answer them as you listen. In the real IELTS exam, the audio plays only once.</p>
+</div>
+<div class="feats">
+  <div class="feat"><div class="fico fb">&#127911;</div><div><h3>Embedded Audio</h3><p>Full test audio hosted online &mdash; press play and listen while answering.</p></div></div>
+  <div class="feat"><div class="fico ft">&#9201;</div><div><h3>40-Minute Timer</h3><p>Countdown with colour warnings at 10 and 5 minutes remaining.</p></div></div>
+  <div class="feat"><div class="fico fg">&#127919;</div><div><h3>Instant Band Score</h3><p>Estimated IELTS listening band score calculated on submission.</p></div></div>
+  <div class="feat"><div class="fico fo">&#128203;</div><div><h3>Full Answer Review</h3><p>All 40 answers reviewed with correct answers shown clearly.</p></div></div>
+</div>
+<div style="font-size:13px;font-weight:700;color:var(--tx3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;">Test Sections</div>
+<div class="parts">
+  <div class="part"><div class="pnum">P1</div><div class="plbl">Q1&ndash;10<br>Family Visit Advice</div></div>
+  <div class="part"><div class="pnum">P2</div><div class="plbl">Q11&ndash;20<br>Football Stadium</div></div>
+  <div class="part"><div class="pnum">P3</div><div class="plbl">Q21&ndash;30<br>Teaching Handwriting</div></div>
+  <div class="part"><div class="pnum">P4</div><div class="plbl">Q31&ndash;40<br>Bird Sanctuary</div></div>
+</div>
+<div class="rules">
+  <h3>&#128204; Instructions</h3>
+  <div class="rule"><div class="rn">1</div><span>Press <strong>Play</strong> on the audio bar at the top as soon as the test begins. Listen while answering each question.</span></div>
+  <div class="rule"><div class="rn">2</div><span>Attempt all 40 questions. No penalty for wrong answers in IELTS Listening.</span></div>
+  <div class="rule"><div class="rn">3</div><span>Fill-in-blank: write <strong>ONE WORD AND/OR A NUMBER</strong> unless stated otherwise. Spelling counts.</span></div>
+  <div class="rule"><div class="rn">4</div><span>For <strong>Choose TWO</strong> questions, select exactly two options using the checkboxes.</span></div>
+  <div class="rule"><div class="rn">5</div><span>Timer auto-submits at 40 minutes. Use <strong>Submit Test</strong> to submit early.</span></div>
+  <div class="rule"><div class="rn">6</div><span>Use Part tabs at the top and numbered dots at the bottom to navigate between questions.</span></div>
+</div>
+<button class="bstart" onclick="T.start()">&#x25BA; &nbsp; Start Listening Test &mdash; Good Luck!</button>
+</div>
+</div>
+</div>
+
+
+<!-- ═════════════ TEST ═════════════ -->
+<div class="scr" id="SCR_TEST">
+  <div class="topbar">
+    <div class="tlogo">LT</div>
+    <div class="tnames">
+      <div class="tname">IELTS Listening &mdash; Computer-Based Practice Test 1</div>
+      <div class="tsub">CBT Format &middot; 4 Parts &middot; 40 Questions</div>
+    </div>
+    <div class="tr">
+      <button class="tibtn" id="BTN_DK" onclick="T.dk()">&#9728;&#xFE0F;</button>
+      <button class="tibtn" id="BTN_FS" onclick="T.fs()">&#x26F6;</button>
+      <div class="tbox" id="TIMER">40:00</div>
+      <button class="bsub" onclick="T.confirmSub()">Submit Test</button>
+    </div>
+  </div>
+  <div class="abar">
+    <div class="abar-lbl">&#127908; Audio</div>
+    <audio id="AUDIO" controls preload="auto">
+      <source src="https://computerielts.com/wp-content/uploads/2026/05/204-we.mp3" type="audio/mpeg">
+      Your browser does not support audio.
+    </audio>
+    <div class="abar-note">&#128266; Turn up volume</div>
+  </div>
+  <div class="prog"><div class="progf" id="PROG"></div></div>
+  <div class="stabs">
+    <button class="stab on" id="TAB0" onclick="T.sec(0)">PART 1 &mdash; Q1&ndash;10</button>
+    <button class="stab" id="TAB1" onclick="T.sec(1)">PART 2 &mdash; Q11&ndash;20</button>
+    <button class="stab" id="TAB2" onclick="T.sec(2)">PART 3 &mdash; Q21&ndash;30</button>
+    <button class="stab" id="TAB3" onclick="T.sec(3)">PART 4 &mdash; Q31&ndash;40</button>
+    <div class="stab-sp"></div>
+    <div class="stab-cnt"><span id="ACNT">0 / 40</span></div>
+  </div>
+  <div class="qmain" id="QMAIN"></div>
+  <div class="dotbar"><div class="dbi" id="DOTS"></div></div>
+</div>
+
+
+<!-- ═════════════ RESULTS ═════════════ -->
+<div class="scr" id="SCR_RESULT">
+  <div class="rtop">
+    <span>Results &mdash; IELTS Listening Practice Test 1</span>
+    <button class="rb rh" onclick="T.goHome()">&larr; Back to Home</button>
+  </div>
+  <div class="rscroll" id="RS"><div class="rbody">
+    <div class="ubanner">
+      <div class="uava">&#127911;</div>
+      <div class="uinfo">
+        <h3>Test Candidate, here are your Listening results</h3>
+        <p>IELTS Listening Practice Test 1 &middot; Completed on <span id="RDATE">&mdash;</span></p>
+      </div>
+    </div>
+    <div class="rhero">
+      <div class="rhtop">
+        <div class="remi" id="RICO"></div>
+        <div class="rband" id="RBAND">--</div>
+        <div class="rverd" id="RVERD">--</div>
+        <div class="rsub" id="RSUB">Estimated IELTS Listening Band Score</div>
+      </div>
+      <div class="rstats">
+        <div class="stat"><div class="stn" style="color:var(--gn)" id="ROK">0</div><div class="stl">Correct</div></div>
+        <div class="stat"><div class="stn" style="color:var(--rd)" id="RNG">0</div><div class="stl">Incorrect</div></div>
+        <div class="stat"><div class="stn" style="color:var(--yl)" id="RSK">0</div><div class="stl">Skipped</div></div>
+        <div class="stat"><div class="stn" style="color:var(--pri)" id="RPCT">0%</div><div class="stl">Score %</div></div>
+        <div class="stat"><div class="stn" style="color:var(--tx)" id="RTOT">0/40</div><div class="stl">Raw Score</div></div>
+        <div class="stat"><div class="stn" style="color:var(--au)" id="RTM">0:00</div><div class="stl">Time Used</div></div>
+      </div>
+    </div>
+    <div class="bandtbl">
+      <div class="btblh">&#128202; IELTS Band Score Conversion Table (Listening)</div>
+      <div class="brow" id="BR0"><div class="brs">39&ndash;40</div><div class="brb">9.0</div><div class="brd">Expert User</div></div>
+      <div class="brow" id="BR1"><div class="brs">37&ndash;38</div><div class="brb">8.5</div><div class="brd">Very Good User</div></div>
+      <div class="brow" id="BR2"><div class="brs">35&ndash;36</div><div class="brb">8.0</div><div class="brd">Very Good User</div></div>
+      <div class="brow" id="BR3"><div class="brs">32&ndash;34</div><div class="brb">7.5</div><div class="brd">Good User</div></div>
+      <div class="brow" id="BR4"><div class="brs">30&ndash;31</div><div class="brb">7.0</div><div class="brd">Good User</div></div>
+      <div class="brow" id="BR5"><div class="brs">26&ndash;29</div><div class="brb">6.5</div><div class="brd">Competent User</div></div>
+      <div class="brow" id="BR6"><div class="brs">23&ndash;25</div><div class="brb">6.0</div><div class="brd">Competent User</div></div>
+      <div class="brow" id="BR7"><div class="brs">18&ndash;22</div><div class="brb">5.5</div><div class="brd">Modest User</div></div>
+      <div class="brow" id="BR8"><div class="brs">16&ndash;17</div><div class="brb">5.0</div><div class="brd">Modest User</div></div>
+      <div class="brow" id="BR9"><div class="brs">13&ndash;15</div><div class="brb">4.5</div><div class="brd">Limited User</div></div>
+      <div class="brow" id="BR10"><div class="brs">10&ndash;12</div><div class="brb">4.0</div><div class="brd">Limited User</div></div>
+      <div class="brow" id="BR11"><div class="brs">8&ndash;9</div><div class="brb">3.5</div><div class="brd">Extremely Limited</div></div>
+      <div class="brow" id="BR12"><div class="brs">0&ndash;7</div><div class="brb">3.0</div><div class="brd"><b>Extremely Limited</b></div></div>
+    </div>
+    <div class="rbtns">
+      <button class="rb rc" onclick="T.retake()">&#x21BA; Retake Test</button>
+      <button class="rb rg" onclick="T.showRvw()">&#128203; Review All 40 Answers</button>
+      <button class="rb rh" onclick="T.goHome()">&#x2302; Back to Home</button>
+    </div>
+    <div id="RVW" style="display:none">
+      <div class="rvw">
+        <div class="rvwh">Detailed Answer Review &mdash; All 40 Questions</div>
+        <div id="RVWLIST"></div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<!-- MODAL -->
+<div class="mdbg" id="MODAL">
+  <div class="mdbox">
+    <div class="mdico">&#9888;&#xFE0F;</div>
+    <div class="mdtit">Submit Your Test?</div>
+    <div class="mdtxt" id="MODTXT">Once submitted, you cannot change any answers.</div>
+    <div class="mdbtns">
+      <button class="rb rh" onclick="T.closeMod()">Continue Test</button>
+      <button class="rb" style="background:#dc2626;color:#fff;border:none;" onclick="T.doSubmit()">Submit Now</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<script>
+/* ═══════════════════════════════════════════
+   ANSWER KEY
+═══════════════════════════════════════════ */
+var ANSWERS = {
+  1:{ans:"king's",   alt:["kings","king's hotel","kings hotel"]},
+  2:{ans:"125",      alt:[]},
+  3:{ans:"walking",  alt:["a walking"]},
+  4:{ans:"boat",     alt:[]},
+  5:{ans:"tuesday",  alt:[]},
+  6:{ans:"space",    alt:[]},
+  7:{ans:"vegetarian",alt:[]},
+  8:{ans:"2.30",     alt:["2:30","two-thirty","230","2.30pm"]},
+  9:{ans:"75",       alt:["seventy-five"]},
+  10:{ans:"port",    alt:[]},
+  11:{ans:"B", alt:[]},
+  12:{ans:"C", alt:[]},
+  13:{ans:"B", alt:[]},
+  14:{ans:"C", alt:[]},
+  15:{ans:"E", alt:[]},
+  16:{ans:"G", alt:[]},
+  17:{ans:"B", alt:[]},
+  18:{ans:"H", alt:[]},
+  19:{ans:"C", alt:[]},
+  20:{ans:"F", alt:[]},
+  21:{ans:"C", alt:[]},
+  22:{ans:"E", alt:[]},
+  23:{ans:"A", alt:[]},
+  24:{ans:"C", alt:[]},
+  25:{ans:"C", alt:[]},
+  26:{ans:"A", alt:[]},
+  27:{ans:"A", alt:[]},
+  28:{ans:"B", alt:[]},
+  29:{ans:"B", alt:[]},
+  30:{ans:"C", alt:[]},
+  31:{ans:"rats",        alt:[]},
+  32:{ans:"snakes",      alt:[]},
+  33:{ans:"tourism",     alt:[]},
+  34:{ans:"traffic",     alt:[]},
+  35:{ans:"rain",        alt:[]},
+  36:{ans:"poison",      alt:[]},
+  37:{ans:"building",    alt:[]},
+  38:{ans:"dog",         alt:[]},
+  39:{ans:"noise",       alt:[]},
+  40:{ans:"combination", alt:[]}
+};
+
+var QINFO = {
+  1:"Hotel name on George Street",
+  2:"Cost of family room per night (£)",
+  3:"Type of tour of city centre",
+  4:"Trip to old fort by _____",
+  5:"Best day to visit Science Museum",
+  6:"Exhibition opening soon about _____",
+  7:"Clacton Market: good for _____ food",
+  8:"Lunch needed before _____ p.m.",
+  9:"Save up to _____% at bargaintickets.com",
+  10:"View from Telegraph Hill: the _____",
+  11:"Q11 (Choose TWO - stadium with children)",
+  12:"Q12 (Choose TWO - stadium with children)",
+  13:"Q13 (Choose TWO - new stadium features)",
+  14:"Q14 (Choose TWO - new stadium features)",
+  15:"1870 — event in football history",
+  16:"1874 — event in football history",
+  17:"1875 — event in football history",
+  18:"1877 — event in football history",
+  19:"1878 — event in football history",
+  20:"1880 — event in football history",
+  21:"Q21 (Choose TWO - surprising benefits of writing)",
+  22:"Q22 (Choose TWO - surprising benefits of writing)",
+  23:"Q23 (Choose TWO - dyspraxia easiest to correct)",
+  24:"Q24 (Choose TWO - dyspraxia easiest to correct)",
+  25:"Laptops and dyslexia — what woman says",
+  26:"Cursive vs print writing — woman's view",
+  27:"Poor handwriting impact on exam performance",
+  28:"Man's prediction about future of handwriting",
+  29:"Digital devices difficulty for the woman",
+  30:"How students feel about own handwriting",
+  31:"Birds destroy _____ and other rodents",
+  32:"Help prevent bites by _____",
+  33:"Support economy by encouraging _____",
+  34:"Killed by _____ when hunting or sleeping",
+  35:"Electrocution risk higher when lots of _____",
+  36:"Farmers illegally _____ the birds",
+  37:"Providing a _____ for chickens (expensive)",
+  38:"Frightening birds by keeping a _____",
+  39:"Frightening birds by making a _____",
+  40:"A _____ of methods is most effective"
+};
+
+var GS = {g1:[],g2:[],g3:[],g4:[]};
+var GQ = {g1:[11,12],g2:[13,14],g3:[21,22],g4:[23,24]};
+var GC = {g1:["B","C"],g2:["B","C"],g3:["C","E"],g4:["A","C"]};
+
+var ANS = {}, DONE=false, SEC=0, TMR=2400, TREF=null, USED=0, SC=null, rvw=false, DK=false;
+
+function g(id){return document.getElementById(id);}
+function pad(n){return n<10?"0"+n:""+n;}
+function tx(id,v){var e=g(id);if(e)e.textContent=v;}
+
+function nm(s){
+  return (s||"").toString().trim().toLowerCase().replace(/['']/g,"'").replace(/[^a-z0-9\.\-\']/g," ").replace(/\s+/g," ").trim();
+}
+
+function isOk(qn,ua){
+  if(ua===null||ua===undefined||(ua+"").trim()==="")return false;
+  var A=ANSWERS[qn];if(!A)return false;
+  var g2=nm(ua+""),c=nm(A.ans);
+  if(g2===c)return true;
+  for(var i=0;i<A.alt.length;i++){if(g2===nm(A.alt[i]))return true;}
+  return false;
+}
+
+function getAns(qn){
+  for(var gid in GQ){
+    if(GQ[gid].indexOf(qn)>=0){
+      var sel=GS[gid]||[];
+      var correct=ANSWERS[qn].ans;
+      return sel.indexOf(correct)>=0 ? correct : null;
+    }
+  }
+  return ANS[qn]||null;
+}
+
+function hasAns(qn){
+  var a=getAns(qn);
+  return a!==null&&a!==undefined&&(a+"").trim().length>0;
+}
+
+function allQNums(){var out=[];for(var i=1;i<=40;i++)out.push(i);return out;}
+function countAns(){return allQNums().filter(function(n){return hasAns(n);}).length;}
+
+function show(id){
+  ["SCR_INTRO","SCR_TEST","SCR_RESULT"].forEach(function(s){
+    var e=g(s);if(e)e.className="scr"+(s===id?" on":"");
+  });
+}
+
+
+/* ─── INLINE INPUT HELPER ─── */
+function mkNI(qn){
+  var ua = ANS[qn]||'';
+  var dis = DONE ? ' disabled' : '';
+  return '<span class="ni-wrap" id="NIWRAP'+qn+'">' +
+    '<span class="ni-num">('+qn+')</span>' +
+    '<input type="text" class="ni" id="NI'+qn+'" value="'+ua.replace(/"/g,'&quot;')+'" placeholder="Answer&hellip;" oninput="T.fill('+qn+',this)"'+dis+'>' +
+    '<span class="ni-ar" id="NIAR'+qn+'"></span>' +
+    '</span>';
+}
+
+/* ═══ PART HTML BUILDERS ═══ */
+function buildP1(){
+  return '<div class="qsh"><div class="qsh-ttl">Part 1 &mdash; Questions 1&ndash;10</div>'+
+    '<div class="qsh-inst">Complete the notes below. Write <b>ONE WORD AND/OR A NUMBER</b> for each answer.</div></div>'+
+    '<div class="ncard">'+
+    '<div class="ncard-ttl">&#128204; Advice on family visit</div>'+
+
+    '<div class="nsec"><h4>Accommodation</h4>'+
+    '<div class="nline"><span class="nbul">&bull;</span> '+mkNI(1)+' hotel on George Street</div>'+
+    '<div class="nline"><span class="nbul">&bull;</span> cost of family room per night: &pound;'+mkNI(2)+' (approx.)</div>'+
+    '</div>'+
+
+    '<div class="nsec"><h4>Recommended Trips</h4>'+
+    '<div class="nline"><span class="nbul">&bull;</span> a '+mkNI(3)+' tour of the city centre (starts in Carlton Square)</div>'+
+    '<div class="nline"><span class="nbul">&bull;</span> a trip by '+mkNI(4)+' to the old fort</div>'+
+    '</div>'+
+
+    '<div class="nsec"><h4>Science Museum</h4>'+
+    '<div class="nline"><span class="nbul">&bull;</span> best day to visit: '+mkNI(5)+'</div>'+
+    '<div class="nline"><span class="nbul">&bull;</span> see the exhibition about '+mkNI(6)+', which opens soon</div>'+
+    '</div>'+
+
+    '<div class="nsec"><h4>Food</h4>'+
+    '<div class="nline"><span class="nbul">&bull;</span> Clacton Market:</div>'+
+    '<div class="nline nsub"><span class="nbul">&#9702;</span> good for '+mkNI(7)+' food</div>'+
+    '<div class="nline nsub"><span class="nbul">&#9702;</span> need to have lunch before '+mkNI(8)+' p.m.</div>'+
+    '</div>'+
+
+    '<div class="nsec"><h4>Theatre Tickets</h4>'+
+    '<div class="nline"><span class="nbul">&bull;</span> save up to '+mkNI(9)+'% on ticket prices at bargaintickets.com</div>'+
+    '</div>'+
+
+    '<div class="nsec"><h4>Free Activities</h4>'+
+    '<div class="nline"><span class="nbul">&bull;</span> Blakewell Gardens</div>'+
+    '<div class="nline"><span class="nbul">&bull;</span> Roots Music Festival</div>'+
+    '<div class="nline"><span class="nbul">&bull;</span> climb Telegraph Hill to see a view of the '+mkNI(10)+'</div>'+
+    '</div>'+
+    '</div>';
+}
+
+
+function buildP2(){
+  var h='<div class="qsh"><div class="qsh-ttl">Part 2 &mdash; Questions 11&ndash;20</div>'+
+    '<div class="qsh-inst">Q11&ndash;14: Choose <b>TWO</b> letters. &nbsp; Q15&ndash;20: Match each year with the correct event.</div></div>';
+  h+=mkCh2("g1","Questions 11 and 12",
+    "Choose <b>TWO</b> letters, <b>A&ndash;E</b>. Which <b>TWO</b> things does the speaker say about visiting the football stadium with children?",
+    ["A|Children can get their photo taken with a football player.",
+     "B|There is a competition for children today.",
+     "C|Parents must stay with their children at all times.",
+     "D|Children will need sunhats and drinks.",
+     "E|The caf&eacute; has a special offer on meals for children."]);
+  h+=mkCh2("g2","Questions 13 and 14",
+    "Choose <b>TWO</b> letters, <b>A&ndash;E</b>. Which <b>TWO</b> features of the stadium tour are <b>new this year</b>?",
+    ["A|VIP tour","B|360 cinema experience","C|audio guide","D|dressing room tour","E|tours in other languages"]);
+  h+='<div class="qsh"><div class="qsh-ttl">Questions 15&ndash;20</div>'+
+    '<div class="qsh-inst">Which event in the history of football in the UK took place in each of the following years? Choose <b>SIX answers</b> from the box.</div>'+
+    '<div class="optslist">'+
+    '<b>A</b> &mdash; The introduction of pay for the players<br>'+
+    '<b>B</b> &mdash; A change to the design of the goal<br>'+
+    '<b>C</b> &mdash; The first use of lights for matches<br>'+
+    '<b>D</b> &mdash; The introduction of goalkeepers<br>'+
+    '<b>E</b> &mdash; The first international match<br>'+
+    '<b>F</b> &mdash; Two changes to the rules of the game<br>'+
+    '<b>G</b> &mdash; The introduction of a fee for spectators<br>'+
+    '<b>H</b> &mdash; An agreement on the length of a game'+
+    '</div></div>';
+  var years=[[15,"1870"],[16,"1874"],[17,"1875"],[18,"1877"],[19,"1878"],[20,"1880"]];
+  years.forEach(function(yr){
+    h+=mkMatch(yr[0],yr[1]+" — which event?",["A","B","C","D","E","F","G","H"]);
+  });
+  return h;
+}
+
+function buildP3(){
+  var h='<div class="qsh"><div class="qsh-ttl">Part 3 &mdash; Questions 21&ndash;30</div>'+
+    '<div class="qsh-inst">Q21&ndash;24: Choose <b>TWO</b> letters. &nbsp; Q25&ndash;30: Choose the correct letter <b>A, B or C</b>.</div></div>';
+  h+=mkCh2("g3","Questions 21 and 22",
+    "Choose <b>TWO</b> letters, <b>A&ndash;E</b>. Which <b>TWO</b> benefits for children of learning to write did <b>both students find surprising</b>?",
+    ["A|improved fine motor skills","B|improved memory","C|improved concentration","D|improved imagination","E|improved spatial awareness"]);
+  h+=mkCh2("g4","Questions 23 and 24",
+    "Choose <b>TWO</b> letters, <b>A&ndash;E</b>. For children with dyspraxia, which <b>TWO</b> problems with handwriting do the students think are <b>easiest to correct</b>?",
+    ["A|not spacing letters correctly","B|not writing in a straight line","C|applying too much pressure when writing","D|confusing letter shapes","E|writing very slowly"]);
+  h+='<div class="qsh"><div class="qsh-ttl">Questions 25&ndash;30</div>'+
+    '<div class="qsh-inst">Choose the correct letter, <b>A, B or C</b>. <b>Teaching handwriting</b></div></div>';
+  var mcqs=[
+    [25,"What does the woman say about using laptops to teach writing to children with dyslexia?",
+     ["A|Children often lack motivation to learn that way.","B|Children become fluent relatively quickly.","C|Children react more positively if they make a mistake."]],
+    [26,"When discussing whether to teach cursive or print writing, the woman thinks that",
+     ["A|cursive writing disadvantages a certain group of children.","B|print writing is associated with lower academic performance.","C|most teachers in the UK prefer a traditional approach to handwriting."]],
+    [27,"According to the students, what impact does poor handwriting have on exam performance?",
+     ["A|There is evidence to suggest grades are affected by poor handwriting.","B|Neat handwriting is less important now than it used to be.","C|Candidates write more slowly and produce shorter answers."]],
+    [28,"What prediction does the man make about the future of handwriting?",
+     ["A|Touch typing will be taught before writing by hand.","B|Children will continue to learn to write by hand.","C|People will dislike handwriting on digital devices."]],
+    [29,"The woman is concerned that relying on digital devices has made it difficult for her to",
+     ["A|take detailed notes.","B|spell and punctuate.","C|read old documents."]],
+    [30,"How do the students feel about their own handwriting?",
+     ["A|concerned they are unable to write quickly","B|embarrassed by comments made about it","C|regretful that they have lost the habit"]]
+  ];
+  mcqs.forEach(function(m){h+=mkMCQ(m[0],m[1],m[2]);});
+  return h;
+}
+
+
+function buildP4(){
+  return '<div class="qsh"><div class="qsh-ttl">Part 4 &mdash; Questions 31&ndash;40</div>'+
+    '<div class="qsh-inst">Complete the notes below. Write <b>ONE WORD ONLY</b> for each answer.</div></div>'+
+    '<div class="ncard">'+
+    '<div class="ncard-ttl">&#128204; Research around the Chembe Bird Sanctuary</div>'+
+
+    '<div class="nsec"><h4>Importance of Birds of Prey</h4>'+
+    '<div class="nline"><span class="nbul">&bull;</span> They destroy '+mkNI(31)+' and other rodents.</div>'+
+    '<div class="nline"><span class="nbul">&bull;</span> They help prevent farmers being bitten by '+mkNI(32)+'.</div>'+
+    '<div class="nline"><span class="nbul">&bull;</span> They have been an important part of local culture for many years.</div>'+
+    '<div class="nline"><span class="nbul">&bull;</span> They support the economy by encouraging '+mkNI(33)+' in the area.</div>'+
+    '</div>'+
+
+    '<div class="nsec"><h4>Falling Numbers of Birds of Prey</h4>'+
+    '<div class="nline"><span class="nbul">&bull;</span> Accidentally killed by '+mkNI(34)+' when hunting or sleeping.</div>'+
+    '<div class="nline"><span class="nbul">&bull;</span> Electrocuted by power lines especially when there is a lot of '+mkNI(35)+'.</div>'+
+    '<div class="nline"><span class="nbul">&bull;</span> Local farmers may illegally shoot or '+mkNI(36)+' them.</div>'+
+    '</div>'+
+
+    '<div class="nsec"><h4>Protecting Chickens from Birds of Prey</h4>'+
+    '<div class="nline"><span class="nbul">&bull;</span> clearing away vegetation (unhelpful)</div>'+
+    '<div class="nline"><span class="nbul">&bull;</span> providing a '+mkNI(37)+' for chickens (expensive)</div>'+
+    '<div class="nline"><span class="nbul">&bull;</span> frightening birds by keeping a '+mkNI(38)+'</div>'+
+    '<div class="nline"><span class="nbul">&bull;</span> making a '+mkNI(39)+' e.g. with metal objects</div>'+
+    '<div class="nline"><span class="nbul">&bull;</span> A '+mkNI(40)+' of methods is usually most effective.</div>'+
+    '</div>'+
+    '</div>';
+}
+
+/* ── MCQ / MATCH / CH2 BUILDERS (unchanged) ── */
+function mkCh2(gid,title,inst,opts){
+  var sel=GS[gid]||[];
+  var h='<div class="qsh"><div class="qsh-ttl">'+title+'</div>'+
+    '<div class="qsh-inst">'+inst+'</div></div>';
+  h+='<div style="background:var(--bg2);border:1px solid var(--bd);border-radius:10px;padding:12px 15px;margin-bottom:12px;">'+
+    '<div style="font-size:12px;color:var(--tx3);margin-bottom:8px;" id="CH2LBL_'+gid+'">Select exactly <b>2 options</b> ('+sel.length+'/2 selected)</div>'+
+    '<div class="ch2wrap" id="CH2_'+gid+'">';
+  opts.forEach(function(o){
+    var parts=o.split("|");var k=parts[0],t=parts[1];
+    var isSel=sel.indexOf(k)>=0;
+    h+='<div class="ch2opt'+(isSel?' sel':'')+'" data-gid="'+gid+'" data-k="'+k+'" onclick="T.ch2(\''+gid+'\',\''+k+'\',this)">'+
+      '<span class="ch2box">'+(isSel?'&#x2713;':'')+'</span>'+
+      '<span class="otxt"><b>'+k+'</b> &mdash; '+t+'</span></div>';
+  });
+  h+='</div></div>';
+  GQ[gid].forEach(function(qn){
+    h+='<div class="ar" id="AR'+qn+'"></div>';
+  });
+  return h;
+}
+
+function mkMatch(qn,qlabel,opts){
+  var ua=ANS[qn]||null;
+  var h='<div class="qb'+(ua?' ans':'')+'" id="QB'+qn+'">'+
+    '<div class="qrow"><span class="qnum'+(ua?' f':'')+'" id="QN'+qn+'">'+qn+'</span>'+
+    '<span class="qtxt"><b>'+qlabel+'</b></span></div>'+
+    '<div class="opts" id="MOPTS'+qn+'">';
+  opts.forEach(function(k){
+    h+='<div class="opt'+(ua===k?' sel':'')+'" onclick="T.mcqSet('+qn+',\''+k+'\',this)">'+
+      '<span class="oltr">'+k+'</span><span class="otxt">'+k+'</span></div>';
+  });
+  h+='</div><div class="ar" id="AR'+qn+'"></div></div>';
+  return h;
+}
+
+function mkMCQ(qn,qlabel,opts){
+  var ua=ANS[qn]||null;
+  var h='<div class="qb'+(ua?' ans':'')+'" id="QB'+qn+'">'+
+    '<div class="qrow"><span class="qnum'+(ua?' f':'')+'" id="QN'+qn+'">'+qn+'</span>'+
+    '<span class="qtxt">'+qlabel+'</span></div>'+
+    '<div class="opts" id="MOPTS'+qn+'">';
+  opts.forEach(function(o){
+    var parts=o.split("|");var k=parts[0],t=parts[1];
+    h+='<div class="opt'+(ua===k?' sel':'')+'" onclick="T.mcqSet('+qn+',\''+k+'\',this)">'+
+      '<span class="oltr">'+k+'</span><span class="otxt"><b>'+k+'</b> &mdash; '+t+'</span></div>';
+  });
+  h+='</div><div class="ar" id="AR'+qn+'"></div></div>';
+  return h;
+}
+
+
+/* ── RENDER PART ── */
+var BUILDERS=[buildP1,buildP2,buildP3,buildP4];
+function renderPart(idx){
+  var qm=g('QMAIN');
+  qm.innerHTML='<div class="qbody">'+BUILDERS[idx]()+'</div>';
+  qm.scrollTop=0;
+  if(DONE&&SC)markPart(idx);
+}
+
+/* ── PROGRESS & DOTS ── */
+function updProg(){
+  var n=countAns();
+  var p=g('PROG');if(p)p.style.width=Math.round(n/40*100)+'%';
+  tx('ACNT',n+' / 40');
+}
+
+function mkDots(){
+  var c=g('DOTS');if(!c)return;c.innerHTML='';
+  var groups=[[1,10],[11,20],[21,30],[31,40]];
+  groups.forEach(function(gr,pi){
+    var dg=document.createElement('div');dg.className='dg';
+    var lbl=document.createElement('span');lbl.className='dgl';lbl.textContent='P'+(pi+1);
+    dg.appendChild(lbl);
+    for(var n=gr[0];n<=gr[1];n++){
+      var dot=document.createElement('div');
+      dot.className='dot';dot.textContent=n;dot.id='DOT'+n;
+      (function(qn,si){
+        dot.addEventListener('click',function(){
+          if(si!==SEC)T.sec(si);
+          setTimeout(function(){
+            var el=g('NIWRAP'+qn)||g('QB'+qn)||g('AR'+qn);
+            if(el)el.scrollIntoView({behavior:'smooth',block:'center'});
+          },140);
+        });
+      })(n,pi);
+      dg.appendChild(dot);
+    }
+    c.appendChild(dg);
+  });
+  updDots();
+}
+
+function updDots(){
+  for(var n=1;n<=40;n++){
+    var d=g('DOT'+n);if(!d)continue;
+    var has=hasAns(n);
+    if(DONE&&SC){
+      var s=SC[n];
+      d.className='dot'+(s==='ok'?' dok':s==='ng'?' dng':has?' dn':'');
+    } else {
+      d.className='dot'+(has?' dn':'');
+    }
+  }
+}
+
+function afterAns(qn){
+  var has=hasAns(qn);
+  /* For MCQ/Match blocks */
+  var nb=g('QN'+qn),bl=g('QB'+qn);
+  if(nb)nb.className='qnum'+(has?' f':'');
+  if(bl){if(has)bl.classList.add('ans');else bl.classList.remove('ans');}
+  updProg();updDots();
+}
+
+/* ── TIMER ── */
+function startTimer(){
+  clearInterval(TREF);TMR=2400;USED=0;
+  TREF=setInterval(function(){
+    TMR--;USED++;
+    var m=Math.floor(TMR/60),s=TMR%60;
+    var el=g('TIMER');
+    if(el){el.textContent=pad(m)+':'+pad(s);el.className='tbox'+(TMR<=300?' crit':TMR<=600?' warn':'');}
+    if(TMR<=0){clearInterval(TREF);T.doSubmit();}
+  },1000);
+}
+function fmtT(s){return pad(Math.floor(s/60))+':'+pad(s%60);}
+
+/* ── BAND SCORE ── */
+function getBand(s){
+  if(s>=39)return'9.0';if(s>=37)return'8.5';if(s>=35)return'8.0';
+  if(s>=32)return'7.5';if(s>=30)return'7.0';if(s>=26)return'6.5';
+  if(s>=23)return'6.0';if(s>=18)return'5.5';if(s>=16)return'5.0';
+  if(s>=13)return'4.5';if(s>=10)return'4.0';if(s>=8)return'3.5';return'3.0';
+}
+function getBR(s){
+  if(s>=39)return 0;if(s>=37)return 1;if(s>=35)return 2;if(s>=32)return 3;
+  if(s>=30)return 4;if(s>=26)return 5;if(s>=23)return 6;if(s>=18)return 7;
+  if(s>=16)return 8;if(s>=13)return 9;if(s>=10)return 10;if(s>=8)return 11;return 12;
+}
+
+
+/* ── MARK PART AFTER SUBMIT ── */
+function markPart(idx){
+  if(!SC)return;
+  var ranges=[[1,10],[11,20],[21,30],[31,40]];
+  var rng=ranges[idx];
+
+  /* Inline-input parts: P1 (idx=0) and P4 (idx=3) */
+  var inlineParts=[0,3];
+  var isInline=inlineParts.indexOf(idx)>=0;
+
+  for(var n=rng[0];n<=rng[1];n++){
+    var ok=SC[n]==='ok';
+    var ua=getAns(n);
+
+    if(isInline){
+      /* Mark inline input */
+      var ni=g('NI'+n);
+      var niar=g('NIAR'+n);
+      if(ni){
+        ni.disabled=true;
+        ni.className='ni '+(ok?'mok':'mng');
+      }
+      if(niar){
+        var ca=ANSWERS[n].ans;
+        if(ok){
+          niar.innerHTML='&#x2705; '+ca;
+          niar.className='ni-ar on ok';
+        } else {
+          niar.innerHTML='&#x274C; '+ca;
+          niar.className='ni-ar on wc';
+        }
+      }
+    } else {
+      /* MCQ / Match blocks */
+      var ar=g('AR'+n);
+      var bl=g('QB'+n);
+      if(bl){bl.classList.remove('ans');if(ok)bl.classList.add('ok');else if(SC[n]==='ng')bl.classList.add('ng');}
+      if(ar){
+        var ca2=ANSWERS[n].ans;
+        if(ok){ar.innerHTML='&#x2705; <b>Correct:</b> '+ca2;ar.className='ar on';}
+        else{ar.innerHTML='&#x274C; <b>'+(ua?'Your answer: '+ua+' &mdash; ':'Not answered &mdash; ')+'Correct answer:</b> '+ca2;ar.className='ar on wc';}
+      }
+      var mOpts=g('MOPTS'+n);
+      if(mOpts){
+        mOpts.querySelectorAll('.opt').forEach(function(o){
+          var k=o.querySelector('.oltr').textContent.trim();
+          if(k===ANSWERS[n].ans)o.classList.add('mok');
+          else if(o.classList.contains('sel'))o.classList.add('mng');
+        });
+      }
+    }
+  }
+
+  /* mark choose-2 groups */
+  var groupsInPart={0:[],1:['g1','g2'],2:['g3','g4'],3:[]};
+  (groupsInPart[idx]||[]).forEach(function(gid){
+    var wrap=g('CH2_'+gid);
+    if(wrap){
+      wrap.querySelectorAll('.ch2opt').forEach(function(o){
+        var k=o.getAttribute('data-k');
+        var isCorrect=GC[gid].indexOf(k)>=0;
+        var isSel=o.classList.contains('sel');
+        if(isCorrect)o.classList.add('mok');
+        else if(isSel&&!isCorrect)o.classList.add('mng');
+      });
+    }
+    /* AR for choose-2 questions */
+    GQ[gid].forEach(function(qn){
+      var ar=g('AR'+qn);if(!ar)return;
+      var ok2=SC[qn]==='ok';
+      var ca3=ANSWERS[qn].ans;
+      if(ok2){ar.innerHTML='&#x2705; <b>Correct:</b> '+ca3;ar.className='ar on';}
+      else{ar.innerHTML='&#x274C; <b>Correct answer:</b> '+ca3;ar.className='ar on wc';}
+    });
+  });
+}
+
+
+/* ══ PUBLIC API ══ */
+window.T={
+  start:function(){
+    DONE=false;ANS={};GS={g1:[],g2:[],g3:[],g4:[]};SC=null;SEC=0;USED=0;rvw=false;
+    mkDots();renderPart(0);show('SCR_TEST');startTimer();
+  },
+  goHome:function(){clearInterval(TREF);show('SCR_INTRO');},
+  sec:function(idx){
+    SEC=idx;
+    [0,1,2,3].forEach(function(i){var t=g('TAB'+i);if(t)t.className='stab'+(i===idx?' on':'');});
+    renderPart(idx);updDots();
+  },
+  fill:function(qn,inp){
+    if(DONE)return;
+    var v=inp.value;
+    if(v.trim())ANS[qn]=v.trim();else delete ANS[qn];
+    afterAns(qn);
+  },
+  mcqSet:function(qn,val,el){
+    if(DONE)return;
+    ANS[qn]=val;
+    var c=el.closest('.opts');
+    if(c)c.querySelectorAll('.opt').forEach(function(o){o.classList.remove('sel');});
+    el.classList.add('sel');
+    afterAns(qn);
+  },
+  ch2:function(gid,k,el){
+    if(DONE)return;
+    if(!GS[gid])GS[gid]=[];
+    var sel=GS[gid];
+    var idx=sel.indexOf(k);
+    if(idx>=0){
+      sel.splice(idx,1);
+      el.classList.remove('sel');
+      el.querySelector('.ch2box').innerHTML='';
+    } else {
+      if(sel.length>=2){
+        var old=sel.shift();
+        var oel=document.querySelector('[data-gid="'+gid+'"][data-k="'+old+'"]');
+        if(oel){oel.classList.remove('sel');oel.querySelector('.ch2box').innerHTML='';}
+      }
+      sel.push(k);
+      el.classList.add('sel');
+      el.querySelector('.ch2box').innerHTML='&#x2713;';
+    }
+    var lbl=g('CH2LBL_'+gid);
+    if(lbl)lbl.innerHTML='Select exactly <b>2 options</b> ('+sel.length+'/2 selected)';
+    GQ[gid].forEach(function(qn){afterAns(qn);});
+  },
+  confirmSub:function(){
+    var n=countAns();
+    tx('MODTXT','You have answered '+n+' of 40 questions. Once submitted, you cannot change any answers.');
+    g('MODAL').classList.add('on');
+  },
+  closeMod:function(){g('MODAL').classList.remove('on');},
+  doSubmit:function(){
+    if(DONE)return;DONE=true;T.closeMod();clearInterval(TREF);
+    SC={};var ok=0,ng=0,sk=0;
+    for(var n=1;n<=40;n++){
+      var ua=getAns(n);
+      var has=ua!==null&&ua!==undefined&&(ua+'').trim().length>0;
+      if(!has){sk++;SC[n]='sk';}
+      else if(isOk(n,ua)){ok++;SC[n]='ok';}
+      else{ng++;SC[n]='ng';}
+    }
+    var band=getBand(ok),bf=parseFloat(band);
+    var ico=bf>=7?'\uD83C\uDFC6':bf>=6?'\u2705':bf>=5?'\uD83D\uDCDA':'\uD83D\uDCAA';
+    var verd=bf>=8?'Outstanding \u2014 Expert Level!':bf>=7?'Excellent Performance':bf>=6?'Good Performance':bf>=5?'Keep Practising':'More Practice Needed';
+    var ri=g('RICO');if(ri)ri.textContent=ico;
+    var rb=g('RBAND');if(rb){rb.textContent=band;rb.className='rband '+(bf>=7?'bhi':bf>=5?'bmid':'blo');}
+    for(var i=0;i<=12;i++){var r=g('BR'+i);if(r)r.classList.remove('active');}
+    var tr=g('BR'+getBR(ok));if(tr)tr.classList.add('active');
+    tx('RVERD',verd);
+    var pct=Math.round(ok/40*100);
+    tx('RSUB','Raw Score: '+ok+'/40 ('+pct+'%) \u2014 Estimated IELTS Listening Band: '+band);
+    tx('ROK',ok);tx('RNG',ng);tx('RSK',sk);
+    tx('RPCT',pct+'%');tx('RTOT',ok+'/40');tx('RTM',fmtT(USED));
+    var now=new Date();
+    tx('RDATE',now.toLocaleDateString('en-GB',{weekday:'long',year:'numeric',month:'long',day:'numeric'})+' at '+now.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}));
+    var rv=g('RVW');if(rv)rv.style.display='none';rvw=false;
+    show('SCR_RESULT');
+    var rs=g('RS');if(rs)rs.scrollTop=0;
+    updDots();
+  },
+  showRvw:function(){
+    rvw=!rvw;
+    var w=g('RVW');if(!w)return;
+    if(!rvw){w.style.display='none';return;}
+    w.style.display='block';
+    var html='';
+    for(var n=1;n<=40;n++){
+      var ua=getAns(n);
+      var s=SC?SC[n]:'sk';
+      var cls=s==='ok'?'rok':s==='ng'?'rng':'rsk';
+      var ico=s==='ok'?'\u2705':s==='ng'?'\u274C':'\u23ED';
+      var uaText=(ua!==null&&ua!==undefined)?(ua+''):'Not answered';
+      var caText=ANSWERS[n].ans;
+      var part=n<=10?'Part 1':n<=20?'Part 2':n<=30?'Part 3':'Part 4';
+      html+='<div class="ri '+cls+'"><div class="rn2">'+n+'</div>';
+      html+='<div class="rbdy">';
+      html+='<div class="rq2">'+part+' &mdash; Q'+n+': '+(QINFO[n]||'').substring(0,65)+'</div>';
+      html+='<div class="rua"><span>'+ico+'</span> '+uaText+'</div>';
+      if(s!=='ok'){html+='<div class="rcr">Correct answer: <span>'+caText+'</span></div>';}
+      html+='</div></div>';
+    }
+    g('RVWLIST').innerHTML=html;
+    setTimeout(function(){var rv=g('RVW');if(rv)rv.scrollIntoView({behavior:'smooth'});},80);
+  },
+  retake:function(){
+    DONE=false;ANS={};GS={g1:[],g2:[],g3:[],g4:[]};SC=null;USED=0;SEC=0;rvw=false;
+    tx('TIMER','40:00');
+    var rv=g('RVW');if(rv)rv.style.display='none';
+    show('SCR_INTRO');
+  },
+  dk:function(){
+    DK=!DK;
+    document.body.classList.toggle('dk',DK);
+    var btn=g('BTN_DK');
+    if(btn)btn.textContent=DK?'\uD83C\uDF19':'\u2600\uFE0F';
+  },
+  fs:function(){
+    var btn=g('BTN_FS');
+    if(!document.fullscreenElement&&!document.webkitFullscreenElement){
+      var el=document.documentElement;
+      if(el.requestFullscreen)el.requestFullscreen();
+      else if(el.webkitRequestFullscreen)el.webkitRequestFullscreen();
+      if(btn)btn.textContent='\u2715';
+    } else {
+      if(document.exitFullscreen)document.exitFullscreen();
+      else if(document.webkitExitFullscreen)document.webkitExitFullscreen();
+      if(btn)btn.textContent='\u26F6';
+    }
+  }
+};
+
+document.addEventListener('fullscreenchange',function(){
+  var btn=g('BTN_FS');if(btn)btn.textContent=document.fullscreenElement?'\u2715':'\u26F6';
+});
+
+var md=g('MODAL');
+if(md)md.addEventListener('click',function(e){if(e.target===md)T.closeMod();});
+
+window.addEventListener('beforeunload',function(e){
+  if(!DONE&&countAns()>0){e.preventDefault();e.returnValue='';}
+});
+</script>
+<!--
+===========================================================
+  ANSWER KEY — IELTS LISTENING PRACTICE TEST 1
+===========================================================
+PART 1:  Q1=King's  Q2=125  Q3=walking  Q4=boat  Q5=Tuesday
+         Q6=space  Q7=vegetarian  Q8=2.30  Q9=75  Q10=port
+PART 2:  Q11=B  Q12=C  Q13=B  Q14=C
+         Q15=E  Q16=G  Q17=B  Q18=H  Q19=C  Q20=F
+PART 3:  Q21=C  Q22=E  Q23=A  Q24=C
+         Q25=C  Q26=A  Q27=A  Q28=B  Q29=B  Q30=C
+PART 4:  Q31=rats  Q32=snakes  Q33=tourism  Q34=traffic
+         Q35=rain  Q36=poison  Q37=building  Q38=dog
+         Q39=noise  Q40=combination
+===========================================================
+-->
+</body>
+</html>

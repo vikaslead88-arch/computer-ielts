@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>IELTS General Writing Task 1 Practice — Computer IELTS</title>
+<meta name="description" content="Practice IELTS General Training Writing Task 1 letter writing in a real timed environment. Submit your letter and receive an AI-powered examiner evaluation with band score, register check, grammar corrections and vocabulary feedback.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#057a55;--green2:#065f46;--greenf:#f0fdf4;--greenb:#bbf7d0;
+  --blue:#1a56db;--blue2:#1e429f;--bluef:#eff6ff;--blueb:#bfdbfe;
+  --red:#e02424;--redf:#fff5f5;--redb:#fecaca;
+  --yellow:#9f580a;--yellowf:#fffbeb;--yellowb:#fde68a;
+  --purple:#6c2bd9;--purplef:#f5f3ff;--purpleb:#ddd6fe;
+  --orange:#c2410c;--orangef:#fff7ed;--orangeb:#fed7aa;
+  --teal:#0e7490;--tealf:#ecfeff;--tealb:#a5f3fc;
+  --bg:#f9fafb;--card:#ffffff;--border:#e5e7eb;--border2:#d1d5db;
+  --tx:#111827;--tx2:#374151;--tx3:#6b7280;--tx4:#9ca3af;
+  --sans:'Inter',system-ui,sans-serif;
+  --radius:12px;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.06);
+  --shadow2:0 4px 16px rgba(0,0,0,.1);
+}
+body{font-family:var(--sans);background:var(--bg);color:var(--tx);min-height:100vh;display:flex;flex-direction:column}
+
+/* TOP BAR */
+.topbar{background:#fff;border-bottom:1px solid var(--border);padding:0 20px;height:56px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.tb-back{display:flex;align-items:center;gap:6px;text-decoration:none;color:var(--tx3);font-size:.83rem;font-weight:600;padding:6px 10px;border-radius:8px;border:1.5px solid var(--border);transition:all .15s;white-space:nowrap}
+.tb-back:hover{border-color:var(--green);color:var(--green)}
+.tb-info{flex:1;min-width:0}
+.tb-test-label{font-size:.7rem;font-weight:600;color:var(--tx4);text-transform:uppercase;letter-spacing:.08em}
+.tb-test-title{font-size:.9rem;font-weight:700;color:var(--tx);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tb-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.timer-box{display:flex;align-items:center;gap:7px;background:var(--greenf);border:1.5px solid var(--greenb);border-radius:9px;padding:7px 14px}
+.timer-ico{font-size:.85rem}
+.timer-val{font-size:1rem;font-weight:800;color:var(--green);font-variant-numeric:tabular-nums;min-width:48px;text-align:center}
+.timer-box.warn{background:var(--yellowf);border-color:var(--yellowb)}
+.timer-box.warn .timer-val{color:var(--yellow)}
+.timer-box.danger{background:var(--redf);border-color:var(--redb)}
+.timer-box.danger .timer-val{color:var(--red)}
+.tb-nav{display:flex;gap:4px}
+.tb-nav-btn{width:34px;height:34px;border:1.5px solid var(--border);border-radius:8px;background:#fff;color:var(--tx3);font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;font-family:var(--sans)}
+.tb-nav-btn:hover{border-color:var(--green);color:var(--green)}
+.tb-nav-btn:disabled{opacity:.35;cursor:not-allowed}
+.fs-btn{width:34px;height:34px;border:1.5px solid var(--border);border-radius:8px;background:#fff;color:var(--tx3);font-size:.85rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0;font-family:var(--sans)}
+.fs-btn:hover{border-color:var(--green);color:var(--green)}
+
+/* SPLIT */
+.split{display:flex;flex-direction:column;flex:1;min-height:0}
+
+/* QUESTION PANEL */
+.q-panel{background:#fff;border-bottom:2px solid var(--border);display:flex;flex-direction:column}
+.q-panel-hdr{padding:14px 24px;border-bottom:1px solid var(--border);background:var(--bg);display:flex;align-items:center;gap:10px;flex-shrink:0}
+.q-panel-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx4)}
+.q-type-badge{font-size:.62rem;font-weight:700;padding:3px 9px;border-radius:100px;margin-left:auto}
+.badge-formal{background:var(--bluef);color:var(--blue);border:1px solid var(--blueb)}
+.badge-semi{background:var(--purplef);color:var(--purple);border:1px solid var(--purpleb)}
+.badge-informal{background:var(--greenf);color:var(--green);border:1px solid var(--greenb)}
+.q-body{padding:20px 24px;display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start}
+.q-body-left{flex:1;min-width:260px}
+.q-topic-tag{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:600;color:var(--tx4);background:var(--bg);border:1px solid var(--border);border-radius:100px;padding:4px 12px;margin-bottom:10px}
+.q-number{font-size:.75rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.q-title{font-size:1.05rem;font-weight:800;color:var(--tx);margin-bottom:12px;line-height:1.3}
+.q-divider{height:2px;background:linear-gradient(90deg,var(--green),transparent);border-radius:100px;margin-bottom:14px;width:48px}
+.q-text{font-size:.95rem;color:var(--tx2);line-height:1.8;font-weight:400}
+</style>
+
+<style>
+/* BULLET POINTS BOX */
+.q-bullets{background:var(--greenf);border:1px solid var(--greenb);border-radius:10px;padding:12px 15px;margin-top:12px}
+.q-bullets-label{font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.q-bullet-item{display:flex;align-items:flex-start;gap:8px;font-size:.82rem;color:var(--tx2);line-height:1.55;margin-bottom:6px}
+.q-bullet-item:last-child{margin-bottom:0}
+.q-bullet-dot{width:16px;height:16px;border-radius:50%;background:var(--green);color:#fff;font-size:.55rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.q-tip{background:var(--greenf);border:1px solid var(--greenb);border-radius:10px;padding:12px 15px;margin-top:14px;max-width:340px}
+.q-tip-label{font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:5px}
+.q-tip-text{font-size:.78rem;color:var(--tx3);line-height:1.55}
+/* REGISTER GUIDE */
+.register-guide{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:12px 15px;max-width:340px}
+.reg-label{font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--tx4);margin-bottom:9px}
+.reg-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;font-size:.75rem;color:var(--tx3);line-height:1.5}
+.reg-row:last-child{margin-bottom:0}
+.reg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px}
+
+/* WRITE PANEL */
+.w-panel{display:flex;flex-direction:column;background:var(--bg)}
+.w-panel-hdr{padding:12px 24px;border-bottom:1px solid var(--border);background:#fff;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;gap:10px;flex-wrap:wrap}
+.w-panel-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx4)}
+.wc-wrap{display:flex;align-items:center;gap:8px}
+.wc-bar-bg{width:100px;height:6px;background:var(--border);border-radius:100px;overflow:hidden}
+.wc-bar-fill{height:100%;border-radius:100px;transition:width .3s,background .3s;width:0%}
+.wc-label{font-size:.78rem;font-weight:700;min-width:60px;text-align:right;font-variant-numeric:tabular-nums}
+.w-body{padding:16px 24px;display:flex;flex-direction:column;gap:12px}
+.essay-textarea{width:100%;min-height:280px;padding:16px;border:2px solid var(--border2);border-radius:var(--radius);font-family:var(--sans);font-size:.95rem;color:var(--tx);line-height:1.85;resize:vertical;outline:none;background:#fff;transition:border .2s;box-shadow:var(--shadow)}
+.essay-textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(5,122,85,.08)}
+.essay-textarea::placeholder{color:var(--tx4)}
+.w-actions{display:flex;gap:10px;flex-wrap:wrap}
+.submit-btn{flex:1;padding:14px 22px;background:var(--green);color:#fff;border:none;border-radius:var(--radius);font-family:var(--sans);font-size:.95rem;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 2px 8px rgba(5,122,85,.25)}
+.submit-btn:hover{background:var(--green2);transform:translateY(-1px);box-shadow:0 4px 16px rgba(5,122,85,.3)}
+.submit-btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+.clear-btn{padding:14px 18px;background:#fff;color:var(--tx3);border:1.5px solid var(--border2);border-radius:var(--radius);font-family:var(--sans);font-size:.88rem;font-weight:600;cursor:pointer;transition:all .15s}
+.clear-btn:hover{border-color:var(--red);color:var(--red)}
+.w-err{display:none;background:var(--redf);border:1px solid var(--redb);border-radius:9px;padding:10px 14px;font-size:.82rem;color:var(--red)}
+.w-err.on{display:block}
+
+/* LOADING */
+.loading-overlay{display:none;padding:40px 20px;text-align:center;background:#fff;border-radius:var(--radius);border:1.5px solid var(--border);box-shadow:var(--shadow2)}
+.loading-overlay.on{display:block}
+.ld-spinner{width:56px;height:56px;border:3px solid var(--greenb);border-top-color:var(--green);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ld-title{font-size:1rem;font-weight:700;color:var(--tx);margin-bottom:4px}
+.ld-sub{font-size:.82rem;color:var(--tx3);margin-bottom:14px}
+.ld-steps{display:flex;flex-direction:column;gap:6px;max-width:300px;margin:0 auto}
+.ld-step{display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:8px;font-size:.78rem;color:var(--tx4);border:1px solid var(--border);background:var(--bg);transition:all .3s}
+.ld-step.act{background:var(--greenf);border-color:var(--greenb);color:var(--green);font-weight:600}
+.ld-step.done{background:var(--greenf);border-color:var(--greenb);color:var(--green);font-weight:600}
+.ld-status{font-size:.75rem;color:var(--green);font-weight:600;margin-bottom:10px;min-height:16px}
+</style>
+
+<style>
+/* RESULTS */
+.results-section{display:none;padding:0 24px 24px}
+.results-section.on{display:block}
+.band-card{background:#fff;border:1.5px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:14px;box-shadow:var(--shadow)}
+.band-top{background:linear-gradient(135deg,#064e3b 0%,#1e3a5f 100%);padding:22px 20px;display:flex;align-items:center;gap:16px}
+@media(max-width:520px){.band-top{flex-direction:column;text-align:center;gap:12px}}
+.band-circle{width:82px;height:82px;border-radius:50%;border:3px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
+.band-num{font-size:2.2rem;font-weight:800;color:#fff;line-height:1;font-variant-numeric:tabular-nums}
+.band-lbl{font-size:.48rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.band-right{flex:1}
+.band-verdict{font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:4px;line-height:1.3}
+.band-overview{font-size:.82rem;color:rgba(255,255,255,.7);line-height:1.65}
+.crit-row{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border)}
+@media(max-width:480px){.crit-row{grid-template-columns:repeat(2,1fr)}.crit-item:nth-child(2){border-right:none}.crit-item:nth-child(1),.crit-item:nth-child(2){border-bottom:1px solid var(--border)}}
+.crit-item{padding:14px 8px;text-align:center;border-right:1px solid var(--border)}
+.crit-item:last-child{border-right:none}
+.crit-val{font-size:1.4rem;font-weight:800;line-height:1;margin-bottom:4px;font-variant-numeric:tabular-nums}
+.crit-bar-bg{height:4px;background:var(--border);border-radius:100px;margin:0 8px 5px;overflow:hidden}
+.crit-bar-fill{height:100%;border-radius:100px;transition:width 1s cubic-bezier(.4,0,.2,1)}
+.crit-lbl{font-size:.56rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--tx4);line-height:1.3}
+/* Accordion */
+.acc{background:#fff;border:1.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:10px;transition:border-color .2s}
+.acc.open{border-color:var(--acc-col,var(--green))}
+.acc-hdr{display:flex;align-items:center;gap:9px;padding:13px 16px;cursor:pointer;user-select:none}
+.acc-hdr:hover{background:var(--bg)}
+.acc-ico{font-size:.95rem;width:22px;text-align:center;flex-shrink:0}
+.acc-title{font-size:.85rem;font-weight:700;color:var(--tx);flex:1}
+.acc-badge{font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:100px}
+.acc-arrow{font-size:.75rem;color:var(--tx4);transition:transform .22s;flex-shrink:0}
+.acc-body{display:none;padding:14px 16px;border-top:1px solid var(--border)}
+.acc-body.open{display:block}
+/* Points */
+.pt-list{display:flex;flex-direction:column;gap:6px}
+.pt{display:flex;align-items:flex-start;gap:8px;padding:9px 12px;border-radius:9px;font-size:.82rem;line-height:1.6}
+.pt.str{background:var(--greenf);border:1px solid var(--greenb);color:#065f46}
+.pt.imp{background:var(--orangef);border:1px solid var(--orangeb);color:#7c2d12}
+/* Error blocks */
+.err-block{background:var(--redf);border:1px solid var(--redb);border-radius:10px;padding:12px 14px;margin-bottom:8px}
+.err-block:last-child{margin-bottom:0}
+.err-type-row{display:flex;align-items:center;gap:7px;margin-bottom:8px}
+.err-num{width:20px;height:20px;border-radius:50%;background:var(--red);color:#fff;font-size:.62rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.err-type-badge{font-size:.6rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:4px;background:var(--orangef);border:1px solid var(--orangeb);color:var(--orange)}
+.err-row{display:flex;align-items:stretch;border-radius:8px;overflow:hidden;font-size:.85rem;line-height:1.6}
+.err-wrong{flex:1;padding:8px 12px;background:rgba(224,36,36,.08);color:#991b1b;font-family:Georgia,serif}
+.err-sep{display:flex;align-items:center;padding:0 10px;background:var(--border);color:var(--tx3);font-weight:700;flex-shrink:0}
+.err-right{flex:1;padding:8px 12px;background:var(--greenf);color:#065f46;font-family:Georgia,serif}
+/* Vocab */
+.vocab-upgrade-block{background:var(--orangef);border:1px solid var(--orangeb);border-radius:10px;padding:11px 14px;margin-bottom:8px}
+.vocab-upgrade-block:last-child{margin-bottom:0}
+.vu-current{font-size:.82rem;color:var(--orange);margin-bottom:7px}
+.vu-current strong{font-weight:700}
+.vu-opts{display:flex;flex-wrap:wrap;gap:6px}
+.better-pill{font-size:.76rem;font-weight:600;padding:4px 11px;border-radius:100px;background:rgba(5,122,85,.1);border:1px solid var(--greenb);color:var(--green)}
+.better-pool-box{background:var(--greenf);border:1px solid var(--greenb);border-radius:10px;padding:12px 14px;margin-top:10px}
+.better-pool-title{font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.better-pills{display:flex;flex-wrap:wrap;gap:6px}
+/* Register check */
+.register-check-block{border-radius:10px;padding:12px 14px;margin-bottom:8px;border:1px solid}
+.register-check-block.reg-ok{background:var(--greenf);border-color:var(--greenb);color:#065f46}
+.register-check-block.reg-warn{background:var(--orangef);border-color:var(--orangeb);color:#7c2d12}
+.reg-check-label{font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+.reg-check-txt{font-size:.82rem;line-height:1.6}
+/* Crit summary */
+.crit-summary{font-size:.83rem;color:var(--tx2);line-height:1.65;padding:10px 13px;background:var(--bg);border-radius:8px;border-left:3px solid currentColor;margin-bottom:10px}
+.acc-sub{font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin:12px 0 7px;color:var(--tx4)}
+.acc-sub:first-child{margin-top:0}
+/* Model answer */
+.model-box{background:var(--yellowf);border-left:4px solid #d97706;border-radius:0 10px 10px 0;padding:13px 16px;font-family:Georgia,serif;font-size:.92rem;color:var(--tx2);line-height:1.85;font-style:italic;margin-top:8px}
+.model-label{font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#d97706;margin-bottom:7px}
+/* Cards */
+.motiv-card{background:var(--greenf);border:1.5px solid var(--greenb);border-radius:12px;padding:15px 17px;margin-bottom:12px}
+.motiv-lbl{font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:6px}
+.motiv-txt{font-size:.88rem;color:#065f46;line-height:1.65;font-weight:500}
+.ns-card{background:#fff;border:1.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:12px}
+.ns-hdr{background:linear-gradient(135deg,#064e3b,#1e3a5f);color:#fff;font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:11px 16px}
+.ns-item{display:flex;gap:11px;padding:12px 16px;border-top:1px solid var(--border)}
+.ns-item-ico{font-size:1.1rem;flex-shrink:0;margin-top:2px}
+.ns-item-lbl{font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--tx4);margin-bottom:3px}
+.ns-item-txt{font-size:.84rem;color:var(--tx);line-height:1.5;font-weight:500}
+.exam-note{background:var(--yellowf);border:1.5px solid var(--yellowb);border-radius:12px;padding:13px 16px;margin-bottom:12px}
+.exam-lbl{font-size:.64rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--yellow);margin-bottom:6px;display:flex;align-items:center;gap:5px}
+.exam-txt{font-size:.84rem;color:var(--tx2);line-height:1.65}
+.re-eval-btn{width:100%;padding:13px;background:#fff;color:var(--green);border:2px solid var(--green);border-radius:var(--radius);font-family:var(--sans);font-size:.9rem;font-weight:700;cursor:pointer;transition:all .15s;margin-top:4px}
+.re-eval-btn:hover{background:var(--greenf)}
+:fullscreen .topbar{position:fixed;top:0;left:0;right:0;z-index:9999}
+:fullscreen body{overflow-y:auto}
+:-webkit-full-screen .topbar{position:fixed;top:0;left:0;right:0;z-index:9999}
+</style>
+
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <a class="tb-back" href="https://computerielts.com/general-writing-task-1/" id="backBtn">← Back</a>
+  <div class="tb-info">
+    <div class="tb-test-label">General Training Writing Task 1 · Letter Writing</div>
+    <div class="tb-test-title" id="tbTitle">Loading...</div>
+  </div>
+  <div class="tb-right">
+    <div class="timer-box" id="timerBox">
+      <span class="timer-ico">⏱️</span>
+      <span class="timer-val" id="timerVal">20:00</span>
+    </div>
+    <div class="tb-nav">
+      <button class="tb-nav-btn" id="prevBtn" title="Previous test" onclick="navTest(-1)">◀</button>
+      <button class="tb-nav-btn" id="nextBtn" title="Next test" onclick="navTest(1)">▶</button>
+    </div>
+    <button class="fs-btn" id="fsBtn" title="Toggle fullscreen" onclick="toggleFS()">⛶</button>
+  </div>
+</div>
+
+<!-- SPLIT -->
+<div class="split">
+  <!-- QUESTION PANEL -->
+  <div class="q-panel">
+    <div class="q-panel-hdr">
+      <span class="q-panel-label">📋 Question</span>
+      <span class="q-type-badge badge-formal" id="qTypeBadge">Formal Letter</span>
+    </div>
+    <div class="q-body">
+      <div class="q-body-left">
+        <div class="q-topic-tag" id="qTopicTag">📦 Complaint</div>
+        <div class="q-number" id="qNumber">Test #1</div>
+        <div class="q-title" id="qTitle">Loading question...</div>
+        <div class="q-divider"></div>
+        <div class="q-text" id="qText"></div>
+        <div class="q-bullets" id="qBulletsWrap">
+          <div class="q-bullets-label">📌 Your letter should include:</div>
+          <div id="qBullets"></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:220px;max-width:340px">
+        <div class="q-tip">
+          <div class="q-tip-label">💡 Examiner Tip</div>
+          <div class="q-tip-text" id="qTip">Write at least 150 words. Address all three bullet points clearly.</div>
+        </div>
+        <div class="register-guide" id="registerGuide">
+          <div class="reg-label">📝 Register Guide</div>
+          <div id="regRows"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WRITE + RESULTS PANEL -->
+  <div class="w-panel" id="wPanel">
+    <div id="writeArea">
+      <div class="w-panel-hdr">
+        <span class="w-panel-label">✍️ Your Letter</span>
+        <div class="wc-wrap">
+          <div class="wc-bar-bg"><div class="wc-bar-fill" id="wcFill" style="background:var(--red)"></div></div>
+          <span class="wc-label" id="wcLabel" style="color:var(--red)">0 / 150</span>
+        </div>
+      </div>
+      <div class="w-body">
+        <textarea class="essay-textarea" id="essayTa" placeholder="Start writing your letter here...&#10;&#10;Begin with the correct salutation:&#10;• Formal: Dear Sir/Madam,&#10;• Semi-Formal: Dear Mr/Ms [Name],&#10;• Informal: Dear [First Name], / Hi [Name]," oninput="updateWC()"></textarea>
+        <div class="w-err" id="wErr"></div>
+        <div class="w-actions">
+          <button class="submit-btn" id="submitBtn" onclick="doEvaluate()">✦ Submit &amp; Get AI Band Score</button>
+          <button class="clear-btn" onclick="clearEssay()">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading -->
+    <div class="loading-overlay" id="ldOverlay" style="margin:16px 24px">
+      <div class="ld-spinner"></div>
+      <div class="ld-title">Evaluating your letter...</div>
+      <div class="ld-sub">Applying strict IELTS GT examiner standards</div>
+      <div class="ld-status" id="ldStatus">Reading letter structure...</div>
+      <div class="ld-steps">
+        <div class="ld-step" id="ls1">🎯 Checking Task Achievement &amp; Register...</div>
+        <div class="ld-step" id="ls2">📌 Verifying All 3 Bullet Points Covered...</div>
+        <div class="ld-step" id="ls3">🔗 Checking Coherence &amp; Cohesion...</div>
+        <div class="ld-step" id="ls4">📚 Evaluating Vocabulary &amp; Phrases...</div>
+        <div class="ld-step" id="ls5">✍️ Identifying Grammar Errors...</div>
+        <div class="ld-step" id="ls6">📊 Calculating Band Score...</div>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="results-section" id="resultsSection">
+      <div style="padding:14px 0 10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+        <div style="font-size:.9rem;font-weight:800;color:var(--tx)">📊 Your Results</div>
+        <button class="re-eval-btn" style="width:auto;padding:7px 16px;font-size:.8rem" onclick="reEvaluate()">🔄 Re-evaluate</button>
+      </div>
+      <!-- Band card -->
+      <div class="band-card">
+        <div class="band-top">
+          <div class="band-circle" id="bandCircle">
+            <div class="band-num" id="bandNum">--</div>
+            <div class="band-lbl">Band Score</div>
+          </div>
+          <div class="band-right">
+            <div class="band-verdict" id="bandVerdict">--</div>
+            <div class="band-overview" id="bandOverview"></div>
+          </div>
+        </div>
+        <div class="crit-row" id="critRow"></div>
+      </div>
+      <!-- Accordions -->
+      <div id="accWrap"></div>
+      <div class="motiv-card" id="motivCard" style="display:none">
+        <div class="motiv-lbl">🌟 Examiner's Message</div>
+        <div class="motiv-txt" id="motivTxt"></div>
+      </div>
+      <div class="ns-card" id="nsCard" style="display:none">
+        <div class="ns-hdr">🎯 Your Personalised Study Plan</div>
+        <div id="nsItems"></div>
+      </div>
+      <div class="exam-note" id="examNote" style="display:none">
+        <div class="exam-lbl">📌 Chief Examiner's Observation</div>
+        <div class="exam-txt" id="examTxt"></div>
+      </div>
+      <button class="re-eval-btn" onclick="reEvaluate()">✦ Evaluate a New Letter</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+const _K = 'paste your key here';
+var MODELS = ['gemini-3-flash-preview'];
+const LIST_PAGE = 'https://computerielts.com/general-writing-task-1/';
+
+const QUESTIONS = [
+/* FORMAL */
+{id:1,type:'Formal',topic:'Complaint',title:'Defective Product',
+ question:'You recently bought an electronic product from an online store. When it arrived, it was defective and not working properly.',
+ bullets:['Describe the product and what was wrong with it','Explain how this has inconvenienced you','Say what you would like the company to do'],
+ tip:'Use formal phrases like "I am writing to express my dissatisfaction with..." and close with "Yours faithfully".'},
+{id:2,type:'Formal',topic:'Complaint',title:'Poor Service at Restaurant',
+ question:'You recently had a meal at a restaurant to celebrate a special occasion, but you were very unhappy with the service and the food.',
+ bullets:['Describe the occasion and what went wrong','Explain how the poor service affected your experience','State what you would like the restaurant to do'],
+ tip:'Maintain a polite but firm tone throughout. Clearly state what action you expect from the manager.'},
+{id:3,type:'Formal',topic:'Complaint',title:'Noisy Construction Work',
+ question:'There has been continuous loud construction work near your home for several weeks, causing you serious disturbance.',
+ bullets:['Describe the nature and timing of the noise','Explain how it is affecting you and your family','Suggest what the council or company should do'],
+ tip:'Address the letter to the appropriate authority. Use formal, measured language — avoid emotional language.'},
+{id:4,type:'Formal',topic:'Complaint',title:'Incorrect Bank Charge',
+ question:'You have received your bank statement and noticed that you have been charged incorrectly for a service you did not use.',
+ bullets:['Describe the incorrect charge on your statement','Explain why the charge is wrong','Request a refund and resolution'],
+ tip:'Be specific with dates and amounts. A formal letter to a financial institution must be precise and factual.'},
+{id:5,type:'Formal',topic:'Complaint',title:'Flight Delay & Compensation',
+ question:'You recently experienced a significant flight delay which caused you to miss an important event.',
+ bullets:['Describe the flight details and the extent of the delay','Explain what you missed as a result','Request compensation in line with your rights'],
+ tip:'Include specific flight details (route, date, reference number if possible). State compensation amount or type you are seeking.'},
+{id:6,type:'Formal',topic:'Request',title:'Council Road Repair',
+ question:'There is a serious pothole and damage to the road outside your house, which has already caused accidents.',
+ bullets:['Describe the location and extent of the damage','Explain the safety risks this presents to residents','Request urgent repair work from the council'],
+ tip:'Formal letters to the council should include your full address and be specific about the location of the problem.'},
+{id:7,type:'Formal',topic:'Request',title:'Library Opening Hours',
+ question:'You are a regular user of your local public library and would like the opening hours to be extended.',
+ bullets:['Explain who you are and how you use the library','Give reasons why extended hours would benefit the community','Suggest specific new opening times'],
+ tip:'Show you understand the library\'s constraints. Be constructive and suggest a practical solution.'},
+{id:8,type:'Formal',topic:'Request',title:'Job Application',
+ question:'You have seen a job advertisement for a position that suits your skills and experience. Write a letter of application to the company.',
+ bullets:['Explain which job you are applying for and where you saw the advertisement','Describe your relevant qualifications and experience','Explain why you are the right person for this role'],
+ tip:'A job application letter must be professional and enthusiastic. Tailor your experience directly to the role described.'},
+{id:9,type:'Formal',topic:'Request',title:'University Admission Query',
+ question:'You are interested in applying to a university abroad and need more information about a specific course before you apply.',
+ bullets:['Introduce yourself and explain your interest in the course','Ask specific questions about entry requirements and fees','Enquire about scholarship or financial aid options'],
+ tip:'Use formal academic register. Be concise and specific in your questions — avoid vague enquiries.'},
+{id:10,type:'Formal',topic:'Request',title:'Scholarship Application',
+ question:'You have seen an advertisement for a scholarship that you believe you qualify for. Write a letter to apply.',
+ bullets:['Explain your background and academic achievements','Describe your financial situation and why you need the scholarship','Explain how the scholarship would help you achieve your goals'],
+ tip:'Be honest and specific. Scholarship letters should demonstrate both need and merit clearly.'},
+</script>
+
+<script>
+const QUESTIONS_EXTRA = [
+{id:11,type:'Formal',topic:'Request',title:'Newspaper Correction',
+ question:'You read an article in a local newspaper that contained factually incorrect information about your neighbourhood.',
+ bullets:['Identify the article and the specific incorrect information','Explain why the information is wrong','Request a correction or retraction to be published'],
+ tip:'Letters to editors must be factual and evidence-based. Avoid personal attacks on the journalist.'},
+{id:12,type:'Formal',topic:'Request',title:'Information on Night Classes',
+ question:'You want to enrol in evening classes at a local college but need more information before registering.',
+ bullets:['State which course or subject you are interested in','Ask about class schedules, fees and duration','Enquire about any prerequisites or entry requirements'],
+ tip:'Keep the letter brief and focused. Formal enquiry letters should be polite and to the point.'},
+{id:13,type:'Formal',topic:'Complaint',title:'Delayed Online Order',
+ question:'You ordered a product online over a month ago and it has still not arrived despite several follow-up emails going unanswered.',
+ bullets:['Describe the order details and original delivery date','Explain your failed attempts to resolve this with customer service','State what action you require — refund, replacement or explanation'],
+ tip:'Document your previous contact attempts. A firm but polite escalation letter is appropriate here.'},
+{id:14,type:'Formal',topic:'Request',title:'Donation for Local Charity',
+ question:'You are organising a fundraising event for a local charity and are writing to a local business to ask for sponsorship or a donation.',
+ bullets:['Describe the charity and the event you are organising','Explain what the funds will be used for','Specify what kind of support you are requesting from the business'],
+ tip:'Fundraising letters should highlight the community benefit. Be specific about what you are asking for.'},
+{id:15,type:'Formal',topic:'Complaint',title:'Hospital Waiting Times',
+ question:'You have experienced unreasonably long waiting times at a local NHS hospital on multiple occasions and wish to make a formal complaint.',
+ bullets:['Describe your experiences and the waiting times you faced','Explain how this has affected your health and well-being','Suggest what improvements should be made'],
+ tip:'Healthcare complaint letters need to be factual and measured. Exaggerating will weaken your complaint.'},
+{id:16,type:'Formal',topic:'Request',title:'Sports Facility in Town',
+ question:'Your town lacks a proper sports and recreation facility, and you believe the local council should invest in building one.',
+ bullets:['Describe the current lack of facilities in your area','Explain the community benefits of a new sports centre','Propose a specific location or plan for the council to consider'],
+ tip:'Make a community-level argument rather than a personal one. Use statistics or examples if possible.'},
+{id:17,type:'Formal',topic:'Complaint',title:'Parking Issues Near Office',
+ question:'The parking situation near your workplace has become a serious problem, affecting employees and local residents.',
+ bullets:['Describe the current parking problems and their causes','Explain how the situation is affecting workers and local people','Suggest practical solutions for the council to implement'],
+ tip:'Local authority complaints should be solution-oriented. Suggest realistic alternatives to show you have thought it through.'},
+{id:18,type:'Formal',topic:'Request',title:'Visa Application Letter',
+ question:'You need to write a formal support letter to the embassy in connection with your visa application.',
+ bullets:['Explain the purpose and duration of your visit','Provide details of your financial situation and ties to your home country','State how you plan to meet all visa requirements'],
+ tip:'Embassy letters require precision and honesty. Every claim must be verifiable and well-documented.'},
+{id:19,type:'Formal',topic:'Complaint',title:'Misleading Advertisement',
+ question:'You purchased a product based on an advertisement that made claims which turned out to be false or misleading.',
+ bullets:['Describe the advertisement and the false claim it made','Explain how the product failed to match the advertised description','State the action you want the company to take'],
+ tip:'Consumer complaint letters benefit from referencing consumer protection rights. Be specific about the misleading claim.'},
+{id:20,type:'Formal',topic:'Request',title:'Reference Letter Request',
+ question:'You are applying for a position overseas and need a professional reference from a former employer or tutor.',
+ bullets:['Explain the position you are applying for and why you need a reference','Remind the person of the work you did together','Provide any specific points you would like them to mention'],
+ tip:'Reference request letters should make it easy for the referee. Be specific about what you need and include a deadline.'}
+];
+</script>
+
+<script>
+const QUESTIONS_SEMI = [
+{id:21,type:'Semi-Formal',topic:'Accommodation',title:'Repair Request to Landlord',
+ question:'You are renting a flat and several things need to be repaired. Your landlord has not responded to your previous messages.',
+ bullets:['List the specific repairs that are needed','Explain how long these problems have existed and their impact','Request a timeline for when the repairs will be completed'],
+ tip:'Address as "Dear Mr/Ms [Name]" and close "Yours sincerely". Keep a respectful but firm tone.'},
+{id:22,type:'Semi-Formal',topic:'Accommodation',title:'Notice to Vacate Property',
+ question:'You need to end your tenancy and vacate your rented flat. Write a letter to your landlord giving appropriate notice.',
+ bullets:['State when you intend to leave and the notice period you are giving','Describe the condition you will leave the property in','Ask about the process for returning your deposit'],
+ tip:'Refer to your tenancy agreement terms. A formal notice must confirm the exact date of departure.'},
+{id:23,type:'Semi-Formal',topic:'Accommodation',title:'Rent Reduction Request',
+ question:'Your landlord has announced a significant rent increase which you feel is unjustified given the current condition of the property.',
+ bullets:['Acknowledge the proposed increase','Outline specific issues with the property that justify a review','Propose a fair alternative rental amount'],
+ tip:'Be polite but clear. Reference any maintenance issues that remain unresolved as evidence for your position.'},
+{id:24,type:'Semi-Formal',topic:'Workplace',title:'Leave Request to Manager',
+ question:'You need to take time off work for an important personal matter and must write to your manager to request this leave.',
+ bullets:['Explain the reason for your leave request','State the specific dates and duration of the leave','Describe how your work will be covered during your absence'],
+ tip:'Be professional and reassuring. Show you have planned for your absence so your manager has no concerns.'},
+{id:25,type:'Semi-Formal',topic:'Workplace',title:'Work-from-Home Request',
+ question:'Due to a change in your personal circumstances, you would like to request permission to work from home on a permanent or part-time basis.',
+ bullets:['Explain the circumstances that have led to your request','Describe how you will maintain productivity while working remotely','Suggest a trial period or arrangement that could work for both parties'],
+ tip:'Emphasise your track record of reliability. Propose clear, measurable outcomes to reassure your manager.'},
+{id:26,type:'Semi-Formal',topic:'Workplace',title:'Transfer to Another Branch',
+ question:'You would like to request a transfer to a different branch of your company in another city.',
+ bullets:['Explain your reasons for wanting to transfer','Highlight your contributions to the current branch','Ask about the process and timeline for a transfer decision'],
+ tip:'Frame the transfer as benefiting the company, not just yourself. Show awareness of business continuity concerns.'},
+{id:27,type:'Semi-Formal',topic:'Workplace',title:'Resignation Letter',
+ question:'You have decided to leave your current job and need to formally resign, giving the required notice period.',
+ bullets:['State your intention to resign and your last working day','Thank your employer for the opportunities you have had','Offer to help with the transition or training of your replacement'],
+ tip:'A resignation letter should be brief, professional and positive. Avoid explaining personal reasons in detail.'},
+{id:28,type:'Semi-Formal',topic:'Neighbour',title:'Noise Complaint to Neighbour',
+ question:'Your neighbour frequently plays loud music late at night, disturbing your sleep and affecting your work performance.',
+ bullets:['Describe the noise problem and when it typically occurs','Explain how it is affecting you personally','Suggest a reasonable solution or compromise'],
+ tip:'This is semi-formal — the neighbour is known to you. Be polite and solution-focused rather than accusatory.'},
+{id:29,type:'Semi-Formal',topic:'Neighbour',title:'Parking Space Dispute',
+ question:'Your neighbour has been regularly parking their car in your designated parking space, causing you significant inconvenience.',
+ bullets:['Describe the parking situation and how often it happens','Explain the inconvenience this causes you','Propose a resolution that works for both of you'],
+ tip:'Aim for a cooperative, neighbourly tone. The goal is resolution, not conflict. Suggest a practical solution.'},
+{id:30,type:'Semi-Formal',topic:'Neighbour',title:'Invitation to Neighbour Event',
+ question:'You are organising a small community event for residents on your street and want to invite your neighbour.',
+ bullets:['Introduce the event — what it is and when it will take place','Explain what to expect and what they should bring','Ask them to confirm their attendance'],
+ tip:'A semi-formal invitation is friendly but still structured. Use "Dear Mr/Ms [Name]" and keep a warm, welcoming tone.'},
+{id:31,type:'Semi-Formal',topic:'Education',title:'Course Deferral Request',
+ question:'Due to unforeseen personal circumstances, you need to defer your place on a course you have already enrolled on.',
+ bullets:['Explain your circumstances and why you need to defer','State how long you are requesting to defer for','Confirm your commitment to joining at the later date'],
+ tip:'Course deferral letters must be sincere and specific. Reference your enrolment and show you remain committed.'},
+{id:32,type:'Semi-Formal',topic:'Education',title:'Complaint About Lecturer',
+ question:'You are a student who is concerned about the teaching quality of a particular lecturer and wish to raise this with the course coordinator.',
+ bullets:['Describe specific instances that have concerned you','Explain how this has affected your learning','Suggest how the situation could be improved'],
+ tip:'Be respectful and factual. Focus on specific incidents rather than making general negative claims.'},
+{id:33,type:'Semi-Formal',topic:'Education',title:'Request for Exam Remarking',
+ question:'You received an exam result that you believe does not reflect your performance, and you want to request a remark.',
+ bullets:['State the exam and the mark you received','Explain why you believe the result is inaccurate','Ask about the official process and timeline for a remark'],
+ tip:'Be professional and constructive. You are appealing a process, not attacking a person — keep that distinction clear.'},
+{id:34,type:'Semi-Formal',topic:'Accommodation',title:'Reporting a Broken Appliance',
+ question:'A major appliance in your rented property has broken down and is affecting your daily life. You need your landlord to repair or replace it urgently.',
+ bullets:['Describe which appliance has broken and when it happened','Explain how it is affecting your daily routine','Request an urgent repair or replacement within a specific timeframe'],
+ tip:'Urgency should be stated clearly. If the appliance is essential (e.g. heating, hot water), make this explicit.'},
+{id:35,type:'Semi-Formal',topic:'Workplace',title:'Salary Review Request',
+ question:'You have been in your current role for two years and feel your salary no longer reflects your responsibilities and contributions.',
+ bullets:['Outline your key achievements and increased responsibilities since joining','Research and reference the current market rate for your role','Request a meeting to discuss a salary review formally'],
+ tip:'Salary review letters should be evidence-based and confident. Avoid ultimatums but show you know your market value.'}
+];
+</script>
+
+<script>
+const QUESTIONS_INFORMAL = [
+{id:36,type:'Informal',topic:'Invitation',title:'Invite Friend to Wedding',
+ question:'You are getting married soon and want to invite a close friend who lives in another country to attend your wedding.',
+ bullets:['Tell your friend about your upcoming wedding and when it will take place','Describe the venue and any travel or accommodation information they might need','Express how much it would mean to you if they could attend'],
+ tip:'Use a warm, personal tone. Informal letters can use contractions, exclamations and natural conversational English.'},
+{id:37,type:'Informal',topic:'Invitation',title:'Invite Friend to New City',
+ question:'You have recently moved to a new city and would like to invite a close friend to come and visit you.',
+ bullets:['Tell your friend about your new home and city','Suggest some activities you could do together during their visit','Mention when would be a good time for them to visit'],
+ tip:'Be enthusiastic and descriptive. Show your friend why visiting would be exciting for them.'},
+{id:38,type:'Informal',topic:'Apology',title:'Apologise for Missing Event',
+ question:'You were unable to attend a close friend\'s important event (birthday party, graduation, or wedding) and want to apologise.',
+ bullets:['Explain clearly why you were unable to attend','Express how sorry you are and how much you regret missing it','Suggest a way to celebrate with your friend at a later date'],
+ tip:'A sincere apology letter should be heartfelt. Avoid making excuses — focus on your regret and how to make it up.'},
+{id:39,type:'Informal',topic:'Apology',title:'Apology for Borrowing Item',
+ question:'You borrowed something important from a friend and accidentally damaged or lost it.',
+ bullets:['Explain what happened to the item you borrowed','Express your apology sincerely','Offer to repair or replace the item'],
+ tip:'Take full responsibility. Do not minimise the situation. Offer a concrete way to make it right.'},
+{id:40,type:'Informal',topic:'Advice',title:'Career Advice for a Friend',
+ question:'Your close friend has written to you saying they are unhappy in their current job and are unsure whether to resign or stay.',
+ bullets:['Acknowledge your friend\'s situation and feelings','Share your honest opinion about what they should do','Suggest practical steps they could take next'],
+ tip:'Informal advice letters should be warm and supportive, not lecture-like. Offer personal opinion but respect their autonomy.'},
+{id:41,type:'Informal',topic:'Advice',title:'Advice on Moving Abroad',
+ question:'A friend is considering moving to the country where you currently live and has asked for your honest advice.',
+ bullets:['Describe what life is like in the country honestly — both positives and challenges','Give specific practical advice for settling in','Share your personal experience of moving there'],
+ tip:'Be honest rather than just positive. Your friend needs realistic advice, not just encouragement.'},
+{id:42,type:'Informal',topic:'Recommendation',title:'Recommend a Place to Visit',
+ question:'A friend is planning a holiday and has asked you to recommend a place you have visited that you think they would love.',
+ bullets:['Describe the place and why you liked it','Suggest specific things they should see and do there','Give practical tips such as the best time to visit or places to stay'],
+ tip:'Personal recommendations should be specific and vivid. Tell a brief personal story or memory from your visit.'},
+{id:43,type:'Informal',topic:'Recommendation',title:'Recommend a Book or Course',
+ question:'Your friend is looking to improve a skill or learn something new, and you want to recommend a book or online course that helped you.',
+ bullets:['Describe the book or course and what it covers','Explain how it helped you personally','Explain why you think it would specifically benefit your friend'],
+ tip:'Personalise your recommendation to your friend\'s specific situation. Show you have thought about their needs.'},
+{id:44,type:'Informal',topic:'Thank You',title:'Thank Friend for Staying',
+ question:'A friend recently came to stay with you for a week. You want to write and thank them for their visit.',
+ bullets:['Tell them how much you enjoyed having them stay','Mention a specific moment or activity you particularly enjoyed together','Invite them to visit again or suggest a future plan'],
+ tip:'Thank-you letters should be warm and specific. Mention real details from the visit to make the letter feel genuine.'},
+{id:45,type:'Informal',topic:'Thank You',title:'Thank Friend for Gift',
+ question:'A close friend sent you a gift for a special occasion, and you want to write and thank them.',
+ bullets:['Express your gratitude for the gift and describe it','Explain why the gift was particularly meaningful or useful to you','Update your friend on what has been happening in your life recently'],
+ tip:'Gratitude letters should go beyond just saying "thank you". Be specific about why the gift was meaningful.'},
+{id:46,type:'Informal',topic:'Update',title:'Life Update After Moving',
+ question:'You moved to a new country six months ago. Write to an old friend back home to update them on how your life is going.',
+ bullets:['Describe your new home and neighbourhood','Talk about your new job or daily routine','Share how you are feeling about the move overall — challenges and highlights'],
+ tip:'Life update letters should feel like a real conversation. Share both positives and honest difficulties for a natural feel.'},
+{id:47,type:'Informal',topic:'Update',title:'News About a New Job',
+ question:'You have recently started an exciting new job and want to share the news with a close friend.',
+ bullets:['Describe the new job and how you got it','Explain what you do and what you enjoy most about it','Ask about what has been happening in your friend\'s life'],
+ tip:'Share your genuine excitement but also ask about your friend — letters should not be one-sided.'},
+{id:48,type:'Informal',topic:'Request',title:'Ask Friend for a Favour',
+ question:'You need to ask a close friend for a significant favour that involves their time or effort.',
+ bullets:['Explain what the favour is and why you need their help','Describe the situation that has led to your needing help','Assure them you will return the favour and express gratitude in advance'],
+ tip:'When asking for a favour, explain why you specifically are asking this person and acknowledge the effort involved.'},
+{id:49,type:'Informal',topic:'Invitation',title:'Invite Friend to Celebration',
+ question:'You are organising a celebration party for an important personal milestone and want to invite a close friend.',
+ bullets:['Explain what the celebration is for and when and where it will be held','Describe what the event will involve — food, activities, other guests','Ask your friend to confirm if they can come and mention if they should bring anything'],
+ tip:'Party invitation letters should be fun and energetic in tone. Informal English with exclamation marks is perfectly appropriate.'},
+{id:50,type:'Informal',topic:'Advice',title:'Advice on Health & Lifestyle',
+ question:'A friend has written to you saying they have been feeling tired and unhealthy lately and are looking for advice on improving their lifestyle.',
+ bullets:['Express concern and sympathy for how your friend is feeling','Share specific habits or changes that have helped you personally','Suggest practical and realistic steps your friend could try'],
+ tip:'Health advice letters should be encouraging, not preachy. Speak from personal experience rather than giving clinical advice.'}
+];
+</script>
+
+<script>
+// Merge all question arrays
+const ALL_QUESTIONS = QUESTIONS.concat(QUESTIONS_EXTRA, QUESTIONS_SEMI, QUESTIONS_INFORMAL);
+
+const BADGE_CLASS = {
+  'Formal':      'badge-formal',
+  'Semi-Formal': 'badge-semi',
+  'Informal':    'badge-informal'
+};
+const TOPIC_ICON = {
+  'Complaint':'📦','Request':'📝','Accommodation':'🏠','Workplace':'💼',
+  'Neighbour':'🏘️','Education':'🎓','Invitation':'🎉','Apology':'😔',
+  'Advice':'💡','Recommendation':'⭐','Thank You':'🙏','Update':'📬'
+};
+const CRIT_COLS = {
+  task_achievement:'#057a55',
+  coherence:'#1a56db',
+  lexical:'#6c2bd9',
+  grammar:'#c2410c'
+};
+const REGISTER_GUIDES = {
+  'Formal':[
+    {col:'#1a56db',txt:'Opening: Dear Sir/Madam, / Dear Mr Smith,'},
+    {col:'#057a55',txt:'Closing: Yours faithfully (unknown) / Yours sincerely (known name)'},
+    {col:'#6c2bd9',txt:'Tone: Polite, impersonal, professional — no contractions'}
+  ],
+  'Semi-Formal':[
+    {col:'#1a56db',txt:'Opening: Dear Mr/Ms [Surname],'},
+    {col:'#057a55',txt:'Closing: Yours sincerely, / Kind regards,'},
+    {col:'#6c2bd9',txt:'Tone: Polite and professional but slightly warmer'}
+  ],
+  'Informal':[
+    {col:'#1a56db',txt:'Opening: Dear [First Name], / Hi [Name],'},
+    {col:'#057a55',txt:'Closing: Best wishes, / Take care, / Love,'},
+    {col:'#6c2bd9',txt:'Tone: Friendly, natural — contractions & casual phrases OK'}
+  ]
+};
+
+let currentId = 1, timerSec = 1200, timerIv = null, stepIv = null, modelIdx = 0, lastEssay = '';
+
+function g(id){ return document.getElementById(id); }
+function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>'); }
+function wc(t){ t=(t||'').trim(); return t ? t.split(/\s+/).length : 0; }
+
+function getTestId(){
+  var qs = new URLSearchParams(window.location.search);
+  if(qs.get('test')) return parseInt(qs.get('test'))||1;
+  if(window.location.hash){
+    var hm = window.location.hash.match(/[#&]test=(\d+)/);
+    if(hm) return parseInt(hm[1])||1;
+  }
+  return 1;
+}
+
+function loadQuestion(){
+  var id = getTestId();
+  var q = ALL_QUESTIONS.find(function(x){ return x.id === id; }) || ALL_QUESTIONS[0];
+  currentId = q.id;
+  var el;
+  if((el=g('tbTitle'))) el.textContent = 'Test #'+q.id+' — '+q.title;
+  if((el=g('qNumber'))) el.textContent = 'Test #'+q.id+' of '+ALL_QUESTIONS.length;
+  if((el=g('qTitle'))) el.textContent = q.title;
+  if((el=g('qText'))) el.textContent = q.question;
+  if((el=g('qTip'))) el.textContent = q.tip || 'Write at least 150 words. Use the correct register for this letter type.';
+  if((el=g('qTopicTag'))) el.textContent = (TOPIC_ICON[q.topic]||'✉️')+' '+q.topic;
+  var badge = g('qTypeBadge');
+  if(badge){ badge.textContent = q.type+' Letter'; badge.className = 'q-type-badge '+(BADGE_CLASS[q.type]||'badge-formal'); }
+  // bullets
+  var bWrap = g('qBullets');
+  if(bWrap && q.bullets){
+    bWrap.innerHTML = q.bullets.map(function(b,i){
+      return '<div class="q-bullet-item"><div class="q-bullet-dot">'+(i+1)+'</div><span>'+esc(b)+'</span></div>';
+    }).join('');
+  }
+  // register guide
+  var regRows = g('regRows');
+  if(regRows){
+    var guide = REGISTER_GUIDES[q.type] || REGISTER_GUIDES['Formal'];
+    regRows.innerHTML = guide.map(function(r){
+      return '<div class="reg-row"><div class="reg-dot" style="background:'+r.col+'"></div><span>'+esc(r.txt)+'</span></div>';
+    }).join('');
+  }
+  if((el=g('prevBtn'))) el.disabled = (q.id <= 1);
+  if((el=g('nextBtn'))) el.disabled = (q.id >= ALL_QUESTIONS.length);
+  document.title = 'Test #'+q.id+' — '+q.title+' | IELTS General Writing Task 1';
+}
+
+function navTest(dir){
+  var newId = currentId + dir;
+  if(newId < 1 || newId > ALL_QUESTIONS.length) return;
+  window.location.href = window.location.pathname + '?test=' + newId;
+}
+
+// TIMER — 20 minutes
+function startTimer(){
+  clearInterval(timerIv);
+  timerSec = 1200;
+  renderTimer();
+  timerIv = setInterval(function(){
+    timerSec--;
+    renderTimer();
+    if(timerSec <= 0){ clearInterval(timerIv); g('timerVal').textContent = '00:00'; }
+  }, 1000);
+}
+function renderTimer(){
+  var m = Math.floor(timerSec/60), s = timerSec%60;
+  g('timerVal').textContent = String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+  var box = g('timerBox');
+  box.className = 'timer-box' + (timerSec<=180?' danger':timerSec<=360?' warn':'');
+}
+
+// WORD COUNT — target 150
+function updateWC(){
+  var n = wc(g('essayTa').value);
+  var pct = Math.min(100, Math.round(n/150*100));
+  var col = n>=150 ? 'var(--green)' : n>=100 ? '#d97706' : 'var(--red)';
+  var fill = g('wcFill'); fill.style.width = pct+'%'; fill.style.background = col;
+  var lbl = g('wcLabel'); lbl.textContent = n+' / 150'; lbl.style.color = col;
+}
+function clearEssay(){
+  g('essayTa').value = '';
+  updateWC();
+  g('wErr').className = 'w-err';
+  g('resultsSection').className = 'results-section';
+  g('writeArea').style.display = 'block';
+}
+function reEvaluate(){ clearEssay(); window.scrollTo({top:0,behavior:'smooth'}); }
+</script>
+
+<script>
+/* EVALUATE */
+function doEvaluate(){
+  var essay = (g('essayTa').value||'').trim();
+  var err = g('wErr');
+  if(!essay){ err.textContent='⚠️ Please write your letter first.'; err.className='w-err on'; return; }
+  if(wc(essay)<30){ err.textContent='⚠️ Letter too short — please write at least 30 words.'; err.className='w-err on'; return; }
+  err.className='w-err';
+  lastEssay = essay;
+  var q = ALL_QUESTIONS.find(function(x){ return x.id===currentId; }) || ALL_QUESTIONS[0];
+  g('writeArea').style.display='none';
+  g('resultsSection').className='results-section';
+  g('ldOverlay').className='loading-overlay on';
+  g('submitBtn').disabled=true;
+  startSteps();
+  tryModels(essay, q);
+}
+
+function startSteps(){
+  var ids=['ls1','ls2','ls3','ls4','ls5','ls6'];
+  ids.forEach(function(id){ var e=g(id); if(e) e.className='ld-step'; });
+  g(ids[0]).className='ld-step act';
+  var i=1;
+  stepIv=setInterval(function(){
+    if(i-1<ids.length){ g(ids[i-1]).className='ld-step done'; }
+    if(i<ids.length){ g(ids[i]).className='ld-step act'; i++; }
+    else clearInterval(stepIv);
+  },2600);
+}
+function stopSteps(){
+  clearInterval(stepIv);
+  ['ls1','ls2','ls3','ls4','ls5','ls6'].forEach(function(id){ var e=g(id); if(e) e.className='ld-step done'; });
+  g('ldOverlay').className='loading-overlay';
+  g('submitBtn').disabled=false;
+}
+
+function tryModels(essay, q){
+  var model = MODELS[modelIdx];
+  g('ldStatus').textContent='Computer IELTS is analysing your letter...';
+  callGemini(model, essay, q)
+    .then(function(d){ stopSteps(); showResults(d); })
+    .catch(function(){
+      modelIdx++;
+      if(modelIdx < MODELS.length){ setTimeout(function(){ tryModels(essay,q); },2000); }
+      else { modelIdx=0; setTimeout(function(){ tryModels(essay,q); },5000); }
+    });
+}
+
+function buildPrompt(essay, q){
+  return 'You are a certified IELTS General Training Writing Task 1 examiner.\n'
+  +'Your task is to evaluate the candidate\'s letter exactly like a real IELTS examiner.\n'
+  +'You are NOT a writing assistant. You are an examiner.\n\n'
+  +'LETTER TYPE: '+q.type+' Letter\n'
+  +'TOPIC: '+q.topic+'\n'
+  +'QUESTION: '+q.question+'\n'
+  +'BULLET POINTS THE CANDIDATE MUST COVER:\n'
+  +q.bullets.map(function(b,i){ return (i+1)+'. '+b; }).join('\n')+'\n'
+  +'CANDIDATE\'S LETTER:\n'+essay+'\n\n'
+  +'================================================\n'
+  +'SCORING RULES\n'
+  +'================================================\n\n'
+  +'Score each criterion: 0, 0.5, 1.0 ... up to 9.0\n'
+  +'Overall Band = average of all four, rounded by IELTS rules:\n'
+  +'- .25 → round DOWN\n'
+  +'- .75 → round UP\n\n'
+  +'CRITERION 1 — TASK ACHIEVEMENT (GT Task 1 specific)\n'
+  +'✓ All three bullet points clearly addressed\n'
+  +'✓ Correct register and tone for the letter type (Formal/Semi-Formal/Informal)\n'
+  +'✓ Appropriate opening salutation and closing phrase\n'
+  +'✓ Purpose of letter clear in opening paragraph\n'
+  +'✗ Penalise severely for wrong register (informal phrases in formal letter)\n'
+  +'✗ Missing a bullet point caps score at Band 5\n\n'
+  +'CRITERION 2 — COHERENCE & COHESION\n'
+  +'✓ Logical paragraph organisation\n'
+  +'✓ Appropriate linking phrases for letter type\n\n'
+  +'CRITERION 3 — LEXICAL RESOURCE\n'
+  +'✓ Letter-appropriate vocabulary and collocations\n'
+  +'✓ Formal: sophisticated phrases | Informal: natural conversational language\n'
+  +'✗ Do NOT penalise necessary keyword repetition\n'
+  +'GOOD upgrades: "bad" → "unsatisfactory" (formal) | "really nice" → "thoroughly enjoyable" (semi-formal)\n\n'
+  +'CRITERION 4 — GRAMMATICAL RANGE & ACCURACY\n'
+  +'✓ Sentence variety, accuracy, correct punctuation\n'
+  +'✗ Only mark REAL grammar errors — max 5\n\n'
+  +'REGISTER ANALYSIS — critical for GT Task 1:\n'
+  +'Check: correct salutation, correct closing, no register mixing\n'
+  +'Formal violations: contractions, slang, first-name-only address\n'
+  +'Informal violations: "Dear Sir/Madam" to a friend, overly stiff language\n\n'
+  +'BULLET POINT COVERAGE — check each of the 3 bullet points:\n'
+  +'For each bullet: is it addressed? is it adequately developed?\n\n'
+  +'================================================\n'
+  +'RETURN ONLY VALID JSON — no markdown, no explanation\n'
+  +'================================================\n\n'
+  +'{\n'
+  +'  "overall_band": 6.5,\n'
+  +'  "headline": "One-line summary of letter performance",\n'
+  +'  "verdict": "Competent User — letter purpose clear but register inconsistencies noted.",\n'
+  +'  "overview": "Two honest sentences about overall letter quality.",\n'
+  +'  "word_count": 162,\n'
+  +'  "register_analysis": {\n'
+  +'    "correct_register": true,\n'
+  +'    "salutation_correct": true,\n'
+  +'    "closing_correct": true,\n'
+  +'    "register_issues": ["issue 1 if any"],\n'
+  +'    "register_summary": "One sentence on register quality."\n'
+  +'  },\n'
+  +'  "bullet_coverage": [\n'
+  +'    {"bullet": "bullet text 1", "covered": true, "comment": "Well addressed with specific detail."},\n'
+  +'    {"bullet": "bullet text 2", "covered": true, "comment": "Addressed but could be more developed."},\n'
+  +'    {"bullet": "bullet text 3", "covered": false, "comment": "This bullet point was not addressed."}\n'
+  +'  ],\n'
+  +'  "criteria": {\n'
+  +'    "task_achievement": {"score":6.5,"label":"Task Achievement","summary":"...","strengths":["s1"],"improvements":["i1"]},\n'
+  +'    "coherence": {"score":6.5,"label":"Coherence and Cohesion","summary":"...","strengths":["s1"],"improvements":["i1"]},\n'
+  +'    "lexical": {"score":6.0,"label":"Lexical Resource","summary":"...","strengths":["s1"],"improvements":["i1"]},\n'
+  +'    "grammar": {"score":6.0,"label":"Grammatical Range and Accuracy","summary":"...","strengths":["s1"],"improvements":["i1"]}\n'
+  +'  },\n'
+  +'  "grammar_corrections": [\n'
+  +'    {"original":"exact wrong phrase","corrected":"corrected version","reason":"Error type"}\n'
+  +'  ],\n'
+  +'  "vocab_upgrades": [\n'
+  +'    {"current":"weak word","better_options":["option1","option2"],"reason":"why this is an improvement"}\n'
+  +'  ],\n'
+  +'  "strong_vocab": ["good phrase 1","good phrase 2"],\n'
+  +'  "repetition": [{"word":"repeated word","count":4}],\n'
+  +'  "key_strengths": ["strength 1","strength 2","strength 3"],\n'
+  +'  "priority_improvements": ["action 1","action 2","action 3"],\n'
+  +'  "motivational_feedback": "Two encouraging sentences.",\n'
+  +'  "next_steps": ["weekly task","register/vocab drill","mock letter plan"],\n'
+  +'  "model_answer_opening": "3-4 Band 9 sentences for this exact letter prompt including correct salutation.",\n'
+  +'  "examiner_comment": "50-80 word final examiner comment on letter quality, register and communication effectiveness."\n'
+  +'}';
+}
+
+function callGemini(model, essay, q){
+  var body = JSON.stringify({
+    contents:[{parts:[{text:buildPrompt(essay,q)}]}],
+    generationConfig:{temperature:0.15,maxOutputTokens:5000},
+    safetySettings:[
+      {category:'HARM_CATEGORY_HARASSMENT',threshold:'BLOCK_NONE'},
+      {category:'HARM_CATEGORY_HATE_SPEECH',threshold:'BLOCK_NONE'},
+      {category:'HARM_CATEGORY_SEXUALLY_EXPLICIT',threshold:'BLOCK_NONE'},
+      {category:'HARM_CATEGORY_DANGEROUS_CONTENT',threshold:'BLOCK_NONE'}
+    ]
+  });
+  var url='https://generativelanguage.googleapis.com/v1beta/models/'+model+':generateContent?key='+_K;
+  return fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:body})
+    .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+    .then(function(data){
+      var raw=((data.candidates||[])[0]?.content?.parts||[]).map(function(p){ return p.text||''; }).join('');
+      if(!raw) throw new Error('empty');
+      return parseJSON(raw);
+    });
+}
+
+function parseJSON(raw){
+  var txt=raw.replace(/```json\s*/gi,'').replace(/```\s*/g,'').trim();
+  try{ return JSON.parse(txt); }catch(e){}
+  var depth=0,start=-1,best='';
+  for(var i=0;i<txt.length;i++){
+    if(txt[i]==='{'){if(depth===0)start=i;depth++;}
+    else if(txt[i]==='}'){depth--;if(depth===0&&start!==-1){var c=txt.substring(start,i+1);if(c.length>best.length)best=c;start=-1;}}
+  }
+  if(best){try{return JSON.parse(best);}catch(e){try{return JSON.parse(best.replace(/,\s*}/g,'}').replace(/,\s*]/g,']'));}catch(e2){}}}
+  throw new Error('parse failed');
+}
+</script>
+
+<script>
+/* SHOW RESULTS */
+function showResults(d){
+  g('resultsSection').className='results-section on';
+  var band=parseFloat(d.overall_band)||0;
+  var crit=d.criteria||{};
+  var keys=['task_achievement','coherence','lexical','grammar'];
+  var bandCol=band>=7.5?'#057a55':band>=6.5?'#d97706':band>=5.5?'#c2410c':'#e02424';
+
+  var circle=g('bandCircle');
+  circle.style.borderColor=bandCol;
+  circle.style.boxShadow='0 0 24px '+bandCol+'33';
+  var bn=g('bandNum'); bn.textContent=band.toFixed(1); bn.style.color='#fff';
+  g('bandVerdict').textContent=d.verdict||bandLabel(band);
+  var ov=g('bandOverview');
+  ov.innerHTML='';
+  if(d.headline){ var h=document.createElement('div'); h.style.cssText='font-size:.78rem;font-weight:700;color:rgba(255,255,255,.9);margin-bottom:4px'; h.textContent=d.headline; ov.appendChild(h); }
+  if(d.overview){ var p=document.createElement('div'); p.style.cssText='font-size:.78rem;color:rgba(255,255,255,.65);line-height:1.6'; p.textContent=d.overview; ov.appendChild(p); }
+
+  var cr=g('critRow');
+  cr.innerHTML=keys.map(function(k){
+    var c=crit[k]; if(!c) return '';
+    var sc=parseFloat(c.score)||0;
+    var col=CRIT_COLS[k];
+    var lbl=(c.label||k).replace('Task Achievement','Task Ach.').replace('Coherence and Cohesion','Coherence').replace('Lexical Resource','Lexical').replace('Grammatical Range and Accuracy','Grammar').replace('Grammatical Range & Accuracy','Grammar');
+    return '<div class="crit-item">'
+      +'<div class="crit-val" style="color:'+col+'">'+sc.toFixed(1)+'</div>'
+      +'<div class="crit-bar-bg"><div class="crit-bar-fill" data-w="'+(sc/9*100)+'%" style="width:0%;background:'+col+'"></div></div>'
+      +'<div class="crit-lbl">'+esc(lbl)+'</div>'
+      +'</div>';
+  }).join('');
+  setTimeout(function(){
+    cr.querySelectorAll('.crit-bar-fill').forEach(function(b){
+      b.style.transition='width 1s cubic-bezier(.4,0,.2,1)';
+      b.style.width=b.getAttribute('data-w');
+    });
+  },200);
+
+  var wrap=g('accWrap'); var html='';
+
+  /* 1 — Register Analysis */
+  var ra=d.register_analysis||{};
+  if(ra.register_summary||ra.register_issues){
+    var regOk=(ra.correct_register!==false)&&(!ra.register_issues||!ra.register_issues.length);
+    var regBadge='<span class="acc-badge" style="background:'+(regOk?'var(--greenf)':'var(--orangef)')+';color:'+(regOk?'var(--green)':'var(--orange)')+';border:1px solid '+(regOk?'var(--greenb)':'var(--orangeb)')+'">'+(regOk?'✓ Correct':'⚠️ Issues')+'</span>';
+    var regBody='';
+    var items=[
+      {label:'Salutation',ok:ra.salutation_correct!==false},
+      {label:'Closing Phrase',ok:ra.closing_correct!==false},
+      {label:'Overall Register',ok:ra.correct_register!==false}
+    ];
+    regBody+='<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">'
+      +items.map(function(it){
+        return '<span style="font-size:.74rem;font-weight:700;padding:4px 10px;border-radius:100px;background:'+(it.ok?'var(--greenf)':'var(--redf)')+';color:'+(it.ok?'var(--green)':'var(--red)')+';border:1px solid '+(it.ok?'var(--greenb)':'var(--redb)')+';">'+(it.ok?'✓ ':'✗ ')+it.label+'</span>';
+      }).join('')+'</div>';
+    if(ra.register_summary) regBody+='<div class="crit-summary" style="border-left-color:'+(regOk?'var(--green)':'var(--orange)')+'">'+esc(ra.register_summary)+'</div>';
+    if(ra.register_issues&&ra.register_issues.length){
+      regBody+='<div class="acc-sub">⚠️ Register Issues to Fix</div><div class="pt-list">'
+        +ra.register_issues.map(function(s){ return '<div class="pt imp">→ '+esc(s)+'</div>'; }).join('')+'</div>';
+    }
+    html+=mkAcc('📝','Register &amp; Tone Check',regBadge,regOk?'#057a55':'#c2410c',regBody,true);
+  }
+
+  /* 2 — Bullet Point Coverage */
+  var bc=d.bullet_coverage||[];
+  if(bc.length){
+    var allOk=bc.every(function(b){ return b.covered; });
+    var bcBadge='<span class="acc-badge" style="background:'+(allOk?'var(--greenf)':'var(--redf)')+';color:'+(allOk?'var(--green)':'var(--red)')+';border:1px solid '+(allOk?'var(--greenb)':'var(--redb)')+';">'+(allOk?'✓ All Covered':'⚠️ Missing Points')+'</span>';
+    var bcBody=bc.map(function(b,i){
+      return '<div class="register-check-block '+(b.covered?'reg-ok':'reg-warn')+'" style="margin-bottom:8px">'
+        +'<div class="reg-check-label">Bullet '+(i+1)+': '+(b.covered?'✓ Addressed':'✗ Missing')+'</div>'
+        +'<div style="font-size:.72rem;font-weight:600;color:inherit;margin-bottom:4px;font-style:italic">'+esc(b.bullet||'')+'</div>'
+        +'<div class="reg-check-txt">'+esc(b.comment||'')+'</div>'
+        +'</div>';
+    }).join('');
+    html+=mkAcc('📌','Bullet Point Coverage',bcBadge,allOk?'#057a55':'#e02424',bcBody,true);
+  }
+
+  /* 3 — Overall Strengths */
+  if(d.key_strengths&&d.key_strengths.length){
+    html+=mkAcc('✅','Overall Strengths',null,'#057a55',
+      '<div class="pt-list">'+d.key_strengths.map(function(s){ return '<div class="pt str">✓ '+esc(s)+'</div>'; }).join('')+'</div>',false);
+  }
+
+  /* 4 — Priority Improvements */
+  if(d.priority_improvements&&d.priority_improvements.length){
+    html+=mkAcc('🎯','Priority Improvements',null,'#c2410c',
+      '<div class="pt-list">'+d.priority_improvements.map(function(s){ return '<div class="pt imp">→ '+esc(s)+'</div>'; }).join('')+'</div>',false);
+  }
+
+  /* 5 — Grammar Corrections */
+  var gc=d.grammar_corrections||[];
+  if(gc.length){
+    var gcBadge='<span class="acc-badge" style="background:var(--redf);color:var(--red);border:1px solid var(--redb)">'+gc.length+' error'+(gc.length>1?'s':'')+'</span>';
+    var gcBody=gc.map(function(item,i){
+      var orig=item.original||item.wrong||'';
+      var corr=item.corrected||item.right||'';
+      var reason=item.reason||item.error_type||'Grammar Error';
+      return '<div class="err-block">'
+        +'<div class="err-type-row"><span class="err-num">'+(i+1)+'</span><span class="err-type-badge">'+esc(reason)+'</span></div>'
+        +'<div class="err-row"><div class="err-wrong">❌ '+esc(orig)+'</div><div class="err-sep">→</div><div class="err-right">✅ '+esc(corr)+'</div></div>'
+        +'</div>';
+    }).join('');
+    html+=mkAcc('✍️','Grammar Corrections',gcBadge,'#e02424',gcBody,false);
+  }
+
+  /* 6 — Vocabulary Upgrades */
+  var vu=d.vocab_upgrades||[];
+  var sv=d.strong_vocab||[];
+  if(vu.length||sv.length){
+    var vuBadge=vu.length?'<span class="acc-badge" style="background:var(--orangef);color:var(--orange);border:1px solid var(--orangeb)">'+vu.length+' upgrade'+(vu.length>1?'s':'')+'</span>':'';
+    var vuBody='';
+    if(vu.length){
+      vuBody+='<div class="acc-sub">💡 Vocabulary Upgrades</div>';
+      vuBody+=vu.map(function(p){
+        var cur=p.current||p.wrong||'';
+        var opts=Array.isArray(p.better_options)?p.better_options:(p.better?[p.better]:[]);
+        var reason=p.reason||'';
+        return '<div class="vocab-upgrade-block"><div class="vu-current">Current: <strong>'+esc(cur)+'</strong>'+(reason?' <span style="font-size:.68rem;color:var(--orange);font-weight:600">('+esc(reason)+')</span>':'')+'</div><div class="vu-opts">'+opts.map(function(o){ return '<span class="better-pill">✔ '+esc(o)+'</span>'; }).join('')+'</div></div>';
+      }).join('');
+    }
+    if(sv.length){
+      vuBody+='<div class="acc-sub" style="margin-top:14px">⭐ Strong Vocabulary &amp; Phrases Used Well</div>';
+      vuBody+='<div class="better-pills">'+sv.map(function(w){ return '<span class="better-pill" style="background:rgba(26,86,219,.08);border-color:var(--blueb);color:var(--blue)">✓ '+esc(w)+'</span>'; }).join('')+'</div>';
+    }
+    html+=mkAcc('📚','Vocabulary Analysis',vuBadge,'#6c2bd9',vuBody,false);
+  }
+
+  /* 7 — Per-criterion detail */
+  keys.forEach(function(k){
+    var c=crit[k]; if(!c) return;
+    var sc=parseFloat(c.score)||0; var col=CRIT_COLS[k];
+    var badge='<span class="acc-badge" style="font-weight:800;color:'+col+';background:rgba(0,0,0,.04);border:1.5px solid '+col+'40">'+sc.toFixed(1)+'</span>';
+    var body='';
+    if(c.summary) body+='<div class="crit-summary" style="border-left-color:'+col+'">'+esc(c.summary)+'</div>';
+    if(c.strengths&&c.strengths.length){ body+='<div class="acc-sub">Strengths</div><div class="pt-list">'+c.strengths.map(function(s){ return '<div class="pt str">✓ '+esc(s)+'</div>'; }).join('')+'</div>'; }
+    if(c.improvements&&c.improvements.length){ body+='<div class="acc-sub">Areas to Improve</div><div class="pt-list">'+c.improvements.map(function(s){ return '<div class="pt imp">→ '+esc(s)+'</div>'; }).join('')+'</div>'; }
+    html+=mkAcc(null,c.label||k,badge,col,body,false);
+  });
+
+  /* 8 — Band 9 Model Opening */
+  if(d.model_answer_opening){
+    html+=mkAcc('💎','Band 9 Model Opening',null,'#d97706',
+      '<div class="model-label">How a Band 9 response would open this exact letter prompt:</div><div class="model-box">'+esc(d.model_answer_opening)+'</div>',false);
+  }
+
+  wrap.innerHTML=html;
+
+  if(d.motivational_feedback){ g('motivCard').style.display='block'; g('motivTxt').textContent=d.motivational_feedback; }
+  var steps=d.next_steps||[];
+  if(steps.length){
+    g('nsCard').style.display='block';
+    var icons=['✉️','🎯','⏱️']; var lbls=['Letter Practice This Week','Register & Vocab Focus','Mock Letter Plan'];
+    g('nsItems').innerHTML=steps.map(function(s,i){ return '<div class="ns-item"><div class="ns-item-ico">'+(icons[i]||'📌')+'</div><div><div class="ns-item-lbl">'+(lbls[i]||'Step '+(i+1))+'</div><div class="ns-item-txt">'+esc(s)+'</div></div></div>'; }).join('');
+  }
+  var comment=d.examiner_comment||d.examiner_note||'';
+  if(comment){ g('examNote').style.display='block'; g('examTxt').textContent=comment; }
+
+  setTimeout(function(){ g('resultsSection').scrollIntoView({behavior:'smooth',block:'start'}); },120);
+}
+
+function mkAcc(ico,title,badgeHtml,col,body,open){
+  var id='ac'+Math.random().toString(36).slice(2,8);
+  return '<div class="acc'+(open?' open':'')+'" style="--acc-col:'+col+'">'
+    +'<div class="acc-hdr" onclick="togAcc(\''+id+'\',this)">'
+    +(ico?'<span class="acc-ico">'+ico+'</span>':'<span style="width:10px;height:10px;border-radius:50%;background:'+col+';display:inline-block;flex-shrink:0"></span>')
+    +'<span class="acc-title">'+title+'</span>'
+    +(badgeHtml||'')
+    +'<span class="acc-arrow" id="ar'+id+'" style="transform:'+(open?'rotate(180deg)':'rotate(0)')+'">▾</span>'
+    +'</div>'
+    +'<div class="acc-body'+(open?' open':'')+'" id="'+id+'">'+body+'</div>'
+    +'</div>';
+}
+function togAcc(id,hdr){
+  var body=g(id); if(!body) return;
+  var isOpen=body.classList.contains('open');
+  body.classList.toggle('open',!isOpen);
+  hdr.parentNode.classList.toggle('open',!isOpen);
+  var ar=g('ar'+id); if(ar) ar.style.transform=!isOpen?'rotate(180deg)':'rotate(0)';
+}
+function bandLabel(b){
+  if(b>=8.5)return'Expert User';if(b>=7.5)return'Very Good User';
+  if(b>=6.5)return'Competent User';if(b>=5.5)return'Modest User';
+  if(b>=4.5)return'Limited User';return'Extremely Limited User';
+}
+
+/* FULLSCREEN */
+function toggleFS(){
+  var el=document.documentElement;
+  var isFS=!!(document.fullscreenElement||document.webkitFullscreenElement||document.mozFullScreenElement);
+  if(isFS){
+    if(document.exitFullscreen) document.exitFullscreen();
+    else if(document.webkitExitFullscreen) document.webkitExitFullscreen();
+  }else{
+    if(el.requestFullscreen) el.requestFullscreen();
+    else if(el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+  }
+}
+document.addEventListener('fullscreenchange',syncFSBtn);
+document.addEventListener('webkitfullscreenchange',syncFSBtn);
+function syncFSBtn(){
+  var btn=g('fsBtn'); if(!btn) return;
+  var isFS=!!(document.fullscreenElement||document.webkitFullscreenElement);
+  btn.textContent=isFS?'✕':'⛶';
+  btn.title=isFS?'Exit fullscreen':'Enter fullscreen';
+  btn.style.borderColor=isFS?'var(--green)':'var(--border)';
+  btn.style.color=isFS?'var(--green)':'var(--tx3)';
+}
+
+/* INIT */
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',function(){ loadQuestion(); startTimer(); updateWC(); });
+}else{ loadQuestion(); startTimer(); updateWC(); }
+</script>
+</body>
+</html>

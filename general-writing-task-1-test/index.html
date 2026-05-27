@@ -346,8 +346,8 @@ const _K = 'paste your key here';
 var MODELS = ['gemini-3-flash-preview'];
 const LIST_PAGE = 'https://computerielts.com/general-writing-task-1/';
 
-const QUESTIONS = [
-/* FORMAL */
+const ALL_QUESTIONS = [
+/* ── FORMAL (1–20) ── */
 {id:1,type:'Formal',topic:'Complaint',title:'Defective Product',
  question:'You recently bought an electronic product from an online store. When it arrived, it was defective and not working properly.',
  bullets:['Describe the product and what was wrong with it','Explain how this has inconvenienced you','Say what you would like the company to do'],
@@ -388,10 +388,46 @@ const QUESTIONS = [
  question:'You have seen an advertisement for a scholarship that you believe you qualify for. Write a letter to apply.',
  bullets:['Explain your background and academic achievements','Describe your financial situation and why you need the scholarship','Explain how the scholarship would help you achieve your goals'],
  tip:'Be honest and specific. Scholarship letters should demonstrate both need and merit clearly.'},
-</script>
-
-<script>
-const QUESTIONS_EXTRA = [
+{id:11,type:'Formal',topic:'Request',title:'Newspaper Correction',
+ question:'You read an article in a local newspaper that contained factually incorrect information about your neighbourhood.',
+ bullets:['Identify the article and the specific incorrect information','Explain why the information is wrong','Request a correction or retraction to be published'],
+ tip:'Letters to editors must be factual and evidence-based. Avoid personal attacks on the journalist.'},
+{id:12,type:'Formal',topic:'Request',title:'Information on Night Classes',
+ question:'You want to enrol in evening classes at a local college but need more information before registering.',
+ bullets:['State which course or subject you are interested in','Ask about class schedules, fees and duration','Enquire about any prerequisites or entry requirements'],
+ tip:'Keep the letter brief and focused. Formal enquiry letters should be polite and to the point.'},
+{id:13,type:'Formal',topic:'Complaint',title:'Delayed Online Order',
+ question:'You ordered a product online over a month ago and it has still not arrived despite several follow-up emails going unanswered.',
+ bullets:['Describe the order details and original delivery date','Explain your failed attempts to resolve this with customer service','State what action you require — refund, replacement or explanation'],
+ tip:'Document your previous contact attempts. A firm but polite escalation letter is appropriate here.'},
+{id:14,type:'Formal',topic:'Request',title:'Donation for Local Charity',
+ question:'You are organising a fundraising event for a local charity and are writing to a local business to ask for sponsorship or a donation.',
+ bullets:['Describe the charity and the event you are organising','Explain what the funds will be used for','Specify what kind of support you are requesting from the business'],
+ tip:'Fundraising letters should highlight the community benefit. Be specific about what you are asking for.'},
+{id:15,type:'Formal',topic:'Complaint',title:'Hospital Waiting Times',
+ question:'You have experienced unreasonably long waiting times at a local hospital on multiple occasions and wish to make a formal complaint.',
+ bullets:['Describe your experiences and the waiting times you faced','Explain how this has affected your health and well-being','Suggest what improvements should be made'],
+ tip:'Healthcare complaint letters need to be factual and measured. Exaggerating will weaken your complaint.'},
+{id:16,type:'Formal',topic:'Request',title:'Sports Facility in Town',
+ question:'Your town lacks a proper sports and recreation facility, and you believe the local council should invest in building one.',
+ bullets:['Describe the current lack of facilities in your area','Explain the community benefits of a new sports centre','Propose a specific location or plan for the council to consider'],
+ tip:'Make a community-level argument rather than a personal one. Use statistics or examples if possible.'},
+{id:17,type:'Formal',topic:'Complaint',title:'Parking Issues Near Office',
+ question:'The parking situation near your workplace has become a serious problem, affecting employees and local residents.',
+ bullets:['Describe the current parking problems and their causes','Explain how the situation is affecting workers and local people','Suggest practical solutions for the council to implement'],
+ tip:'Local authority complaints should be solution-oriented. Suggest realistic alternatives to show you have thought it through.'},
+{id:18,type:'Formal',topic:'Request',title:'Visa Application Letter',
+ question:'You need to write a formal support letter to the embassy in connection with your visa application.',
+ bullets:['Explain the purpose and duration of your visit','Provide details of your financial situation and ties to your home country','State how you plan to meet all visa requirements'],
+ tip:'Embassy letters require precision and honesty. Every claim must be verifiable and well-documented.'},
+{id:19,type:'Formal',topic:'Complaint',title:'Misleading Advertisement',
+ question:'You purchased a product based on an advertisement that made claims which turned out to be false or misleading.',
+ bullets:['Describe the advertisement and the false claim it made','Explain how the product failed to match the advertised description','State the action you want the company to take'],
+ tip:'Consumer complaint letters benefit from referencing consumer protection rights. Be specific about the misleading claim.'},
+{id:20,type:'Formal',topic:'Request',title:'Reference Letter Request',
+ question:'You are applying for a position overseas and need a professional reference from a former employer or tutor.',
+ bullets:['Explain the position you are applying for and why you need a reference','Remind the person of the work you did together','Provide any specific points you would like them to mention'],
+ tip:'Reference request letters should make it easy for the referee. Be specific about what you need and include a deadline.'},
 {id:11,type:'Formal',topic:'Request',title:'Newspaper Correction',
  question:'You read an article in a local newspaper that contained factually incorrect information about your neighbourhood.',
  bullets:['Identify the article and the specific incorrect information','Explain why the information is wrong','Request a correction or retraction to be published'],
@@ -431,12 +467,8 @@ const QUESTIONS_EXTRA = [
 {id:20,type:'Formal',topic:'Request',title:'Reference Letter Request',
  question:'You are applying for a position overseas and need a professional reference from a former employer or tutor.',
  bullets:['Explain the position you are applying for and why you need a reference','Remind the person of the work you did together','Provide any specific points you would like them to mention'],
- tip:'Reference request letters should make it easy for the referee. Be specific about what you need and include a deadline.'}
-];
-</script>
-
-<script>
-const QUESTIONS_SEMI = [
+ tip:'Reference request letters should make it easy for the referee. Be specific about what you need and include a deadline.'},
+/* ── SEMI-FORMAL (21–35) ── */
 {id:21,type:'Semi-Formal',topic:'Accommodation',title:'Repair Request to Landlord',
  question:'You are renting a flat and several things need to be repaired. Your landlord has not responded to your previous messages.',
  bullets:['List the specific repairs that are needed','Explain how long these problems have existed and their impact','Request a timeline for when the repairs will be completed'],
@@ -496,12 +528,8 @@ const QUESTIONS_SEMI = [
 {id:35,type:'Semi-Formal',topic:'Workplace',title:'Salary Review Request',
  question:'You have been in your current role for two years and feel your salary no longer reflects your responsibilities and contributions.',
  bullets:['Outline your key achievements and increased responsibilities since joining','Research and reference the current market rate for your role','Request a meeting to discuss a salary review formally'],
- tip:'Salary review letters should be evidence-based and confident. Avoid ultimatums but show you know your market value.'}
-];
-</script>
-
-<script>
-const QUESTIONS_INFORMAL = [
+ tip:'Salary review letters should be evidence-based and confident. Avoid ultimatums but show you know your market value.'},
+/* ── INFORMAL (36–50) ── */
 {id:36,type:'Informal',topic:'Invitation',title:'Invite Friend to Wedding',
  question:'You are getting married soon and want to invite a close friend who lives in another country to attend your wedding.',
  bullets:['Tell your friend about your upcoming wedding and when it will take place','Describe the venue and any travel or accommodation information they might need','Express how much it would mean to you if they could attend'],
@@ -563,11 +591,6 @@ const QUESTIONS_INFORMAL = [
  bullets:['Express concern and sympathy for how your friend is feeling','Share specific habits or changes that have helped you personally','Suggest practical and realistic steps your friend could try'],
  tip:'Health advice letters should be encouraging, not preachy. Speak from personal experience rather than giving clinical advice.'}
 ];
-</script>
-
-<script>
-// Merge all question arrays
-const ALL_QUESTIONS = QUESTIONS.concat(QUESTIONS_EXTRA, QUESTIONS_SEMI, QUESTIONS_INFORMAL);
 
 const BADGE_CLASS = {
   'Formal':      'badge-formal',
